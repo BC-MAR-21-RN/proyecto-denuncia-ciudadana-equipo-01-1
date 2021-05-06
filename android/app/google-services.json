@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "248768053880",
+    "project_id": "citizencomplaint-ea31f",
+    "storage_bucket": "citizencomplaint-ea31f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248768053880:android:3ac8398081f25c535fa38d",
+        "android_client_info": {
+          "package_name": "com.citizencomplaint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248768053880-mc3uijccgnku6p28hem1it722n1lokk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.citizencomplaint",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "248768053880-mbkiahu36l094nlqiq6m4d6cde8f3evc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_cKlb8OsQos-74cJPJj2FsQs7YfDr_Ik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248768053880-mbkiahu36l094nlqiq6m4d6cde8f3evc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
