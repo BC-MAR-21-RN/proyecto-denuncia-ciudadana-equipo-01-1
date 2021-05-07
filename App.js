@@ -1,14 +1,20 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
-import {useGoogleAuth, useGoogleConfiguration} from './src/library/hooks';
+import {Login, SignUp} from './src/containers';
+import {StyleSheet, View} from 'react-native';
 
 import React from 'react';
+import {useGoogleConfiguration} from './src/library/hooks';
+import {withRedux} from './src/library/redux';
 
 const App = () => {
   useGoogleConfiguration();
-
-  return <View></View>;
+  return (
+    <View>
+      <Login />
+      <SignUp />
+    </View>
+  );
 };
 
-export default App;
+export default withRedux(App);
 
 const styles = StyleSheet.create({});
