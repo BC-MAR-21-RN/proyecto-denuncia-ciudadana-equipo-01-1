@@ -1,6 +1,7 @@
+import {Text, View} from 'react-native';
+
 import React from 'react';
-import {View, Text} from 'react-native';
-import {style} from '../library/styles/styleComplaints';
+import {styleComplaints as style} from '../../library/styles';
 
 const Complaints = ({userName, address, title}) => {
   return (

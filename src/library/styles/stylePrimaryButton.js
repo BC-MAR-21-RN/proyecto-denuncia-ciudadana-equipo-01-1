@@ -1,15 +1,22 @@
 import {StyleSheet} from 'react-native';
+import {colors} from './vars';
 
-export const style = StyleSheet.create({
+const style = StyleSheet.create({
   button: {
-    padding: 20,
-    backgroundColor: '#5C36FA',
+    width: '100%',
+    height: 50,
+    backgroundColor: colors.PrimaryColor,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
+    borderRadius: 15,
   },
   text: {
     fontSize: 20,
     color: 'white',
+    fontWeight: 'bold',
+  },
+  AccentColor: {
+    backgroundColor: colors.AccentColor,
   },
 });
+export default style;

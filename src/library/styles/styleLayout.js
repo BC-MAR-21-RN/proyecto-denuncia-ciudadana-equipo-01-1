@@ -1,11 +1,19 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
-export const style = StyleSheet.create({
+import {colors} from './vars';
+
+const screenHeight = Dimensions.get('window').height;
+
+const style = StyleSheet.create({
   container: {
+    minHeight: screenHeight,
     flex: 1,
     backgroundColor: 'white',
-    padding: 15,
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  DarkPrimary: {
+    backgroundColor: colors.DarkPrimary,
   },
 });
+export default style;
