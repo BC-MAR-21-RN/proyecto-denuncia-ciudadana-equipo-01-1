@@ -1,5 +1,5 @@
 import {Login, SignUp} from './src/containers';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 
 import React from 'react';
 import {useGoogleConfiguration} from './src/library/hooks';
@@ -16,5 +16,3 @@ const App = () => {
 };
 
 export default withRedux(App);
-
-const styles = StyleSheet.create({});
