@@ -4,8 +4,9 @@ import style from '../../../library/styles/styleLayout'
 
 export default function Home() {
     return (
-        <View style={style}>
+        <View style={style.container}>
             <Text>Hi</Text>
         </View>
     )
 }
+
