@@ -15,7 +15,7 @@ const Login = ({doLogin, user}) => {
         </View>
         <View style={styles.inputContainer}>
           <Input placeholder="Usuario" />
-          <Input placeholder="Contraseña"  />
+          <Input placeholder="Contraseña" />
           <PrimaryButton text="hello" />
         </View>
       </View>

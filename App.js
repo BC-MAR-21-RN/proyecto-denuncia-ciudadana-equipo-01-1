@@ -1,4 +1,4 @@
-import {Login, SignUp} from './src/containers';
+import {Login, SignUp, ComplaintDetails} from './src/containers';
 
 import React from 'react';
 import {View} from 'react-native';
@@ -9,8 +9,7 @@ const App = () => {
   useGoogleConfiguration();
   return (
     <View>
-      <SignUp />
-   
+      <ComplaintDetails />
     </View>
   );
 };
