@@ -15,5 +15,13 @@ const style = StyleSheet.create({
   DarkPrimary: {
     backgroundColor: colors.DarkPrimary,
   },
+  containerScroll: {
+    minHeight: screenHeight,
+    flex: 1,
+  },
+  contentStyles: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 export default style;
