@@ -13,11 +13,11 @@ const AuthContent = ({islogin, setIsLogin}) => {
       </View>
       <View style={styles.inputContainer}>
         {!islogin && <Input placeholder="Nombre" />}
-        <Input error placeholder="Usuario" />
-        <Input error placeholder="Contraseña" />
-        <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
+        <Input  placeholder="Usuario" />
+        <Input  placeholder="Contraseña" />
+        <PrimaryButton text={islogin ? 'Login' : 'Sign Up'} />
         <Text style={styles.textWhite}>-or-</Text>
-        <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
+        <PrimaryButton text={islogin ? 'Login' : 'Sign Up'} />
         <Text
           onPress={() => setIsLogin(!islogin)}
           style={{...styles.textWhite, ...styles.underlined}}>
