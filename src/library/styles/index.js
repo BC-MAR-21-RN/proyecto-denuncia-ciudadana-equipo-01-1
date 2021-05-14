@@ -6,7 +6,6 @@ import styleMap from './styleMap';
 import styleMyComplaint from './styleMyComplaint';
 import stylePrimaryButton from './stylePrimaryButton';
 
-
 export {
   styleComplaints,
   styleInput,
@@ -14,5 +13,5 @@ export {
   styleMyComplaint,
   stylePrimaryButton,
   styleListComplaint,
-  styleMap
+  styleMap,
 };
