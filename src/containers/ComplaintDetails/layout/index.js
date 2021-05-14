@@ -6,113 +6,82 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {Layout, EvidenceImageItem} from '../../../components';
+import {Layout} from '../../../components';
 import {colors} from '../../../library/styles/vars';
+import {images} from '../dummyData/data';
 
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 
 import ImageView from 'react-native-image-viewing';
 
-const images = [
-  {
-    id: 0,
-    uri:
-      'https://cdn.pixabay.com/photo/2017/08/17/10/47/paris-2650808_960_720.jpg',
-  },
-  {
-    id: 1,
-    uri:
-      'https://cdn.pixabay.com/photo/2021/02/23/14/15/dog-6043585_960_720.jpg',
-  },
-  {
-    id: 2,
-    uri:
-      'https://cdn.pixabay.com/photo/2015/03/26/09/54/pug-690566_960_720.jpg',
-  },
-  {
-    id: 3,
-    uri:
-      'https://cdn.pixabay.com/photo/2016/10/31/14/55/rottweiler-1785760_960_720.jpg',
-  },
-];
+const Evidence = props => {
+  return (
+    <View>
+      <Image source={{uri: props.uri}} style={styles.galleryImage} />
+    </View>
+  );
+};
 
-class ComplaintDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {visible: true};
-  }
-  render() {
-    return (
-      <Layout backColor="DarkPrimary">
-        <View style={styles.container}>
-          <View style={styles.navigation} />
-          {this.infoSection()}
-          {this.evidenceGallery()}
-          <ImageView
-            images={images}
-            imageIndex={0}
-            visible={this.state.visible}
-            onRequestClose={() => this.setState({visible: false})}
+const DetItem = props => {
+  return (
+    <View style={[props.double ? styles.doubleElement : styles.element]}>
+      <Text style={styles.tile}>{props.title}: </Text>
+      <Text style={styles.description}>{props.description}</Text>
+    </View>
+  );
+};
+
+const Separator = () => {
+  return <View style={styles.separator} />;
+};
+
+const GalleryList = () => {
+  return (
+    <FlatList
+      data={images}
+      renderItem={({item}) => <Evidence uri={item.uri} />}
+      keyExtractor={item => item.id}
+      horizontal={true}
+    />
+  );
+};
+
+const ComplaintDetails = props => {
+  return (
+    <Layout backColor="DarkPrimary">
+      <View style={styles.container}>
+        <View style={styles.navigation} />
+        <View style={styles.infoSection}>
+          <DetItem title="Área" description="Seguridad" />
+          <Separator />
+          <DetItem title="Registro" description="06/05/2021" />
+          <Separator />
+          <DetItem title="Ocurrido" description="06/05/2021" />
+          <Separator />
+          <DetItem
+            title="Ubicación"
+            description="Jalisco, Tlatomulco de Zúñiga, 45879, Hacienda Los Fresnos, Av.
+              Los Fresnos #345"
+            double="true"
           />
+          <Separator />
+          <DetItem
+            title="Descripción"
+            description="En la colonia existe maltrano animal por parte de un vecino
+              ubicado en la calle prados #435, los mantiene encerrados y sin
+              alimento"
+            double="true"
+          />
+          <Separator />
         </View>
-      </Layout>
-    );
-  }
-
-  evidenceGallery() {
-    return (
-      <SafeAreaView style={styles.infoSection}>
-        <View style={styles.element}>
-          <Text style={styles.tile}>Evidencia:</Text>
-        </View>
-        <FlatList
-          data={images}
-          renderItem={({item}) => <EvidenceImageItem uri={item.uri} />}
-          keyExtractor={item => item.id}
-          horizontal={true}
-        />
-      </SafeAreaView>
-    );
-  }
-
-  infoSection() {
-    return (
-      <View style={styles.infoSection}>
-        <View style={styles.element}>
-          <Text style={styles.tile}>Área: </Text>
-          <Text style={styles.description}>Seguridad</Text>
-        </View>
-        <View style={styles.separator} />
-        <View style={styles.element}>
-          <Text style={styles.tile}>Registro: </Text>
-          <Text style={styles.description}>06/05/21</Text>
-        </View>
-        <View style={styles.separator} />
-        <View style={styles.element}>
-          <Text style={styles.tile}>Ocurrido: </Text>
-          <Text style={styles.description}>06/05/21</Text>
-        </View>
-        <View style={styles.separator} />
-        <View style={styles.doubleElement}>
-          <Text style={styles.tile}>Ubicación: </Text>
-          <Text style={styles.description}>
-            Jalisco, Tlatomulco de Zúñiga, 45879, Hacienda Los Fresnos, Av. Los
-            Fresnos #345
-          </Text>
-        </View>
-        <View style={styles.separator} />
-        <View style={styles.doubleElement}>
-          <Text style={styles.tile}>Descripción: </Text>
-          <Text style={styles.description}>
-            En la colonia existe maltrano animal por parte de un vecino ubicado
-            en la calle prados #435, los mantiene encerrados y sin alimento
-          </Text>
-        </View>
-        <View style={styles.separator} />
+        <SafeAreaView style={styles.infoSection}>
+          <DetItem title="Evidencia" />
+          <GalleryList />
+        </SafeAreaView>
       </View>
-    );
-  }
-}
+    </Layout>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -123,6 +92,12 @@ const styles = StyleSheet.create({
   navigation: {
     flex: 1,
     backgroundColor: colors.LightPrimary,
+  },
+  galleryImage: {
+    width: 150,
+    height: '50%',
+    marginRight: 20,
+    borderRadius: 10,
   },
   infoSection: {
     flex: 6,
