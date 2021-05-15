@@ -1,6 +1,7 @@
+import MapView, {Marker} from 'react-native-maps';
+
 import React from 'react';
 import {View} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
 import {styleMap as style} from '../../library/styles/index';
 
 const Map = ({state, onRegionChange}) => {
