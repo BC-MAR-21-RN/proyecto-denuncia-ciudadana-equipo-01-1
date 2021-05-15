@@ -7,7 +7,7 @@ const Login = () => {
   const [islogin, setIsLogin] = useState(false);
   return (
     <Fragment>
-      {/*<ModalLayout text="error" />*/}
+    
       <Layout scroll backColor="DarkPrimary">
         {islogin ? (
           <AuthContent setIsLogin={setIsLogin} islogin={islogin} />

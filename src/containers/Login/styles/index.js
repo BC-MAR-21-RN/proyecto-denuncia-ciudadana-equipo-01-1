@@ -1,34 +1,46 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
-    minHeight: screenHeight,
-    width: '100%',
-    paddingHorizontal: 20,
+    flex: 1,
+
+    width: screenWidth,
   },
-  logoContainer: {
-    width: '100%',
-    height: '20%',
+  iconContainer: {
+    flex: 2,
+    width: screenWidth,
     display: 'flex',
-    justifyContent: 'flex-end',
     alignItems: 'center',
+
+    justifyContent: 'center',
   },
-  image: {
-    width: 100,
-    height: '80%',
+  logo: {
+    height: 100,
+    resizeMode: 'contain',
   },
   inputContainer: {
-    height: '80%',
-    justifyContent: 'space-around',
+    flex: 4,
+
+    width: screenWidth,
     alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
   },
-  textWhite: {
+  messageContaine: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: screenWidth,
+ 
+  },
+  textArea: {
     color: 'white',
-    fontSize: 18,
+    padding: 0,
+    margin: 0,
   },
-  underlined: {
-    textDecorationLine: 'underline',
-  },
+  underlined:{
+textDecorationLine:'underline'
+  }
 });
 export default styles;
