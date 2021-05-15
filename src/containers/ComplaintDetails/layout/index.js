@@ -5,6 +5,9 @@ import {
   SafeAreaView,
   FlatList,
   Image,
+  Dimensions,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import {Layout} from '../../../components';
 import {colors} from '../../../library/styles/vars';
@@ -36,35 +39,40 @@ const Separator = () => {
 };
 
 const GalleryList = () => {
+  const [visible, setIsVisible] = useState(false);
   return (
-    <FlatList
-      data={images}
-      renderItem={({item}) => <Evidence uri={item.uri} />}
-      keyExtractor={item => item.id}
-      horizontal={true}
-    />
+    <View style={styles.galleryContainer}>
+      <ImageView
+        images={images}
+        imageIndex={0}
+        visible={visible}
+        onRequestClose={() => setIsVisible(false)}
+      />
+      <FlatList
+        data={images}
+        renderItem={({item}) => <Evidence uri={item.uri} />}
+        keyExtractor={item => item.id}
+        horizontal={true}
+      />
+    </View>
   );
 };
 
 const ComplaintDetails = props => {
   return (
-    <Layout backColor="DarkPrimary">
-      <View style={styles.container}>
-        <View style={styles.navigation} />
-        <View style={styles.infoSection}>
+    <View style={styles.container}>
+      <View style={styles.infoSection} />
+      <View style={styles.infoSection2} />
+      {/* <View style={styles.infoSection}>
           <DetItem title="Área" description="Seguridad" />
-          <Separator />
           <DetItem title="Registro" description="06/05/2021" />
-          <Separator />
           <DetItem title="Ocurrido" description="06/05/2021" />
-          <Separator />
           <DetItem
             title="Ubicación"
             description="Jalisco, Tlatomulco de Zúñiga, 45879, Hacienda Los Fresnos, Av.
               Los Fresnos #345"
             double="true"
           />
-          <Separator />
           <DetItem
             title="Descripción"
             description="En la colonia existe maltrano animal por parte de un vecino
@@ -72,42 +80,48 @@ const ComplaintDetails = props => {
               alimento"
             double="true"
           />
-          <Separator />
         </View>
-        <SafeAreaView style={styles.infoSection}>
+        <SafeAreaView style={styles.infoSection2}>
           <DetItem title="Evidencia" />
           <GalleryList />
-        </SafeAreaView>
-      </View>
-    </Layout>
+        </SafeAreaView> */}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffff',
-    flex: 1,
     width: '100%',
+    height: Dimensions.get('window').height,
+    backgroundColor: colors.LightPrimary,
+    borderWidth: 10,
+    borderColor: 'red',
   },
   navigation: {
     flex: 1,
-    backgroundColor: colors.LightPrimary,
-  },
-  galleryImage: {
-    width: 150,
-    height: '50%',
-    marginRight: 20,
-    borderRadius: 10,
+    backgroundColor: colors.DarkPrimary,
   },
   infoSection: {
     flex: 6,
     paddingHorizontal: 15,
     justifyContent: 'space-around',
+    backgroundColor: 'coral',
   },
   infoSection2: {
     flex: 6,
-    backgroundColor: 'coral',
+    paddingHorizontal: 15,
+    justifyContent: 'space-around',
+    backgroundColor: 'orange',
   },
+  galleryContainer: {
+    flex: 6,
+  },
+  galleryImage: {
+    width: 250,
+    height: '50%',
+    marginRight: 20,
+  },
+
   tile: {
     fontWeight: 'bold',
     flex: 1,
