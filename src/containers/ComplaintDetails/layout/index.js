@@ -2,16 +2,16 @@ import {
   Text,
   View,
   StyleSheet,
-  FlatList,
   Image,
   Dimensions,
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  ToastAndroid,
 } from 'react-native';
-import {Layout} from '../../../components';
 import {colors} from '../../../library/styles/vars';
 import {images} from '../dummyData/data';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import React, {useState} from 'react';
 
@@ -20,32 +20,44 @@ import ImageView from 'react-native-image-viewing';
 const lorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
-const Evidence = props => {
-  return (
-    <View>
-      <Image source={{uri: props.uri}} />
-    </View>
-  );
-};
-
-const ImageList = ({imagesArray}) => {
-  return (
-    <ScrollView horizontal>
-      {imagesArray.map((uri, index) => (
-        <TouchableOpacity
-          key={`${uri}_${index}`}
-          activeOpacity={0.8}
-          onPress={() => console.log('hola')}>
-          <Image source={{uri: uri}} style={styles.image} />
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
-  );
-};
-
 const ComplaintDetails = props => {
+  const [visible, setIsVisible] = useState(false);
+  const [isFav, setIsFav] = useState(false);
+
+  const ImageList = ({imagesArray}) => {
+    return (
+      <ScrollView horizontal>
+        {imagesArray.map((uri, index) => (
+          <TouchableOpacity
+            key={`${uri}_${index}`}
+            activeOpacity={0.8}
+            onPress={() => setIsVisible(true)}>
+            <Image source={{uri: uri}} style={styles.image} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    );
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          setIsFav(prevIsFav => !prevIsFav);
+          ToastAndroid.showWithGravity(
+            `${isFav ? 'Agregado a favoritos' : 'Removido de favoritos'}`,
+            ToastAndroid.SHORT,
+            ToastAndroid.BOTTOM,
+            0,
+          );
+        }}
+        style={styles.favButton}>
+        <Icon
+          name={isFav ? 'bookmark-border' : 'bookmark'}
+          size={45}
+          color="white"
+        />
+      </TouchableOpacity>
       <View style={styles.topSide}>
         <Text style={styles.area}>Seguridad</Text>
         <Text style={styles.title}>Abuso Animal</Text>
@@ -70,6 +82,15 @@ const ComplaintDetails = props => {
       <SafeAreaView style={styles.evidence}>
         <ImageList imagesArray={images.map(image => image.uri)} />
       </SafeAreaView>
+      <ImageView
+        images={images}
+        imageIndex={0}
+        visible={visible}
+        onRequestClose={() => setIsVisible(false)}
+        doubleTapToZoomEnabled={true}
+        swipeToCloseEnabled={false}
+        delayLongPress={1000}
+      />
     </View>
   );
 };
@@ -99,11 +120,12 @@ const styles = StyleSheet.create({
   area: {
     color: colors.DarkPrimary,
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 14,
     backgroundColor: 'white',
     borderRadius: 50,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingVertical: 4,
+    paddingHorizontal: 9,
+    marginVertical: 2,
     textAlign: 'center',
   },
   title: {
@@ -143,6 +165,15 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: 250,
+  },
+  favButton: {
+    position: 'absolute',
+    backgroundColor: colors.AccentColor,
+    padding: 13,
+    borderRadius: 50,
+    right: 15,
+    top: 15,
+    zIndex: 200,
   },
   //
 });
