@@ -2,12 +2,12 @@ import {
   Text,
   View,
   StyleSheet,
-  SafeAreaView,
   FlatList,
   Image,
   Dimensions,
-  Platform,
-  StatusBar,
+  SafeAreaView,
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {Layout} from '../../../components';
 import {colors} from '../../../library/styles/vars';
@@ -17,139 +17,134 @@ import React, {useState} from 'react';
 
 import ImageView from 'react-native-image-viewing';
 
+const lorem =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
 const Evidence = props => {
   return (
     <View>
-      <Image source={{uri: props.uri}} style={styles.galleryImage} />
+      <Image source={{uri: props.uri}} />
     </View>
   );
 };
 
-const DetItem = props => {
+const ImageList = ({imagesArray}) => {
   return (
-    <View style={[props.double ? styles.doubleElement : styles.element]}>
-      <Text style={styles.tile}>{props.title}: </Text>
-      <Text style={styles.description}>{props.description}</Text>
-    </View>
-  );
-};
-
-const Separator = () => {
-  return <View style={styles.separator} />;
-};
-
-const GalleryList = () => {
-  const [visible, setIsVisible] = useState(false);
-  return (
-    <View style={styles.galleryContainer}>
-      <ImageView
-        images={images}
-        imageIndex={0}
-        visible={visible}
-        onRequestClose={() => setIsVisible(false)}
-      />
-      <FlatList
-        data={images}
-        renderItem={({item}) => <Evidence uri={item.uri} />}
-        keyExtractor={item => item.id}
-        horizontal={true}
-      />
-    </View>
+    <ScrollView horizontal>
+      {imagesArray.map((uri, index) => (
+        <TouchableOpacity
+          key={`${uri}_${index}`}
+          activeOpacity={0.8}
+          onPress={() => console.log('hola')}>
+          <Image source={{uri: uri}} style={styles.image} />
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
   );
 };
 
 const ComplaintDetails = props => {
   return (
     <View style={styles.container}>
-      <View style={styles.infoSection} />
-      <View style={styles.infoSection2} />
-      {/* <View style={styles.infoSection}>
-          <DetItem title="Área" description="Seguridad" />
-          <DetItem title="Registro" description="06/05/2021" />
-          <DetItem title="Ocurrido" description="06/05/2021" />
-          <DetItem
-            title="Ubicación"
-            description="Jalisco, Tlatomulco de Zúñiga, 45879, Hacienda Los Fresnos, Av.
-              Los Fresnos #345"
-            double="true"
-          />
-          <DetItem
-            title="Descripción"
-            description="En la colonia existe maltrano animal por parte de un vecino
-              ubicado en la calle prados #435, los mantiene encerrados y sin
-              alimento"
-            double="true"
-          />
+      <View style={styles.topSide}>
+        <Text style={styles.area}>Seguridad</Text>
+        <Text style={styles.title}>Abuso Animal</Text>
+        <Text style={styles.location}>
+          Hacienda Los Fresnos, Av. Los Fresnos #345, Jalisco, Tlatomulco de
+          Zúñiga
+        </Text>
+        <View style={styles.separator} />
+        <Text style={styles.location}>Ocurrido el 6 mayo, 2021</Text>
+      </View>
+      <View style={styles.botSide}>
+        <Text style={styles.darkTitle}>Descripción</Text>
+        <View style={styles.descriptionContainer}>
+          <ScrollView>
+            <Text style={styles.descriptionText}>{lorem}</Text>
+          </ScrollView>
         </View>
-        <SafeAreaView style={styles.infoSection2}>
-          <DetItem title="Evidencia" />
-          <GalleryList />
-        </SafeAreaView> */}
+        <Text style={styles.darkTitle}>
+          Denuncia por José Támara - 5 de mayo, 2021
+        </Text>
+      </View>
+      <SafeAreaView style={styles.evidence}>
+        <ImageList imagesArray={images.map(image => image.uri)} />
+      </SafeAreaView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: Dimensions.get('window').height,
+    flex: 1,
     backgroundColor: colors.LightPrimary,
-    borderWidth: 10,
-    borderColor: 'red',
   },
-  navigation: {
-    flex: 1,
-    backgroundColor: colors.DarkPrimary,
-  },
-  infoSection: {
-    flex: 6,
-    paddingHorizontal: 15,
-    justifyContent: 'space-around',
-    backgroundColor: 'coral',
-  },
-  infoSection2: {
-    flex: 6,
-    paddingHorizontal: 15,
-    justifyContent: 'space-around',
-    backgroundColor: 'orange',
-  },
-  galleryContainer: {
-    flex: 6,
-  },
-  galleryImage: {
-    width: 250,
-    height: '50%',
-    marginRight: 20,
-  },
-
-  tile: {
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'left',
-    fontSize: 15,
-  },
-  description: {
+  topSide: {
     flex: 3,
-    fontSize: 15,
+    backgroundColor: colors.DarkPrimary,
+    paddingHorizontal: 15,
+    paddingBottom: 20,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
   },
-  element: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flex: 1,
+  botSide: {
+    flex: 4,
+    paddingHorizontal: 15,
+    backgroundColor: 'white',
+    justifyContent: 'center',
   },
-  doubleElement: {
-    alignItems: 'center',
-    flexDirection: 'row',
+  evidence: {
     flex: 2,
   },
+  area: {
+    color: colors.DarkPrimary,
+    fontWeight: 'bold',
+    fontSize: 15,
+    backgroundColor: 'white',
+    borderRadius: 50,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    textAlign: 'center',
+  },
+  title: {
+    color: 'white',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  darkTitle: {
+    color: colors.SecondaryText,
+    fontSize: 15,
+    paddingVertical: 20,
+  },
+  location: {
+    color: 'white',
+    fontSize: 15,
+    paddingVertical: 2,
+  },
   separator: {
-    borderBottomWidth: 1,
+    width: '100%',
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'white',
+    marginVertical: 15,
+  },
+  userDet: {
+    color: 'white',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  descriptionContainer: {
+    height: '50%',
+  },
+  descriptionText: {
+    color: colors.PrimaryText,
+    lineHeight: 21,
+    fontSize: 15,
   },
   image: {
-    height: 250,
+    height: '100%',
     width: 250,
-    backgroundColor: 'orange',
   },
+  //
 });
 
 export default ComplaintDetails;
