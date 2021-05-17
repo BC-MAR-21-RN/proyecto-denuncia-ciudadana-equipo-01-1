@@ -1,5 +1,19 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../../library/styles/vars';
+import {Dimensions, Platform, PixelRatio} from 'react-native';
+
+const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
+
+const scale = SCREEN_WIDTH / 370;
+
+function normalize(size) {
+  const newSize = size * scale;
+  if (Platform.OS === 'ios') {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize));
+  } else {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
+  }
+}
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,16 +22,16 @@ export const styles = StyleSheet.create({
   },
   topSide: {
     flex: 3,
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: normalize(20),
+    paddingBottom: normalize(20),
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
   },
   botSide: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: normalize(20),
+    borderTopRightRadius: normalize(20),
     flex: 4,
-    paddingHorizontal: 30,
+    paddingHorizontal: normalize(30),
     backgroundColor: 'white',
     justifyContent: 'center',
   },
@@ -28,34 +42,34 @@ export const styles = StyleSheet.create({
   area: {
     color: colors.DarkPrimary,
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: normalize(14),
     backgroundColor: 'white',
     borderRadius: 50,
-    paddingVertical: 4,
-    paddingHorizontal: 9,
-    marginVertical: 2,
+    paddingVertical: normalize(4),
+    paddingHorizontal: normalize(9),
+    marginVertical: normalize(2),
     textAlign: 'center',
   },
   title: {
     color: 'white',
-    fontSize: 36,
+    fontSize: normalize(36),
     fontWeight: 'bold',
   },
   darkTitle: {
     color: colors.SecondaryText,
-    fontSize: 15,
-    paddingVertical: 20,
+    fontSize: normalize(15),
+    paddingVertical: normalize(20),
   },
   location: {
     color: 'white',
-    fontSize: 15,
-    paddingVertical: 2,
+    fontSize: normalize(15),
+    paddingVertical: normalize(2),
   },
   separator: {
     width: '100%',
     borderBottomWidth: 0.5,
     borderBottomColor: 'white',
-    marginVertical: 15,
+    marginVertical: normalize(15),
   },
   userDet: {
     color: 'white',
@@ -67,8 +81,8 @@ export const styles = StyleSheet.create({
   },
   descriptionText: {
     color: colors.PrimaryText,
-    lineHeight: 21,
-    fontSize: 15,
+    lineHeight: normalize(21),
+    fontSize: normalize(15),
   },
   image: {
     height: '100%',
@@ -77,10 +91,10 @@ export const styles = StyleSheet.create({
   favButton: {
     position: 'absolute',
     backgroundColor: colors.AccentColor,
-    padding: 10,
+    padding: normalize(10),
     borderRadius: 50,
-    right: 15,
-    top: 15,
+    right: normalize(15),
+    top: normalize(15),
     zIndex: 200,
   },
 });
