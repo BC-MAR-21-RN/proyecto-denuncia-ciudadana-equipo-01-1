@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import {useEffect, useState} from 'react';
-
 import {Dimensions} from 'react-native';
 import Geocoder from 'react-native-geocoder';
 import Geolocation from '@react-native-community/geolocation';
+
+Geocoder.fallbackToGoogle('AIzaSyB8WtEVYUasBc0RXOj60P2Y-HyuI3m_BjQ');
 
 const latDelta = 0.0122;
 const lngDelta =
@@ -18,8 +18,9 @@ const useLocation = () => {
       latitudeDelta: latDelta,
       longitudeDelta: lngDelta,
     },
-    adress: {},
   });
+
+  const [address, setAddress] = useState('');
 
   useEffect(() => {
     Geolocation.getCurrentPosition(initialLocation =>
@@ -38,21 +39,30 @@ const useLocation = () => {
     const {
       region: {latitude, longitude},
     } = location;
-    Geocoder.geocodePosition({lat: latitude, lng: longitude}).then(res => {
-      console.log('RESPONSE', res);
-    // HERE IS THE ERROR CANT RESPONSE SEVERAL TIMES IN A SHORT TIME
-    // WE SHOULD CHANGE THIS PACKAGE FRO ANOTHERONE
-    });
+
+    try {
+      getPosition(latitude, longitude);
+    } catch (error) {
+      console.log(error);
+    }
   }, [location.region]);
 
+  const getPosition = async (latitude, longitude) => {
+    await Geocoder.geocodePosition({lat: latitude, lng: longitude}).then(
+      res => {
+        //console.log('RESPONSE', res[0].formattedAddress);
+        const add = res !== undefined ? res[0].formattedAddress : '';
+        setAddress(add);
+      },
+    );
+  };
+
   const onRegionChange = region => {
-    console.log(region, 'THIS IS THE REGION');
     setLocation({
       ...location,
-
       region,
     });
   };
-  return {location, onRegionChange};
+  return {location, address, onRegionChange};
 };
 export default useLocation;

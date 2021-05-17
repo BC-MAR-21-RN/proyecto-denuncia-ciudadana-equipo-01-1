@@ -18,11 +18,14 @@ const style = StyleSheet.create({
     padding: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
   },
   text: {
     fontSize: 20,
+  },
+  textInput: {
+    height: 80,
   },
 });
 

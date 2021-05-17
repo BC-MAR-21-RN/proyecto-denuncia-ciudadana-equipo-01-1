@@ -1,43 +1,14 @@
-import {Dimensions, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {Input, Layout, PrimaryButton} from '../../../components';
-import React, {useEffect, useState} from 'react';
-import {currentPosition, getDriection} from '../../../library/methods';
 import {useGeolocationConfiguration, useLocation} from '../../../library/hooks';
-
-import Geolocation from '@react-native-community/geolocation';
-import Map from '../../../components/general/Map';
 import {styleMap as style} from '../../../library/styles/index';
+import React from 'react';
+import Map from '../../../components/general/Map';
 
-/*
-const latDelta = 0.0122;
-const lngDelta =
-  (Dimensions.get('window').width / Dimensions.get('window').height) * latDelta;
-*/
 const Ubication = () => {
-  /*  const [address, setAddress] = useState('');
-  const [state, setState] = useState({
-    region: {
-      latitude: 37.4219447,
-      longitude: -122.0839864,
-      latitudeDelta: latDelta,
-      longitudeDelta: lngDelta,
-    },
-  });
-
-
-  useEffect(() => {
-    currentPosition(latDelta, lngDelta, setState);
-    getDriection(latDelta, lngDelta, setAddress);
-  }, []);
-
-  const onRegionChange = region => {
-    console.log(region);
-    setState({region});
-    getDriection(latDelta, lngDelta, setAddress);
-  };
-*/
   useGeolocationConfiguration();
-  const {location, onRegionChange} = useLocation();
+  const {location, address, onRegionChange} = useLocation();
+
   return (
     <Layout>
       <View style={style.map}>
@@ -46,7 +17,12 @@ const Ubication = () => {
           <View style={style.viewDown}>
             <View style={style.inputs}>
               <Text style={style.title}>Dirección:</Text>
-              <Input multiline placeholder={location.adress.formattedAddress} />
+              <Input
+                editable
+                multiline
+                styleContainer={style.textInput}
+                value={address}
+              />
               <PrimaryButton text="Continuar" />
             </View>
           </View>

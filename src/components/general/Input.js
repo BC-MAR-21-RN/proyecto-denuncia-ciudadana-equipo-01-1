@@ -3,9 +3,9 @@ import {TextInput, View} from 'react-native';
 import React from 'react';
 import {styleInput as style} from '../../library/styles';
 
-const Input = ({icon, ...rest}) => {
+const Input = ({icon, styleContainer, ...rest}) => {
   return (
-    <View style={style.conatiner}>
+    <View style={{...style.conatiner, ...styleContainer}}>
       <TextInput {...rest} style={style.input} />
     </View>
   );
