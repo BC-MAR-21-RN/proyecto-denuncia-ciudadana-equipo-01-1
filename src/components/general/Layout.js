@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import React from 'react';
 import {styleLayout as style} from '../../library/styles';
 
