@@ -1,13 +1,6 @@
-import {
-  Keyboard,
-  Platform,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import React from 'react';
+import {View} from 'react-native';
 import {styleLayout as style} from '../../library/styles';
 
 const Layout = ({children, backColor, scroll}) => {

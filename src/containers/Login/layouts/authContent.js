@@ -1,11 +1,12 @@
 import {Image, Text, View} from 'react-native';
 import {Input, PrimaryButton} from '../../../components';
+import React, {useState} from 'react';
 
-import React from 'react';
 import logo from '../../../../assets/logol.png';
 import styles from '../styles';
 
-const AuthContent = ({islogin, setIsLogin}) => {
+const AuthContent = () => {
+  const [islogin, setIsLogin] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
@@ -13,7 +14,7 @@ const AuthContent = ({islogin, setIsLogin}) => {
       </View>
       <View style={styles.inputContainer}>
         {!islogin && <Input placeholder="Nombre" />}
-        <Input  error placeholder="Usuario" />
+        <Input error placeholder="Usuario" />
         <Input error placeholder="Contraseña" />
         <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
         <Text style={styles.textArea}>-or-</Text>
