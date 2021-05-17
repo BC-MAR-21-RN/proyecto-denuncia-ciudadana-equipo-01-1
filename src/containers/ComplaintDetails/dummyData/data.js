@@ -20,3 +20,16 @@ export const images = [
       'https://cdn.pixabay.com/photo/2016/10/31/14/55/rottweiler-1785760_960_720.jpg',
   },
 ];
+
+export let DATA = {
+  category: 'seguridad',
+  title: 'Abuso Animal',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  date: 'Ocurrido el 6 mayo, 2021',
+  location:
+    'Hacienda Los Fresnos, Av. Los Fresnos #345, Jalisco, Tlatomulco de Zúñiga',
+  author: 'Denuncia por José Támara',
+  authorDate: '7 de mayo, 2021',
+  fav: false,
+};

@@ -8,7 +8,7 @@ const Test = ({navigation}) => {
       <PrimaryButton
         text="ir a detalles"
         onPress={() => {
-          navigation.navigate('ComplaintDetails');
+          navigation.navigate('Detalles');
         }}
       />
     </Layout>
