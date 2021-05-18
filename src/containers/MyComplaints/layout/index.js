@@ -25,29 +25,41 @@ let DATA = {
 };
 
 const MyComplaints = props => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <View style={styles.leftSide}>
-          <Text style={styles.category}>Seguridad</Text>
-          <Text style={styles.title}>Abuso Animal</Text>
-          <Text style={styles.text}>Registro 7 de mayo, 2021</Text>
-        </View>
-        <View style={styles.rightSide}>
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.icon}>
-              <Icon
-                name={'border-color'}
-                size={30}
-                color={colors.DarkPrimary}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.icon}>
-              <Icon name={'delete'} size={30} color={colors.DarkPrimary} />
-            </TouchableOpacity>
+  const DotButton = ({icon, onPress, size = 30}) => {
+    return (
+      <TouchableOpacity style={styles.pressIcon}>
+        <Icon name={`${icon}`} size={size} color={colors.DarkPrimary} />
+      </TouchableOpacity>
+    );
+  };
+
+  const ComplaintItem = () => {
+    return (
+      <View style={styles.cardLayout}>
+        <View style={styles.topSection}>
+          <View style={styles.leftSide}>
+            <Text style={styles.category}>Seguridad</Text>
+            <Text style={styles.title}>Abuso animal</Text>
+            <Text style={styles.text}>Registrado 6 de mayo 2021</Text>
+          </View>
+          <View style={styles.rightSide}>
+            <View style={styles.row}>
+              <DotButton icon="edit" />
+              <DotButton icon="delete" />
+              <DotButton icon="info" />
+            </View>
           </View>
         </View>
       </View>
+    );
+  };
+
+  return (
+    <View style={styles.layout}>
+      <ComplaintItem />
+      <ComplaintItem />
+      <ComplaintItem />
+      <View style={styles.headerSection} />
     </View>
   );
 };
@@ -66,132 +78,87 @@ const normalize = size => {
 };
 
 export const styles = StyleSheet.create({
-  container: {
+  layout: {
     flex: 1,
     backgroundColor: colors.DarkPrimary,
   },
-  card: {
+  cardLayout: {
     height: 150,
     backgroundColor: 'white',
+    marginBottom: 5,
+    borderRadius: 20,
+  },
+  topSection: {
+    flex: 4,
     flexDirection: 'row',
   },
+  headerSection: {
+    height: 60,
+    paddingHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   leftSide: {
-    flex: 1,
-    justifyContent: 'center', //Centered vertically
+    flex: 4,
+    justifyContent: 'center',
     alignItems: 'flex-start',
     paddingHorizontal: 15,
   },
   rightSide: {
-    flex: 1,
-    justifyContent: 'center', //Centered vertically
+    flex: 3,
+    justifyContent: 'center',
     alignItems: 'center',
+    paddingRight: 15,
+  },
+  row: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-around',
   },
   category: {
     color: colors.DarkPrimary,
     fontWeight: 'bold',
     fontSize: normalize(14),
     backgroundColor: colors.LightPrimary,
-    borderRadius: 50,
+    borderRadius: 10,
     paddingVertical: normalize(4),
     paddingHorizontal: normalize(9),
     marginVertical: normalize(2),
     textAlign: 'center',
   },
   title: {
-    color: colors.SecondaryText,
+    color: 'black',
     fontSize: normalize(20),
     fontWeight: 'bold',
-    paddingVertical: 3,
+    paddingVertical: 7,
   },
   details: {
     flexDirection: 'row',
   },
   text: {
     color: colors.SecondaryText,
+    fontSize: normalize(15),
   },
   buttonsContainer: {
     backgroundColor: colors.LightPrimary,
-    paddingVertical: 15,
     borderRadius: 15,
     flexDirection: 'row',
+    alignItems: 'center',
   },
-  icon: {
-    paddingHorizontal: 15,
+  pressIcon: {
+    padding: 10,
+    backgroundColor: colors.LightPrimary,
+    borderRadius: 50,
+  },
+  separatorY: {
+    height: '65%',
+    borderLeftWidth: 2,
+  },
+  buttonText: {
+    color: colors.DarkPrimary,
+    fontSize: normalize(15),
   },
   //
-  topSide: {
-    flex: 3,
-    paddingHorizontal: normalize(20),
-    paddingBottom: normalize(20),
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-  },
-  botSide: {
-    borderTopLeftRadius: normalize(20),
-    borderTopRightRadius: normalize(20),
-    flex: 4,
-    paddingHorizontal: normalize(30),
-    backgroundColor: 'white',
-    justifyContent: 'center',
-  },
-  evidence: {
-    flex: 2,
-    backgroundColor: 'white',
-  },
-  area: {
-    color: colors.DarkPrimary,
-    fontWeight: 'bold',
-    fontSize: normalize(14),
-    backgroundColor: 'white',
-    borderRadius: 50,
-    paddingVertical: normalize(4),
-    paddingHorizontal: normalize(9),
-    marginVertical: normalize(2),
-    textAlign: 'center',
-  },
-
-  darkTitle: {
-    color: colors.SecondaryText,
-    fontSize: normalize(15),
-    paddingVertical: normalize(20),
-  },
-  location: {
-    color: 'white',
-    fontSize: normalize(15),
-    paddingVertical: normalize(2),
-  },
-  separator: {
-    width: '100%',
-    borderBottomWidth: 0.5,
-    borderBottomColor: 'white',
-    marginVertical: normalize(15),
-  },
-  userDet: {
-    color: 'white',
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-  descriptionContainer: {
-    height: '50%',
-  },
-  descriptionText: {
-    color: colors.PrimaryText,
-    lineHeight: normalize(21),
-    fontSize: normalize(15),
-  },
-  image: {
-    height: '100%',
-    width: 250,
-  },
-  favButton: {
-    position: 'absolute',
-    backgroundColor: colors.AccentColor,
-    padding: normalize(10),
-    borderRadius: 50,
-    right: normalize(15),
-    top: normalize(15),
-    zIndex: 200,
-  },
 });
 
 export default MyComplaints;
