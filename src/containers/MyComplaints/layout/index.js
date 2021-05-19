@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   FlatList,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../../../library/styles/vars';
 import {sortArrayByDate, dateFormatter} from '../../../library/methods';
@@ -15,10 +15,6 @@ import {styles} from '../styles';
 import {DATA, MyComp, MyCompEmpty} from '../dummyData';
 
 const ComplaintItem = ({category, title, date, id}) => {
-  useEffect(() => {
-    console.log("Behavior when the value of 'foo' changes.");
-  }, []);
-
   const onEditPress = () => {
     //Edit View
   };
@@ -76,6 +72,11 @@ const DotButton = ({icon, onPress, size = 30}) => {
 
 //My complaints List
 export const MyComplaints = props => {
+  let sortedArray = useRef([]);
+  useEffect(() => {
+    sortedArray.current = sortArrayByDate(MyComp);
+  }, []);
+
   const renderComplaintItem = (category, title, date, id) => {
     return (
       <ComplaintItem category={category} title={title} date={date} id={id} />
@@ -101,7 +102,7 @@ export const MyComplaints = props => {
       </View>
       <SafeAreaView style={styles.listContainer}>
         <FlatList
-          data={MyComp}
+          data={sortedArray.current}
           renderItem={({item}) =>
             renderComplaintItem(item.category, item.title, item.date, item.id)
           }

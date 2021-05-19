@@ -18,37 +18,37 @@ let MyComp = [
     id: 1,
     category: 'Seguridad',
     title: 'Abuso animal',
-    date: '7 de mayo, 2021',
+    date: '2020-02-12',
   },
   {
     id: 2,
     category: 'Medio ambiente',
     title: 'Tala clandestina de árboles',
-    date: '3 de mayo, 2021',
+    date: '2020-05-11',
   },
   {
     id: 3,
     category: 'Transporte',
     title: 'Chofer irresponsable',
-    date: '1 de mayo, 2021',
+    date: '2020-05-13',
   },
   {
     id: 4,
     category: 'Seguridad',
     title: 'Venta ilegal de armas',
-    date: '1 de mayo, 2021',
+    date: '2020-05-02',
   },
   {
     id: 5,
     category: 'Seguridad',
     title: 'Criminales en casa abandonada',
-    date: '1 de mayo, 2021',
+    date: '2020-05-16',
   },
   {
     id: 6,
     category: 'Tránsito',
     title: 'Calles en mal estado',
-    date: '1 de mayo, 2021',
+    date: '2020-06-12',
   },
 ];
 
