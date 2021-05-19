@@ -7,58 +7,17 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
-import {colors} from '../../../library/styles/vars';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {colors} from '../../../library/styles/vars';
+import {DATA, MyComp, MyCompEmpty} from '../dummyData';
+import {sortArrayByDate} from '../../../library/methods/sortArrayByDate';
 import {styles} from '../styles';
 
-import {DATA, MyComp, MyCompEmpty} from '../dummyData';
-
-const MyComplaints = props => {
-  const DotButton = ({icon, onPress, size = 30}) => {
-    return (
-      <TouchableOpacity style={styles.pressIcon} onPress={onPress}>
-        <Icon name={`${icon}`} size={size} color={colors.DarkPrimary} />
-      </TouchableOpacity>
-    );
-  };
-
-  const ComplaintItem = ({category, title, date, id}) => {
-    return (
-      <View style={styles.cardLayout}>
-        <View style={styles.topSection}>
-          <View style={styles.leftSide}>
-            <Text style={styles.category}>{category}</Text>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.text}>{date}</Text>
-          </View>
-          <View style={styles.rightSide}>
-            <View style={styles.row}>
-              <DotButton icon="edit" onPress={onEditPress} />
-              <DotButton icon="delete" onPress={onDeletePress} />
-              <DotButton icon="info" />
-            </View>
-          </View>
-        </View>
-      </View>
-    );
-  };
-
-  const renderComplaintItem = (category, title, date, id) => {
-    return (
-      <ComplaintItem category={category} title={title} date={date} id={id} />
-    );
-  };
-
-  const sortByDate = array => {
-    array.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date);
-    });
-  };
-
+const ComplaintItem = ({category, title, date, id}) => {
   const onEditPress = () => {
-    Alert.alert('Pantalla de Edición');
+    //Edit View
   };
-
+  //Confirmation alert
   const onDeletePress = () => {
     Alert.alert(
       '¿Borrar esta denuncia?',
@@ -69,11 +28,56 @@ const MyComplaints = props => {
         },
         {
           text: 'Sí, borrar',
+          onPress: () => {
+            //delete Complaint functionality
+          },
         },
       ],
     );
   };
 
+  const onDetailsPress = () => {
+    //Details View
+  };
+
+  return (
+    <View style={styles.cardLayout}>
+      <View style={styles.topSection}>
+        <View style={styles.leftSide}>
+          <Text style={styles.category}>{category}</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.text}>{date}</Text>
+        </View>
+        <View style={styles.rightSide}>
+          <View style={styles.row}>
+            <DotButton icon="edit" onPress={onEditPress} />
+            <DotButton icon="delete" onPress={onDeletePress} />
+            <DotButton icon="info" onPress={onDetailsPress} />
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+// Button Component
+const DotButton = ({icon, onPress, size = 30}) => {
+  return (
+    <TouchableOpacity style={styles.pressIcon} onPress={onPress}>
+      <Icon name={`${icon}`} size={size} color={colors.DarkPrimary} />
+    </TouchableOpacity>
+  );
+};
+
+//My complaints List
+export const MyComplaints = props => {
+  const renderComplaintItem = (category, title, date, id) => {
+    return (
+      <ComplaintItem category={category} title={title} date={date} id={id} />
+    );
+  };
+
+  //show this in case there is no items to show
   const EmptyList = () => {
     return (
       <Text style={styles.EmptyMessageText}>
@@ -82,6 +86,7 @@ const MyComplaints = props => {
     );
   };
 
+  //main render
   return (
     <View style={styles.layout}>
       <View style={styles.headerSection}>

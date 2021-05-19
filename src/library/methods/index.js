@@ -1,3 +1,4 @@
 import {performGoogleAuth, performGoogleAuthSign} from './performAuth';
+import {sortArrayByDate} from './sortArrayByDate';
 
-export {performGoogleAuth, performGoogleAuthSign};
+export {performGoogleAuth, performGoogleAuthSign, sortArrayByDate};
