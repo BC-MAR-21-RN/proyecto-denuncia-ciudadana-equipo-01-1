@@ -16,7 +16,7 @@ let MyCompEmpty = [];
 let MyComp = [
   {
     id: 1,
-    category: 'seguridad',
+    category: 'Seguridad',
     title: 'Abuso animal',
     date: '7 de mayo, 2021',
   },
@@ -29,25 +29,25 @@ let MyComp = [
   {
     id: 3,
     category: 'Transporte',
-    title: 'Abuso animal',
+    title: 'Chofer irresponsable',
     date: '1 de mayo, 2021',
   },
   {
     id: 4,
-    category: 'Transporte',
-    title: 'Abuso animal',
+    category: 'Seguridad',
+    title: 'Venta ilegal de armas',
     date: '1 de mayo, 2021',
   },
   {
     id: 5,
-    category: 'Transporte',
-    title: 'Abuso animal',
+    category: 'Seguridad',
+    title: 'Criminales en casa abandonada',
     date: '1 de mayo, 2021',
   },
   {
     id: 6,
-    category: 'Transporte',
-    title: 'Abuso animal',
+    category: 'Tránsito',
+    title: 'Calles en mal estado',
     date: '1 de mayo, 2021',
   },
 ];

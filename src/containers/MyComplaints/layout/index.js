@@ -13,6 +13,12 @@ import {DATA, MyComp, MyCompEmpty} from '../dummyData';
 import {sortArrayByDate} from '../../../library/methods/sortArrayByDate';
 import {styles} from '../styles';
 
+const dateFormatter = (dateVariable, langCode) => {
+  const event = new Date(Date.UTC(2012, 11, 20));
+  const options = {year: 'numeric', month: 'long', day: 'numeric'};
+  console.log(event.toLocaleDateString('en-us', options));
+};
+
 const ComplaintItem = ({category, title, date, id}) => {
   const onEditPress = () => {
     //Edit View
@@ -21,7 +27,7 @@ const ComplaintItem = ({category, title, date, id}) => {
   const onDeletePress = () => {
     Alert.alert(
       '¿Borrar esta denuncia?',
-      'Tu denuncia se eliminará de manera permanente',
+      `Tu denuncia <${title}> se eliminará de forma permanente.`,
       [
         {
           text: 'Cancelar',
@@ -30,6 +36,7 @@ const ComplaintItem = ({category, title, date, id}) => {
           text: 'Sí, borrar',
           onPress: () => {
             //delete Complaint functionality
+            dateFormatter('2021-05-02', 'en-us');
           },
         },
       ],
