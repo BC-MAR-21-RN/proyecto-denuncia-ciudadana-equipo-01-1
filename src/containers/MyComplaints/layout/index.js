@@ -6,6 +6,9 @@ import {
   Platform,
   PixelRatio,
   TouchableOpacity,
+  Alert,
+  SafeAreaView,
+  FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
 import {colors} from '../../../library/styles/vars';
@@ -24,28 +27,69 @@ let DATA = {
   fav: false,
 };
 
+let MyCompEmpty = [];
+
+let MyComp = [
+  {
+    id: 1,
+    category: 'seguridad',
+    title: 'Abuso animal',
+    date: '7 de mayo, 2021',
+  },
+  {
+    id: 2,
+    category: 'Medio ambiente',
+    title: 'Tala clandestina de árboles',
+    date: '3 de mayo, 2021',
+  },
+  {
+    id: 3,
+    category: 'Transporte',
+    title: 'Abuso animal',
+    date: '1 de mayo, 2021',
+  },
+  {
+    id: 4,
+    category: 'Transporte',
+    title: 'Abuso animal',
+    date: '1 de mayo, 2021',
+  },
+  {
+    id: 5,
+    category: 'Transporte',
+    title: 'Abuso animal',
+    date: '1 de mayo, 2021',
+  },
+  {
+    id: 6,
+    category: 'Transporte',
+    title: 'Abuso animal',
+    date: '1 de mayo, 2021',
+  },
+];
+
 const MyComplaints = props => {
   const DotButton = ({icon, onPress, size = 30}) => {
     return (
-      <TouchableOpacity style={styles.pressIcon}>
+      <TouchableOpacity style={styles.pressIcon} onPress={onPress}>
         <Icon name={`${icon}`} size={size} color={colors.DarkPrimary} />
       </TouchableOpacity>
     );
   };
 
-  const ComplaintItem = () => {
+  const ComplaintItem = ({category, title, date, id}) => {
     return (
       <View style={styles.cardLayout}>
         <View style={styles.topSection}>
           <View style={styles.leftSide}>
-            <Text style={styles.category}>Seguridad</Text>
-            <Text style={styles.title}>Abuso animal</Text>
-            <Text style={styles.text}>Registrado 6 de mayo 2021</Text>
+            <Text style={styles.category}>{category}</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.text}>{date}</Text>
           </View>
           <View style={styles.rightSide}>
             <View style={styles.row}>
-              <DotButton icon="edit" />
-              <DotButton icon="delete" />
+              <DotButton icon="edit" onPress={onEditPress} />
+              <DotButton icon="delete" onPress={onDeletePress} />
               <DotButton icon="info" />
             </View>
           </View>
@@ -54,12 +98,62 @@ const MyComplaints = props => {
     );
   };
 
+  const renderComplaintItem = (category, title, date, id) => {
+    return (
+      <ComplaintItem category={category} title={title} date={date} id={id} />
+    );
+  };
+
+  const sortByDate = array => {
+    array.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
+  };
+
+  const onEditPress = () => {
+    Alert.alert('Pantalla de Edición');
+  };
+
+  const onDeletePress = () => {
+    Alert.alert(
+      '¿Borrar esta denuncia?',
+      'Tu denuncia se eliminará de manera permanente',
+      [
+        {
+          text: 'Cancelar',
+        },
+        {
+          text: 'Sí, borrar',
+        },
+      ],
+    );
+  };
+
+  const EmptyList = () => {
+    return (
+      <Text style={styles.EmptyMessageText}>
+        No tienes denuncias registradas.
+      </Text>
+    );
+  };
+
   return (
     <View style={styles.layout}>
-      <ComplaintItem />
-      <ComplaintItem />
-      <ComplaintItem />
-      <View style={styles.headerSection} />
+      <View style={styles.headerSection}>
+        <TouchableOpacity>
+          <Text style={styles.topText}>Orden: por fecha</Text>
+        </TouchableOpacity>
+      </View>
+      <SafeAreaView style={styles.listContainer}>
+        <FlatList
+          data={MyComp}
+          renderItem={({item}) =>
+            renderComplaintItem(item.category, item.title, item.date, item.id)
+          }
+          keyExtractor={item => item.id}
+          ListEmptyComponent={EmptyList}
+        />
+      </SafeAreaView>
     </View>
   );
 };
@@ -84,6 +178,7 @@ export const styles = StyleSheet.create({
   },
   cardLayout: {
     height: 150,
+    width: '100%',
     backgroundColor: 'white',
     marginBottom: 5,
     borderRadius: 20,
@@ -157,6 +252,19 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: colors.DarkPrimary,
     fontSize: normalize(15),
+  },
+  topText: {
+    color: 'white',
+    fontSize: normalize(15),
+  },
+  EmptyMessageText: {
+    color: 'white',
+    fontSize: normalize(18),
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
+  listContainer: {
+    flex: 1,
   },
   //
 });
