@@ -6,20 +6,19 @@ import {
   SafeAreaView,
   FlatList,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../../../library/styles/vars';
-import {DATA, MyComp, MyCompEmpty} from '../dummyData';
-import {sortArrayByDate} from '../../../library/methods/sortArrayByDate';
+import {sortArrayByDate, dateFormatter} from '../../../library/methods';
 import {styles} from '../styles';
 
-const dateFormatter = (dateVariable, langCode) => {
-  const event = new Date(Date.UTC(2012, 11, 20));
-  const options = {year: 'numeric', month: 'long', day: 'numeric'};
-  console.log(event.toLocaleDateString('en-us', options));
-};
+import {DATA, MyComp, MyCompEmpty} from '../dummyData';
 
 const ComplaintItem = ({category, title, date, id}) => {
+  useEffect(() => {
+    console.log("Behavior when the value of 'foo' changes.");
+  }, []);
+
   const onEditPress = () => {
     //Edit View
   };
@@ -36,7 +35,6 @@ const ComplaintItem = ({category, title, date, id}) => {
           text: 'Sí, borrar',
           onPress: () => {
             //delete Complaint functionality
-            dateFormatter('2021-05-02', 'en-us');
           },
         },
       ],
@@ -53,7 +51,7 @@ const ComplaintItem = ({category, title, date, id}) => {
         <View style={styles.leftSide}>
           <Text style={styles.category}>{category}</Text>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.text}>{date}</Text>
+          <Text style={styles.text}>{dateFormatter({date}, 'es')}</Text>
         </View>
         <View style={styles.rightSide}>
           <View style={styles.row}>
