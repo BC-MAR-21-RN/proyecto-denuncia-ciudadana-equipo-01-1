@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+
 export default function ReportOverview(props) {
     return (
         <View style={style.reportDetails}>

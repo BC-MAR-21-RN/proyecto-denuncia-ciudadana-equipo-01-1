@@ -1,9 +1,8 @@
 import React from 'react'
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native'
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { Text, View, StyleSheet, FlatList } from 'react-native'
 import { Layout } from '../../../components';
 import ReportOverview from '../../../components/general/reportOverview';
-
+import style from '../styles/HomeStyles'
 
 const dummyData = [
     {
@@ -110,18 +109,3 @@ export default function Home() {
         </Layout>
     )
 }
-
-const style = StyleSheet.create({
-    reportList: {
-        backgroundColor: '#C4C4C4',
-        flexGrow:0,
-        height:"70%"
-    },
-    homeContainer: {
-        padding: 10
-    },
-    homeTitle: {
-        fontSize: 20,
-        paddingVertical: 10
-    }
-})

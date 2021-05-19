@@ -11,7 +11,8 @@ export default function StackScreen() {
             options={{
                 
                 headerStyle: { backgroundColor: '#B9D7F2' },
-                title: 'Home', headerRight: () => (
+                title: 'Home', 
+                headerRight: () => (
                     <Button
                         onPress={() => console.log('Navigation')}
                         title="🧑"

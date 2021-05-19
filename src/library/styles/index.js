@@ -11,5 +11,5 @@ export {
   styleLayout,
   styleMyComplaint,
   stylePrimaryButton,
-  styleListComplaint,
+  styleListComplaint
 };
