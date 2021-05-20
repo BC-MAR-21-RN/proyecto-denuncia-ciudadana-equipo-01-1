@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
   category: {
     color: colors.DarkPrimary,
     fontWeight: 'bold',
-    fontSize: normalize(14),
+    fontSize: 14,
     backgroundColor: colors.LightPrimary,
     borderRadius: 10,
     paddingVertical: normalize(4),
@@ -54,16 +54,17 @@ export const styles = StyleSheet.create({
   },
   title: {
     color: 'black',
-    fontSize: normalize(20),
+    fontSize: 20,
     fontWeight: 'bold',
     paddingVertical: 7,
   },
   details: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   text: {
     color: colors.SecondaryText,
-    fontSize: normalize(15),
+    fontSize: 15,
   },
   buttonsContainer: {
     backgroundColor: colors.LightPrimary,
@@ -86,7 +87,7 @@ export const styles = StyleSheet.create({
   },
   topText: {
     color: 'white',
-    fontSize: normalize(15),
+    fontSize: 15,
   },
   EmptyMessageText: {
     color: 'white',
