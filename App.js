@@ -1,7 +1,5 @@
-import {Login, SignUp, ComplaintDetails} from './src/containers';
-
+import {Login} from './src/containers';
 import React from 'react';
-import {View} from 'react-native';
 import {useGoogleConfiguration} from './src/library/hooks';
 import {withRedux} from './src/library/redux';
 
@@ -12,13 +10,7 @@ const Stack = createStackNavigator();
 
 const App = () => {
   useGoogleConfiguration();
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initalRouteName="home">
-        <Stack.Screen name="Detalles" component={ComplaintDetails} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <Login />;
 };
 
 export default withRedux(App);
