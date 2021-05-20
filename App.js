@@ -1,18 +1,11 @@
-import {Login, SignUp} from './src/containers';
-
+import {Login} from './src/containers';
 import React from 'react';
-import {View} from 'react-native';
 import {useGoogleConfiguration} from './src/library/hooks';
 import {withRedux} from './src/library/redux';
 
 const App = () => {
   useGoogleConfiguration();
-  return (
-    <View>
-      <SignUp />
-   
-    </View>
-  );
+  return <Login />;
 };
 
 export default withRedux(App);
