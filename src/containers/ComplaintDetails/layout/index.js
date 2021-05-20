@@ -14,13 +14,11 @@ import {styles} from '../styles';
 
 import {images, DATA} from '../dummyData/data';
 
-const ComplaintDetails = props => {
-  const [visible, setIsVisible] = useState(false);
-  const [isFav, setIsFav] = useState(DATA.fav);
+const ImageList = ({imagesArray}) => {
   const [imageIndex, setImageIndex] = useState(0);
-
-  const ImageList = ({imagesArray}) => {
-    return (
+  const [visible, setIsVisible] = useState(false);
+  return (
+    <View>
       <ScrollView horizontal>
         {imagesArray.map((uri, index) => (
           <TouchableOpacity
@@ -34,8 +32,21 @@ const ComplaintDetails = props => {
           </TouchableOpacity>
         ))}
       </ScrollView>
-    );
-  };
+      <ImageView
+        images={images}
+        imageIndex={imageIndex}
+        visible={visible}
+        onRequestClose={() => setIsVisible(false)}
+        doubleTapToZoomEnabled={true}
+        swipeToCloseEnabled={false}
+        delayLongPress={1000}
+      />
+    </View>
+  );
+};
+
+const ComplaintDetails = props => {
+  const [isFav, setIsFav] = useState(DATA.fav);
 
   const favOnPress = () => {
     setIsFav(prevIsFav => !prevIsFav);
@@ -78,15 +89,6 @@ const ComplaintDetails = props => {
       <SafeAreaView style={styles.evidence}>
         <ImageList imagesArray={images.map(image => image.uri)} />
       </SafeAreaView>
-      <ImageView
-        images={images}
-        imageIndex={imageIndex}
-        visible={visible}
-        onRequestClose={() => setIsVisible(false)}
-        doubleTapToZoomEnabled={true}
-        swipeToCloseEnabled={false}
-        delayLongPress={1000}
-      />
     </View>
   );
 };
