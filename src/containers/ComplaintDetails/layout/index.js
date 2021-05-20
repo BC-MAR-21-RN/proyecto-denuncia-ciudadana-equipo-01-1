@@ -45,7 +45,7 @@ const ImageList = ({imagesArray}) => {
   );
 };
 
-const ComplaintDetails = props => {
+const SaveIcon = () => {
   const [isFav, setIsFav] = useState(DATA.fav);
 
   const favOnPress = () => {
@@ -61,14 +61,20 @@ const ComplaintDetails = props => {
   };
 
   return (
+    <TouchableOpacity onPress={favOnPress} style={styles.favButton}>
+      <Icon
+        name={isFav ? 'bookmark' : 'bookmark-border'}
+        size={45}
+        color="white"
+      />
+    </TouchableOpacity>
+  );
+};
+
+const ComplaintDetails = props => {
+  return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={favOnPress} style={styles.favButton}>
-        <Icon
-          name={isFav ? 'bookmark' : 'bookmark-border'}
-          size={45}
-          color="white"
-        />
-      </TouchableOpacity>
+      <SaveIcon />
       <View style={styles.topSide}>
         <Text style={styles.area}>{DATA.category}</Text>
         <Text style={styles.title}>{DATA.title}</Text>
