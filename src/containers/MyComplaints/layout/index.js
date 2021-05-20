@@ -70,27 +70,27 @@ const DotButton = ({icon, onPress, size = 30}) => {
   );
 };
 
+const renderComplaintItem = (category, title, date, id) => {
+  return (
+    <ComplaintItem category={category} title={title} date={date} id={id} />
+  );
+};
+
+//show this in case there is no items to show
+const EmptyList = () => {
+  return (
+    <Text style={styles.EmptyMessageText}>
+      No tienes denuncias registradas.
+    </Text>
+  );
+};
+
 //My complaints List
 export const MyComplaints = props => {
-  let sortedArray = useRef([]);
+  let sortedArray = useRef(sortArrayByDate(MyComp));
   useEffect(() => {
     sortedArray.current = sortArrayByDate(MyComp);
   }, []);
-
-  const renderComplaintItem = (category, title, date, id) => {
-    return (
-      <ComplaintItem category={category} title={title} date={date} id={id} />
-    );
-  };
-
-  //show this in case there is no items to show
-  const EmptyList = () => {
-    return (
-      <Text style={styles.EmptyMessageText}>
-        No tienes denuncias registradas.
-      </Text>
-    );
-  };
 
   //main render
   return (
