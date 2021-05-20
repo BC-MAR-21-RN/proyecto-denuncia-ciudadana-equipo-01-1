@@ -1,3 +1,4 @@
 import {performGoogleAuth, performGoogleAuthSign} from './performAuth';
+import normalize from './normalize';
 
-export {performGoogleAuth, performGoogleAuthSign};
+export {performGoogleAuth, performGoogleAuthSign, normalize};

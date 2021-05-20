@@ -1,4 +1,4 @@
-import {Login, SignUp, ComplaintDetails, Test} from './src/containers';
+import {Login, SignUp, ComplaintDetails} from './src/containers';
 
 import React from 'react';
 import {View} from 'react-native';
@@ -15,7 +15,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initalRouteName="home">
-        <Stack.Screen name="test" component={Test} />
         <Stack.Screen name="Detalles" component={ComplaintDetails} />
       </Stack.Navigator>
     </NavigationContainer>
