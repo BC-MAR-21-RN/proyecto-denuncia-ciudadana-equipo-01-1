@@ -8,14 +8,16 @@ import {
   ToastAndroid,
 } from 'react-native';
 import React, {useState} from 'react';
-import {images, DATA} from '../dummyData/data';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImageView from 'react-native-image-viewing';
 import {styles} from '../styles';
 
+import {images, DATA} from '../dummyData/data';
+
 const ComplaintDetails = props => {
   const [visible, setIsVisible] = useState(false);
   const [isFav, setIsFav] = useState(DATA.fav);
+  const [imageIndex, setImageIndex] = useState(0);
 
   const ImageList = ({imagesArray}) => {
     return (
@@ -24,7 +26,10 @@ const ComplaintDetails = props => {
           <TouchableOpacity
             key={`${uri}_${index}`}
             activeOpacity={0.8}
-            onPress={() => setIsVisible(true)}>
+            onPress={() => {
+              setImageIndex(index);
+              setIsVisible(true);
+            }}>
             <Image source={{uri: uri}} style={styles.image} />
           </TouchableOpacity>
         ))}
@@ -75,7 +80,7 @@ const ComplaintDetails = props => {
       </SafeAreaView>
       <ImageView
         images={images}
-        imageIndex={0}
+        imageIndex={imageIndex}
         visible={visible}
         onRequestClose={() => setIsVisible(false)}
         doubleTapToZoomEnabled={true}
