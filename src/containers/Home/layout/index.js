@@ -1,6 +1,7 @@
+import {Text, View} from 'react-native';
+
+import {PrimaryButton} from '../../../../components';
 import React from 'react';
-import {View, Text} from 'react-native';
-import {PrimaryButton} from '../../components';
 
 const SendDataAdd = props => {
   const next = () => {
