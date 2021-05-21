@@ -4,6 +4,7 @@ import EvidenceAdd from './AddNewCitizenComplaint/evidenceAdd.container';
 import Home from './Home/layout';
 import LocationAdd from './AddNewCitizenComplaint/locationAdd.container';
 import Login from './Login/reduxContainer';
+import MyComplaints from './MyComplaints/layout';
 import SignUp from './SignUp/layout';
 import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.container';
 
@@ -12,6 +13,7 @@ import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.co
 //Home
 
 export {
+  MyComplaints,
   Login,
   SignUp,
   Home,

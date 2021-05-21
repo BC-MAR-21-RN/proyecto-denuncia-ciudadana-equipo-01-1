@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {PrimaryButton} from '../../../components';
 import React from 'react';
 
-const Home = props => {
+const SendDataAdd = props => {
   const next = () => {
     props.navigation.navigate('TitleDescriptionAdd', {
       ...props.route.params,
@@ -11,8 +11,8 @@ const Home = props => {
   };
   return (
     <View>
-      <Text>You are in home</Text>
+      <Text>You are in My complaints</Text>
     </View>
   );
 };
-export default Home;
+export default SendDataAdd;

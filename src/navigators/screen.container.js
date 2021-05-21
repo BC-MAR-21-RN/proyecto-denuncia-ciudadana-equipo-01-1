@@ -1,17 +1,21 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import {
-  Login,
-  SignUp,
-  Home,
-  DateEventsAdd,
   AreaAdd,
-  TitleDescriptionAdd,
-  LocationAdd,
+  DateEventsAdd,
   EvidenceAdd,
-} from './containers';
+  Home,
+  LocationAdd,
+  Login,
+  MyComplaints,
+  SignUp,
+  TitleDescriptionAdd,
+} from '../containers';
+
 import {Icon} from 'react-native-eva-icons';
+import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
+import TabNavigator from './tabs';
+import {createStackNavigator} from '@react-navigation/stack';
+
 export const Stack = createStackNavigator();
 const optionsBack = navigation => ({
   headerTitle: '',
@@ -31,7 +35,8 @@ const optionsBack = navigation => ({
 });
 
 const listScreens = [
-  {name: 'Home', component: Home, back: false},
+  {name: 'Home', component: TabNavigator, back: false},
+  {name: 'MyComplaints', component: MyComplaints, back: true},
   {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
   {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
   {name: 'AreaAdd', component: AreaAdd, back: true},
