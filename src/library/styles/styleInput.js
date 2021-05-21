@@ -17,8 +17,8 @@ const style = StyleSheet.create({
   },
   error: {
     borderColor: 'red',
-    borderWidth:2,
-    backgroundColor:'#fad9d9'
+    borderWidth: 2,
+    backgroundColor: '#fad9d9',
   },
 });
 export default style;

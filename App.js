@@ -1,11 +1,11 @@
-import {Login} from './src/containers';
 import React from 'react';
 import {useGoogleConfiguration} from './src/library/hooks';
 import {withRedux} from './src/library/redux';
+import {Screens} from './src/screen.container';
 
 const App = () => {
   useGoogleConfiguration();
-  return <Login />;
+  return <Screens />;
 };
 
 export default withRedux(App);

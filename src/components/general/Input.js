@@ -12,5 +12,3 @@ const Input = ({error, icon, ...rest}) => {
 };
 
 export default Input;
-
-//<TextInput {...props} style={style.input} />;
