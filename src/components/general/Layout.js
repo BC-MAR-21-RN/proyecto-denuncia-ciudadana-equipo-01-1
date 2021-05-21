@@ -1,17 +1,18 @@
-import {ScrollView, View} from 'react-native';
-
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import React from 'react';
+import {View} from 'react-native';
 import {styleLayout as style} from '../../library/styles';
-import styles from '../../containers/Login/styles';
 
 const Layout = ({children, backColor, scroll}) => {
   if (scroll) {
     return (
-      <ScrollView
-        contentContainerStyle={styles.contentStyles}
-        style={{...style[backColor], ...style.containerScroll}}>
+      <KeyboardAwareScrollView
+        resetScrollToCoords={{x: 0, y: 0}}
+        contentContainerStyle={{...style.containerScroll, ...style[backColor]}}
+        enableAutomaticScroll
+        scrollEnabled>
         {children}
-      </ScrollView>
+      </KeyboardAwareScrollView>
     );
   }
 

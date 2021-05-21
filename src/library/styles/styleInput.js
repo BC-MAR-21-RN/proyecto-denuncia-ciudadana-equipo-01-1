@@ -13,7 +13,11 @@ const style = StyleSheet.create({
   },
   input: {
     textDecorationLine: 'none',
+    textDecorationColor: '#fff',
     fontSize: 20,
+    paddingVertical: 0,
+    height: '100%',
+    color: 'black',
   },
   error: {
     borderColor: 'red',
