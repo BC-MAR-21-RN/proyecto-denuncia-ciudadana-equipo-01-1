@@ -6,6 +6,7 @@ import styleModalLayout from './styleModalLayout';
 import styleMyComplaint from './styleMyComplaint';
 import stylePrimaryButton from './stylePrimaryButton';
 import styleDate from './styleDate';
+import styleCam from './styleCam';
 import styleWheelSelect from './styleWheelSelect';
 import styleWrapperKeyboardAvoid from './styleWrapperKeyboardAvoid';
 import styleDocumentPicker from './styleDocumentPicker';
@@ -18,6 +19,7 @@ export {
   styleListComplaint,
   styleModalLayout,
   styleDate,
+  styleCam,
   styleWheelSelect,
   styleWrapperKeyboardAvoid,
   styleDocumentPicker,
