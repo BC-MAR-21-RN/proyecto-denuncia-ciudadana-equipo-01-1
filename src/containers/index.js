@@ -1,5 +1,25 @@
+import AreaAdd from './AddNewCitizenComplaint/areaAdd.container';
+import DateEventsAdd from './AddNewCitizenComplaint/dateEventsAdd.container';
+import EvidenceAdd from './AddNewCitizenComplaint/evidenceAdd.container';
+import Home from './Home/layout';
+import LocationAdd from './AddNewCitizenComplaint/locationAdd.container';
 import Login from './Login/reduxContainer';
+import MyComplaints from './MyComplaints/layout';
 import SignUp from './SignUp/layout';
-import ComplaintDetails from './ComplaintDetails/layout';
+import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.container';
 
-export {Login, SignUp, ComplaintDetails};
+//Add new Citizen Complaint
+
+//Home
+
+export {
+  MyComplaints,
+  Login,
+  SignUp,
+  Home,
+  DateEventsAdd,
+  AreaAdd,
+  TitleDescriptionAdd,
+  LocationAdd,
+  EvidenceAdd,
+};

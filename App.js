@@ -1,5 +1,5 @@
-import {Login} from './src/containers';
 import React from 'react';
+import {Screens} from './src/navigators/screen.container';
 import {useGoogleConfiguration} from './src/library/hooks';
 import {withRedux} from './src/library/redux';
 
@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 const App = () => {
   useGoogleConfiguration();
-  return <Login />;
+  return <Screens />;
 };
 
 export default withRedux(App);
