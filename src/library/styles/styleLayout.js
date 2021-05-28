@@ -15,5 +15,9 @@ const style = StyleSheet.create({
   DarkPrimary: {
     backgroundColor: colors.DarkPrimary,
   },
+  containerScroll: {
+    flex: 1,
+    minHeight: screenHeight,
+  },
 });
 export default style;
