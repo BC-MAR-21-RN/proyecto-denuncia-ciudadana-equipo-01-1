@@ -15,11 +15,6 @@ const App = () => {
 
   useGoogleConfiguration();
   const [loggedin, setLoggedin] = useState(true);
-  useEffect(() => {
-    {/* firebase.auth().onAuthStateChanged(user => {
-      user ? setLoggedin(true) : setLoggedin(false)
-    })*/}
-  })
 
   return (
     <NavigationContainer>
