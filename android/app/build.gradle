@@ -1,5 +1,10 @@
 apply plugin: "com.android.application"
 apply plugin: 'com.google.gms.google-services'
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf', 'FontAwesome.ttf' ] // Name of the font files you want to copy
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 import com.android.build.OutputFile
 
 /**
@@ -136,6 +141,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+         // insert this line
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
     splits {
         abi {

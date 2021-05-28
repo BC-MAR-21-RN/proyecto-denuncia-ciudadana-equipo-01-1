@@ -11,6 +11,12 @@ import firebase from '@react-native-firebase/app';
 
 const Stack = createStackNavigator();
 
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
 const App = () => {
 
   useGoogleConfiguration();

@@ -1,12 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
-  /*  input: {
-    width: '100%',
-    borderBottomWidth: 2,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },*/
   conatiner: {
     height: 45,
     width: '100%',
@@ -19,7 +13,16 @@ const style = StyleSheet.create({
   },
   input: {
     textDecorationLine: 'none',
+    textDecorationColor: '#fff',
     fontSize: 20,
+    paddingVertical: 0,
+    height: '100%',
+    color: 'black',
+  },
+  error: {
+    borderColor: 'red',
+    borderWidth: 2,
+    backgroundColor: '#fad9d9',
   },
 });
 export default style;
