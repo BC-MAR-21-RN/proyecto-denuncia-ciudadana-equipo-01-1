@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+import style from '../../library/styles/styleReportOverview'
+
 
 export default function ReportOverview(props) {
     return (
@@ -25,19 +27,3 @@ export default function ReportOverview(props) {
         </View>
     )
 }
-const style = StyleSheet.create({
-    reportDetails: {
-        backgroundColor: '#B9D7F2',
-        flexDirection: 'row',
-        borderWidth:1,
-        borderColor: 'black',
-        width: '100%',
-        justifyContent: 'space-between',
-        paddingVertical: 10,
-        paddingHorizontal:10
-    },
-    reportInteractions: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-    }
-})
