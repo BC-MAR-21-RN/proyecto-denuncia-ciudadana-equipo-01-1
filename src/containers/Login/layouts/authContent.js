@@ -4,19 +4,33 @@ import React, {useState} from 'react';
 
 import logo from '../../../../assets/logol.png';
 import styles from '../styles';
+import {useLoginControl} from '../../../library/hooks';
 
 const AuthContent = () => {
   const [islogin, setIsLogin] = useState(false);
+  const [
+    propsName,
+    propsEmail,
+    propsPassword,
+    errors,
+    submit,
+  ] = useLoginControl(islogin);
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
         <Image style={styles.logo} source={logo} />
       </View>
       <View style={styles.inputContainer}>
-        {!islogin && <Input placeholder="Nombre" />}
-        <Input error placeholder="Usuario" />
-        <Input error placeholder="Contraseña" />
-        <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
+        {!islogin && (
+          <Input error={errors.name} {...propsName} placeholder="Nombre" />
+        )}
+        <Input error={errors.email} {...propsEmail} placeholder="Usuario" />
+        <Input
+          error={errors.password}
+          {...propsPassword}
+          placeholder="Contraseña"
+        />
+        <PrimaryButton onPress={submit} text={islogin ? 'Login' : 'Sign In'} />
         <Text style={styles.textArea}>-or-</Text>
         <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
       </View>

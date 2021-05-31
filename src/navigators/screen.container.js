@@ -6,7 +6,6 @@ import {
   LocationAdd,
   Login,
   MyComplaints,
-  SignUp,
   TitleDescriptionAdd,
 } from '../containers';
 
@@ -35,6 +34,7 @@ const optionsBack = navigation => ({
 });
 
 const listScreens = [
+  {name: 'Login', component: Login, back: false},
   {name: 'Home', component: TabNavigator, back: false},
   {name: 'MyComplaints', component: MyComplaints, back: true},
   {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
@@ -42,8 +42,6 @@ const listScreens = [
   {name: 'AreaAdd', component: AreaAdd, back: true},
   {name: 'LocationAdd', component: LocationAdd, back: true},
   {name: 'EvidenceAdd', component: EvidenceAdd, back: true},
-  {name: 'Login', component: Login, back: false},
-  {name: 'SignUp', component: SignUp, back: false},
 ];
 
 export const Screens = () => {

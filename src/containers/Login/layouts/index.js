@@ -1,9 +1,11 @@
-import {Layout, ModalLayout} from '../../../components';
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 
 import AuthContent from './authContent';
+import {Layout} from '../../../components';
+import {useGoogleConfiguration} from '../../../library/hooks';
 
 const Login = () => {
+  useGoogleConfiguration();
   return (
     <Fragment>
       <Layout scroll backColor="DarkPrimary">
