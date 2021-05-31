@@ -1,6 +1,5 @@
-import {Login, SignUp, MyComplaints} from './src/containers';
-
 import React from 'react';
+import {Screens} from './src/navigators/screen.container';
 import {useGoogleConfiguration} from './src/library/hooks';
 import {withRedux} from './src/library/redux';
 
@@ -11,13 +10,7 @@ const Stack = createStackNavigator();
 
 const App = () => {
   useGoogleConfiguration();
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initalRouteName="home">
-        <Stack.Screen name="Mis denuncias" component={MyComplaints} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <Screens />;
 };
 
 export default withRedux(App);
