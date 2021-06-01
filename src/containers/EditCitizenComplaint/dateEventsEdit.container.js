@@ -3,12 +3,11 @@ import {PrimaryButton, Date} from '../../components';
 import {View} from 'react-native';
 import {StyleAddEditContainer} from '../../library/styles/container';
 
-const DateEventsAdd = props => {
+const DateEventsEdit = props => {
   const [dateSelected, setDateSelected] = useState();
-  const next = () => {
-    props.navigation.navigate('AreaAdd', {
-      ...props.route.params,
-    });
+  
+  const save = () => {
+    console.log("Saving");
   };
   const dateChange = date => {
     setDateSelected(date ? date.toString() : date);
@@ -17,9 +16,9 @@ const DateEventsAdd = props => {
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <Date dateChange={dateChange} textDate="Select date" />
-      <PrimaryButton text="Next" onPress={next} />
+      <PrimaryButton text="Save" onPress={save} />
     </View>
   );
 };
 
-export default DateEventsAdd;
+export default DateEventsEdit;

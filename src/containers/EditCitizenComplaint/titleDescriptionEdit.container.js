@@ -7,11 +7,9 @@ import {
 } from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
 
-const TitleAdd = props => {
-  const next = () => {
-    props.navigation.navigate('DateEventsAdd', {
-      ...props.route.params,
-    });
+const TitleEdit = props => {
+  const save = () => {
+    console.log('Saving');
   };
   return (
     <WrapperKeyboardAvoid>
@@ -20,10 +18,10 @@ const TitleAdd = props => {
           <Text style={StyleAddEditContainer.textHeader}>Title and Description</Text>
           <FormTitleDescription />
         </View>
-        <PrimaryButton text="Next" onPress={next} />
+        <PrimaryButton text="Save" onPress={save} />
       </View>
     </WrapperKeyboardAvoid>
   );
 };
 
-export default TitleAdd;
+export default TitleEdit;
