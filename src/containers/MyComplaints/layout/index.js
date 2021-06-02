@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../../../library/styles/vars';
 import {sortArrayByDate, dateFormatter} from '../../../library/methods';
 import {styles} from '../styles';
+import {DialogES} from '../../../library/constants/dialogs-ES';
 
 import {MyComplaintsData, MyComplaintsDataEmpty} from '../dummyData';
 
@@ -19,14 +20,14 @@ const ComplaintItem = ({category, title, date, id}) => {
 
   const onDeletePress = () => {
     Alert.alert(
-      '¿Borrar esta denuncia?',
-      `Tu denuncia <${title}> se eliminará de forma permanente.`,
+      DialogES.deleteComplaint,
+      `<${title}> ${DialogES.deletionInfo}`,
       [
         {
-          text: 'Cancelar',
+          text: `${DialogES.cancel}`,
         },
         {
-          text: 'Sí, borrar',
+          text: `${DialogES.deletionConfirmation}`,
           onPress: () => {},
         },
       ],
