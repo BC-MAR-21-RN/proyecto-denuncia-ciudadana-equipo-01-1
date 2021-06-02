@@ -12,7 +12,7 @@ import {colors} from '../../../library/styles/vars';
 import {sortArrayByDate, dateFormatter} from '../../../library/methods';
 import {styles} from '../styles';
 
-import {DATA, MyComp, MyCompEmpty} from '../dummyData';
+import {MyComplaintsData, MyComplaintsDataEmpty} from '../dummyData';
 
 const ComplaintItem = ({category, title, date, id}) => {
   const onEditPress = () => {
@@ -87,9 +87,9 @@ const EmptyList = () => {
 
 //My complaints List
 export const MyComplaints = props => {
-  let sortedArray = useRef(sortArrayByDate(MyComp));
+  let sortedArray = useRef(sortArrayByDate(MyComplaintsData));
   useEffect(() => {
-    sortedArray.current = sortArrayByDate(MyComp);
+    sortedArray.current = sortArrayByDate(MyComplaintsData);
   }, []);
 
   //main render
