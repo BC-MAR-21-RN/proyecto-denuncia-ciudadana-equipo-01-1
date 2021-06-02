@@ -15,10 +15,8 @@ import {styles} from '../styles';
 import {MyComplaintsData, MyComplaintsDataEmpty} from '../dummyData';
 
 const ComplaintItem = ({category, title, date, id}) => {
-  const onEditPress = () => {
-    //Edit View
-  };
-  //Confirmation alert
+  const onEditPress = () => {};
+
   const onDeletePress = () => {
     Alert.alert(
       '¿Borrar esta denuncia?',
@@ -29,17 +27,13 @@ const ComplaintItem = ({category, title, date, id}) => {
         },
         {
           text: 'Sí, borrar',
-          onPress: () => {
-            //delete Complaint functionality
-          },
+          onPress: () => {},
         },
       ],
     );
   };
 
-  const onDetailsPress = () => {
-    //Details View
-  };
+  const onDetailsPress = () => {};
 
   return (
     <View style={styles.cardLayout}>
@@ -61,7 +55,6 @@ const ComplaintItem = ({category, title, date, id}) => {
   );
 };
 
-// Button Component
 const DotButton = ({icon, onPress, size = 30}) => {
   return (
     <TouchableOpacity style={styles.pressIcon} onPress={onPress}>
@@ -76,7 +69,6 @@ const renderComplaintItem = (category, title, date, id) => {
   );
 };
 
-//show this in case there is no items to show
 const EmptyList = () => {
   return (
     <Text style={styles.EmptyMessageText}>
@@ -85,14 +77,12 @@ const EmptyList = () => {
   );
 };
 
-//My complaints List
 export const MyComplaints = props => {
   let sortedArray = useRef(sortArrayByDate(MyComplaintsData));
   useEffect(() => {
     sortedArray.current = sortArrayByDate(MyComplaintsData);
   }, []);
 
-  //main render
   return (
     <View style={styles.layout}>
       <View style={styles.headerSection}>
