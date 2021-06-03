@@ -1,18 +1,37 @@
-import {Text, View} from 'react-native';
-
-import {PrimaryButton} from '../../../components';
 import React from 'react';
+import {Text, View, FlatList} from 'react-native';
+import {Layout} from '../../../components';
+import ReportOverview from '../../../components/general/reportOverview';
+import dummyData from '../../../library/dummyData/dummyData';
+import style from '../styles/HomeStyles';
 
-const Home = props => {
-  const next = () => {
-    props.navigation.navigate('TitleDescriptionAdd', {
-      ...props.route.params,
-    });
-  };
+export default function Home() {
   return (
-    <View>
-      <Text>You are in home</Text>
-    </View>
+    <Layout>
+      <View style={style.homeContainer}>
+        <Text style={style.homeTitle}>
+          Lista de denuncias en:
+          <Text
+            onPress={() => {
+              console.log('HomeSettings');
+            }}>
+            {' '}
+            Lugares de interes
+          </Text>
+        </Text>
+        <FlatList
+          style={style.reportList}
+          data={dummyData}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <ReportOverview
+              userName={item.username}
+              reportType={item.reportType}
+              reportLocation={item.location}
+            />
+          )}
+        />
+      </View>
+    </Layout>
   );
-};
-export default Home;
+}
