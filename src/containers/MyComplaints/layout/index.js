@@ -72,9 +72,7 @@ const renderComplaintItem = (category, title, date, id) => {
 
 const EmptyList = () => {
   return (
-    <Text style={styles.EmptyMessageText}>
-      No tienes denuncias registradas.
-    </Text>
+    <Text style={styles.EmptyMessageText}>{DialogES.emptyComplaints}</Text>
   );
 };
 
@@ -88,7 +86,9 @@ export const MyComplaints = props => {
     <View style={styles.layout}>
       <View style={styles.headerSection}>
         <TouchableOpacity>
-          <Text style={styles.topText}>Orden: por fecha</Text>
+          <Text style={styles.topText}>
+            {DialogES.orderedBy}: {DialogES.filter}
+          </Text>
         </TouchableOpacity>
       </View>
       <SafeAreaView style={styles.listContainer}>
