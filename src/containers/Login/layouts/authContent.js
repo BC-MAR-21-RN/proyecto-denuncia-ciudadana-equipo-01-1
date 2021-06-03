@@ -6,7 +6,8 @@ import logo from '../../../../assets/logol.png';
 import styles from '../styles';
 import {useLoginControl} from '../../../library/hooks';
 
-const AuthContent = () => {
+const AuthContent = ({doLogin, signUp, googleAuthentication, user}) => {
+  console.log('THIS IS THE USER', user);
   const [islogin, setIsLogin] = useState(false);
   const [
     propsName,
@@ -14,7 +15,7 @@ const AuthContent = () => {
     propsPassword,
     errors,
     submit,
-  ] = useLoginControl(islogin);
+  ] = useLoginControl(islogin, doLogin, signUp);
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
@@ -32,7 +33,10 @@ const AuthContent = () => {
         />
         <PrimaryButton onPress={submit} text={islogin ? 'Login' : 'Sign In'} />
         <Text style={styles.textArea}>-or-</Text>
-        <PrimaryButton text={islogin ? 'Login' : 'Sign In'} />
+        <PrimaryButton
+          onPress={googleAuthentication}
+          text={islogin ? 'Login' : 'Sign In'}
+        />
       </View>
 
       <View style={styles.messageContaine}>

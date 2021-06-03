@@ -1,12 +1,13 @@
 import {isValidEmail, isValidPassword} from './is';
-import {performGoogleAuth, performGoogleAuthSign} from './performAuth';
 
+import {getNewState} from './frontend';
 import normalize from './normalize';
+import {performGoogleAuth} from './auth';
 
 export {
   performGoogleAuth,
-  performGoogleAuthSign,
   normalize,
   isValidEmail,
   isValidPassword,
+  getNewState,
 };

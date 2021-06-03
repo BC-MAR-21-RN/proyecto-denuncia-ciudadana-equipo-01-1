@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {isValidEmail} from '../methods';
 import {useInput} from '.';
 
-const useLoginControl = islogin => {
+const useLoginControl = (islogin, doLogin, signUp) => {
   const [propsName] = useInput('');
   const [propsEmail] = useInput('');
   const [propsPassword] = useInput('');
@@ -40,12 +40,15 @@ const useLoginControl = islogin => {
       return;
     }
 
-    console.log(
-      'SUBMITTING',
-      propsEmail.value,
-      propsName.value,
-      propsPassword.value,
-    );
+    if (islogin) {
+      doLogin({email: propsEmail.value, password: propsPassword.value});
+    } else {
+      signUp({
+        email: propsEmail.value,
+        name: propsName.value,
+        password: propsPassword.value,
+      });
+    }
   };
   return [propsName, propsEmail, propsPassword, errors, submit];
 };

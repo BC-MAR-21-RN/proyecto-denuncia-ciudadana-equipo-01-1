@@ -3,7 +3,7 @@ import DateEventsAdd from './AddNewCitizenComplaint/dateEventsAdd.container';
 import EvidenceAdd from './AddNewCitizenComplaint/evidenceAdd.container';
 import Home from './Home/layout';
 import LocationAdd from './AddNewCitizenComplaint/locationAdd.container';
-import Login from './Login/reduxContainer';
+import Login from './Login/layouts';
 import MyComplaints from './MyComplaints/layout';
 import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.container';
 

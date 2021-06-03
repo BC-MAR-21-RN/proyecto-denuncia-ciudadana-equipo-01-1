@@ -9,3 +9,8 @@ export const USER_SIGN_UP = {
   success: () => 'USER_SIGN_UP_SUCCESS',
   error: () => 'USER_SIGN_UP_ERROR',
 };
+export const USER_AUTH = {
+  request: () => 'USER_AUTH_REQUEST',
+  success: () => 'USER_AUTH_SUCCESS',
+  error: () => 'USER_AUTH_ERROR',
+};
