@@ -20,7 +20,14 @@ const useLocation = () => {
     },
   });
 
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState({
+    adminArea: '',
+    locality: '',
+    cp: '',
+    subLocality: '',
+    streetName: '',
+    streetNumber: '',
+  });
 
   useEffect(() => {
     Geolocation.getCurrentPosition(initialLocation =>
@@ -50,9 +57,17 @@ const useLocation = () => {
   const getPosition = async (latitude, longitude) => {
     await Geocoder.geocodePosition({lat: latitude, lng: longitude}).then(
       res => {
-        //console.log('RESPONSE', res[0].formattedAddress);
-        const add = res !== undefined ? res[0].formattedAddress : '';
-        setAddress(add);
+        //console.log('RESPONSE', res[0]);
+        const add = res !== undefined ? res[0] : '';
+        setAddress({
+          adminArea: add.adminArea,
+          locality: add.locality,
+          cp: add.postalCode,
+          subLocality:
+            add.subAdminArea !== null ? add.subAdminArea : add.subLocality,
+          streetName: add.streetName,
+          streetNumber: add.streetNumber,
+        });
       },
     );
   };
@@ -63,6 +78,7 @@ const useLocation = () => {
       region,
     });
   };
+
   return {location, address, onRegionChange};
 };
 export default useLocation;

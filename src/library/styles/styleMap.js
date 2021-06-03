@@ -9,13 +9,15 @@ const style = StyleSheet.create({
     flex: 1,
   },
   viewDown: {
-    flex: 1,
+    flex: 2,
     backgroundColor: 'powderblue',
   },
   inputs: {
     flex: 1,
     justifyContent: 'space-around',
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+    paddingBottom: 30,
   },
   title: {
     fontSize: 28,
@@ -25,7 +27,7 @@ const style = StyleSheet.create({
     fontSize: 20,
   },
   textInput: {
-    height: 80,
+    marginVertical: 10,
   },
 });
 

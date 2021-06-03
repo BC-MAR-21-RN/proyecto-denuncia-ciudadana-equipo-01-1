@@ -2,10 +2,8 @@ import {
   Complaints,
   Layout,
   ListComplaints,
-  MyComplaint,
   PrimaryButton,
 } from '../../../components';
-import {StyleSheet, Text, View} from 'react-native';
 
 import React from 'react';
 
@@ -48,8 +46,6 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-const styles = StyleSheet.create({});
 
 /*
     <Layout>
