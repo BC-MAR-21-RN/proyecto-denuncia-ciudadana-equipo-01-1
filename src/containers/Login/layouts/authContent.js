@@ -7,15 +7,10 @@ import styles from '../styles';
 import {useLoginControl} from '../../../library/hooks';
 
 const AuthContent = ({doLogin, signUp, googleAuthentication, user}) => {
-  console.log('THIS IS THE USER', user);
+  //console.log('THIS IS THE USER', user);
   const [islogin, setIsLogin] = useState(false);
-  const [
-    propsName,
-    propsEmail,
-    propsPassword,
-    errors,
-    submit,
-  ] = useLoginControl(islogin, doLogin, signUp);
+  const [propsName, propsEmail, propsPassword, errors, submit] =
+    useLoginControl(islogin, doLogin, signUp);
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>

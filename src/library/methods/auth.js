@@ -5,10 +5,8 @@ import firestore from '@react-native-firebase/firestore';
 export const performGoogleAuth = async () => {
   const {idToken} = await GoogleSignin.signIn();
 
-  // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
-  // Sign-in the user with the credential
   return auth()
     .signInWithCredential(googleCredential)
     .then(resp => {
@@ -17,7 +15,19 @@ export const performGoogleAuth = async () => {
     .catch(error => {});
 };
 
-export const createUserWithMail = () => {};
+export const createUserWithMail = ({email, password}) => {
+  auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(resp => {})
+    .catch(error => {});
+};
+
+export const loginUserWithMail = ({email, password}) => {
+  auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(resp => {})
+    .catch(error => {});
+};
 
 const createAditionalData = (resp, inputs) => {
   firestore()
@@ -27,7 +37,7 @@ const createAditionalData = (resp, inputs) => {
       name: auth().currentUser.displayName,
     })
     .then(() => {
-      findAdditionalData();
+      // findAdditionalData();
     })
     .catch(errr => {});
 };
