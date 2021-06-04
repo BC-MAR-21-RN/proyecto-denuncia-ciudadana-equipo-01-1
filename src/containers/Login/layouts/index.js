@@ -1,15 +1,14 @@
-import {Layout, ModalLayout} from '../../../components';
-import React, {Fragment, useState} from 'react';
-
-import AuthContent from './authContent';
+import AuthContent from '../reduxContainer';
+import {Layout} from '../../../components';
+import React from 'react';
+import {useGoogleConfiguration} from '../../../library/hooks';
 
 const Login = () => {
+  useGoogleConfiguration();
   return (
-    <Fragment>
-      <Layout scroll backColor="DarkPrimary">
-        <AuthContent />
-      </Layout>
-    </Fragment>
+    <Layout scroll backColor="DarkPrimary">
+      <AuthContent />
+    </Layout>
   );
 };
 
