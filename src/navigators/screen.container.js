@@ -16,8 +16,14 @@ import TabNavigator from './tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 export const Stack = createStackNavigator();
-const optionsBack = (navigation, HLeft, HRight, color) => ({
-  headerTitle: '',
+const optionsBack = (
+  navigation,
+  HLeft,
+  HRight,
+  color = null,
+  title = null,
+) => ({
+  headerTitle: title ? title : '',
   headerStyle: {
     backgroundColor: color ? color : '#B9D7F2',
     elevation: 0, // remove shadow on Android
@@ -50,25 +56,28 @@ const optionsBack = (navigation, HLeft, HRight, color) => ({
 });
 
 const listScreens = [
+ 
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
-  {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
   {
     name: 'MyComplaints',
     component: MyComplaints,
     headerLeft: false,
     headerRight: true,
+    title: 'My Complaints',
   },
   {
     name: 'TitleDescriptionAdd',
     component: TitleDescriptionAdd,
     headerLeft: false,
     headerRight: true,
+    title: 'My Complaints',
   },
   {
     name: 'DateEventsAdd',
     component: DateEventsAdd,
     headerLeft: true,
     headerRight: false,
+    title: 'My Complaints',
   },
   {name: 'AreaAdd', component: AreaAdd, headerLeft: true, headerRight: false},
   {
@@ -100,6 +109,7 @@ export const Screens = () => {
                     item.headerLeft,
                     item.headerRight,
                     item.color ? item.color : null,
+                    item.title ? item.name : '',
                   )
               : {headerShown: false}
           }
