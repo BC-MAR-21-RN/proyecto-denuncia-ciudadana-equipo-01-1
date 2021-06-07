@@ -30,7 +30,7 @@ const AuthContent = ({doLogin, signUp, googleAuthentication, user}) => {
         <Text style={styles.textArea}>-or-</Text>
         <PrimaryButton
           onPress={googleAuthentication}
-          text={islogin ? 'Login' : 'Sign In'}
+          text={islogin ? 'Login Google' : 'Sign In Google'}
         />
       </View>
 

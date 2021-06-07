@@ -14,7 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import TabNavigator from './tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import {authFirebase} from '../library/firebase';
 export const Stack = createStackNavigator();
 const optionsBack = (
   navigation,
@@ -46,7 +46,7 @@ const optionsBack = (
     if (HRight) {
       return (
         <Button
-          onPress={() => {}}
+          onPress={() => authFirebase.logoutFirebase(navigation.replace)}
           title="🧑"
           color={color ? color : '#B9D7F2'}
         />
@@ -58,6 +58,7 @@ const optionsBack = (
 const listScreens = [
  
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
+  {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
   {
     name: 'MyComplaints',
     component: MyComplaints,
