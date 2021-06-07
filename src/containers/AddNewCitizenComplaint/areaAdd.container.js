@@ -5,7 +5,7 @@ import {generalContainer} from './styleAddContainer';
 
 const AreaAdd = props => {
   const [selectedItem, setSelectedItem] = useState(1);
-  const itemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  //const itemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   const next = () => {
     props.navigation.navigate('LocationAdd', {
       ...props.route.params,

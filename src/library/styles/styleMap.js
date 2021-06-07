@@ -1,4 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import {colors} from './vars';
 
 const style = StyleSheet.create({
   container: {
@@ -7,17 +8,14 @@ const style = StyleSheet.create({
   },
   map: {
     flex: 1,
+    backgroundColor: 'white',
   },
   viewDown: {
     flex: 2,
-    backgroundColor: 'powderblue',
+    paddingHorizontal: 10,
   },
   inputs: {
-    flex: 1,
-    justifyContent: 'space-around',
-    paddingHorizontal: 10,
-    paddingTop: 10,
-    paddingBottom: 30,
+    paddingBottom: 40,
   },
   title: {
     fontSize: 28,
@@ -27,7 +25,12 @@ const style = StyleSheet.create({
     fontSize: 20,
   },
   textInput: {
-    marginVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.SecondaryText,
+    marginVertical: 5,
+  },
+  button: {
+    padding: 10,
   },
 });
 

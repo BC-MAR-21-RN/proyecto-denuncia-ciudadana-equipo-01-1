@@ -6,16 +6,16 @@ import {
   SafeAreaView,
   FlatList,
 } from 'react-native';
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../../../library/styles/vars';
 import {sortArrayByDate, dateFormatter} from '../../../library/methods';
 import {styles} from '../styles';
 import {DialogES} from '../../../library/constants/dialogs-ES';
 
-import {MyComplaintsData, MyComplaintsDataEmpty} from '../dummyData';
+import {MyComplaintsData} from '../dummyData';
 
-const ComplaintItem = ({category, title, date, id}) => {
+const ComplaintItem = ({category, title, date}) => {
   const onEditPress = () => {};
 
   const onDeletePress = () => {

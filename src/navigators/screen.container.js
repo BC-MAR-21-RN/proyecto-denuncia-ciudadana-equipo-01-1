@@ -2,7 +2,6 @@ import {
   AreaAdd,
   DateEventsAdd,
   EvidenceAdd,
-  Home,
   LocationAdd,
   Login,
   MyComplaints,

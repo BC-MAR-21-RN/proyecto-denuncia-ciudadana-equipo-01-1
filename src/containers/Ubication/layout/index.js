@@ -1,65 +1,61 @@
 import {ScrollView, Text, View} from 'react-native';
-import {Input, Layout, PrimaryButton} from '../../../components';
+import {Input, PrimaryButton} from '../../../components';
 import {useGeolocationConfiguration, useLocation} from '../../../library/hooks';
 import {styleMap as style} from '../../../library/styles/index';
 import React from 'react';
 import Map from '../../../components/general/Map';
 
-const Ubication = () => {
+const Ubication = ({pressFunction}) => {
   useGeolocationConfiguration();
   const {location, address, onRegionChange} = useLocation();
 
-  return (
-    <Layout>
-      <View style={style.map}>
-        <Map state={location} onRegionChange={onRegionChange} />
-        <View style={style.viewDown}>
-          <View style={style.inputs}>
-            <Text style={style.title}>Dirección:</Text>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <Input
-                editable
-                placeholder="Estado"
-                styleContainer={style.textInput}
-                value={address.adminArea}
-              />
-              <Input
-                editable
-                placeholder="Municipio"
-                styleContainer={style.textInput}
-                value={address.locality}
-              />
-              <Input
-                editable
-                placeholder="Código Postal"
-                styleContainer={style.textInput}
-                value={address.cp}
-              />
-              <Input
-                editable
-                placeholder="Asentamiento"
-                styleContainer={style.textInput}
-                value={address.subLocality}
-              />
-              <Input
-                editable
-                placeholder="Calle"
-                styleContainer={style.textInput}
-                value={address.streetName}
-              />
-              <Input
-                editable
-                placeholder="Número"
-                styleContainer={style.textInput}
-                value={address.streetNumber}
-              />
-            </ScrollView>
+  const inputValue = [
+    {
+      placeholder: 'Estado',
+      value: address.adminArea,
+    },
+    {
+      placeholder: 'Municipio',
+      value: address.locality,
+    },
+    {
+      placeholder: 'Código Postal',
+      value: address.cp,
+    },
+    {
+      placeholder: 'Asentamiento',
+      value: address.subLocality,
+    },
+    {
+      placeholder: 'Calle',
+      value: address.streetName,
+    },
+    {
+      placeholder: 'Número',
+      value: address.streetNumber,
+    },
+  ];
 
-            <PrimaryButton text="Continuar" />
-          </View>
+  return (
+    <View style={style.map}>
+      <Map state={location} onRegionChange={onRegionChange} />
+      <View style={style.viewDown}>
+        <Text style={style.title}>Dirección:</Text>
+        <View style={style.inputs}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {inputValue.map(item => (
+              <View style={style.textInput}>
+                <Text style={style.text}>{item.placeholder}:</Text>
+                <Input key={item.placeholder} editable value={item.value} />
+              </View>
+            ))}
+          </ScrollView>
         </View>
       </View>
-    </Layout>
+      <View style={style.button}>
+        <PrimaryButton text="Next" onPress={pressFunction} />
+      </View>
+    </View>
   );
 };
 

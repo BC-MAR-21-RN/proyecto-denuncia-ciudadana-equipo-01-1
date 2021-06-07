@@ -3,15 +3,14 @@ import {View, Text, TextInput} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import {Input} from '../';
 import {styleFormTitleDescription} from '../../library/styles/citizenComplaint';
-import moment from 'moment';
 
 const FormTitleDescription = ({
-  title = '',
-  description = '',
+  //title = '',
+  //description = '',
   anonymousUser = false,
-  textHeader = '',
+  //textHeader = '',
 }) => {
-  const [initialData, setInitialData] = useState('');
+  //const [initialData, setInitialData] = useState('');
   const fecha = new Date();
   const hoy = fecha.getDate();
   return (

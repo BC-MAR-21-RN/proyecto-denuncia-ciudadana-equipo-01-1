@@ -1,5 +1,5 @@
-import {Layout, ModalLayout} from '../../../components';
-import React, {Fragment, useState} from 'react';
+import {Layout} from '../../../components';
+import React, {Fragment} from 'react';
 
 import AuthContent from './authContent';
 
