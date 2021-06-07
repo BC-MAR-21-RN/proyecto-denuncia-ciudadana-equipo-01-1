@@ -8,7 +8,8 @@
     <!-- Include this only if you are planning to use the camera roll -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
@@ -16,6 +17,11 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyD8lqs9Ho3hkhgm4hLN2Un7mNyVW-fFWe0"/>
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -27,5 +33,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>
