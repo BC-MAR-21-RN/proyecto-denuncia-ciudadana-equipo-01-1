@@ -4,4 +4,10 @@ import {useInput} from './useInput';
 import useLoginControl from './useLoginControl';
 import {useRedirect} from './useRedirect';
 
-export {useGoogleConfiguration, useGoogleAuth, useInput, useLoginControl, useRedirect};
+export {
+  useGoogleConfiguration,
+  useGoogleAuth,
+  useInput,
+  useLoginControl,
+  useRedirect,
+};
