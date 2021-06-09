@@ -22,9 +22,7 @@ export default function ReportOverview(props) {
             <Text>👍</Text>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => {
-              console.log('REPORT DETS');
-            }}>
+            onPress={props.goToDetails}>
             <Text>👁️</Text>
           </TouchableHighlight>
         </View>
