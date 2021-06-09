@@ -56,7 +56,6 @@ const optionsBack = (
 });
 
 const listScreens = [
- 
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
   {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
   {

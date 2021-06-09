@@ -2,12 +2,16 @@ import {isValidEmail, isValidPassword} from './is';
 
 import {getNewState} from './frontend';
 import normalize from './normalize';
-import {performGoogleAuth} from './auth';
-
+import {performGoogleAuth, performGoogleAuthSign} from './auth';
+import {sortArrayByDate} from './sortArrayByDate';
+import {dateFormatter} from './dateFormatter';
 export {
-  performGoogleAuth,
   normalize,
   isValidEmail,
   isValidPassword,
   getNewState,
+  performGoogleAuth,
+  performGoogleAuthSign,
+  sortArrayByDate,
+  dateFormatter,
 };
