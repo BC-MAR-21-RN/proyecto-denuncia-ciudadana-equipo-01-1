@@ -3,8 +3,16 @@ import auth from '@react-native-firebase/auth';
 import {useEffect} from 'react';
 
 export const useRedirect = props => {
-  console.log('Redirigiendo');
+  console.log('PROPS', props);
+  console.log('AUTH', auth());
 
+  auth().onAuthStateChanged(user => {
+    if (auth()?.currentUser?.uid) {
+      console.log('Redirigiendo3');
+      props.navigation.dispatch(StackActions.replace('Home'));
+    }
+  });
+  /*
   useEffect(() => {
     console.log('Redirigiendo2');
     const timeout = setTimeout(() => {
@@ -16,5 +24,6 @@ export const useRedirect = props => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [auth().currentUser]);
+  }, [auth()?.currentUser]);
+  */
 };
