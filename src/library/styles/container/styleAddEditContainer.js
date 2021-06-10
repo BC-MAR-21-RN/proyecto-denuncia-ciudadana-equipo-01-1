@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const generalContainer = StyleSheet.create({
+const AddEditContainer = StyleSheet.create({
   internalContainer: {
     flex: 1,
     justifyContent: 'space-between',
@@ -19,3 +19,5 @@ export const generalContainer = StyleSheet.create({
   },
   textHeader: {fontWeight: 'bold', fontSize: 34, textAlign: 'center'},
 });
+
+export default AddEditContainer;

@@ -3,16 +3,14 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {PrimaryButton, DocumentImagePicker} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
 
-const EvidenceAdd = props => {
-  const next = () => {
-    props.navigation.navigate('Home', {
-      ...props.route.params,
-    });
-  };
+const EvidenceEdit = props => {
+  const save = () => {};
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <View style={StyleAddEditContainer.internalContainer}>
-        <Text style={StyleAddEditContainer.textHeader}>Evidence of the event</Text>
+        <Text style={StyleAddEditContainer.textHeader}>
+          Evidence of the event
+        </Text>
         <DocumentImagePicker />
         <Text style={StyleAddEditContainer.text}>Or</Text>
         <TouchableOpacity
@@ -21,8 +19,8 @@ const EvidenceAdd = props => {
           <Text style={StyleAddEditContainer.text}>Cam</Text>
         </TouchableOpacity>
       </View>
-      <PrimaryButton text="Save" onPress={next} />
+      <PrimaryButton text="Save" onPress={save} />
     </View>
   );
 };
-export default EvidenceAdd;
+export default EvidenceEdit;

@@ -3,20 +3,12 @@ import {View} from 'react-native';
 import {PrimaryButton, WheelSelect} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
 
-const AreaAdd = props => {
+const AreaEdit = props => {
   const [selectedItem, setSelectedItem] = useState(1);
-  const itemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  
-  const next = () => {
-    props.navigation.navigate('LocationAdd', {
-      ...props.route.params,
-    });
-  };
-  
+  const save = () => {};
   const elementChange = item => {
     setSelectedItem(item);
   };
-  
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <WheelSelect
@@ -31,9 +23,9 @@ const AreaAdd = props => {
         textWheel="What's the área?"
         elementChange={elementChange}
       />
-      <PrimaryButton text="Next" onPress={next} />
+      <PrimaryButton text="Save" onPress={save} />
     </View>
   );
 };
 
-export default AreaAdd;
+export default AreaEdit;
