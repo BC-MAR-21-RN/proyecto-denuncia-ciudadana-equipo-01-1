@@ -3,7 +3,6 @@ import {View, Text, TextInput} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import {Input} from '../';
 import {styleFormTitleDescription} from '../../library/styles/citizenComplaint';
-import moment from 'moment';
 
 const FormTitleDescription = ({
   title = '',
@@ -14,6 +13,7 @@ const FormTitleDescription = ({
   const [initialData, setInitialData] = useState('');
   const fecha = new Date();
   const hoy = fecha.getDate();
+  
   return (
     <View style={styleFormTitleDescription.container}>
       <Text style={styleFormTitleDescription.text}>Complaints' Title</Text>

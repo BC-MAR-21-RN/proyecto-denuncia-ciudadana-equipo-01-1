@@ -1,5 +1,7 @@
 package com.citizencomplaint;
 
+import com.devfd.RNGeocoder.RNGeocoderPackage; 
+import com.reactnativecommunity.geolocation.GeolocationPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;

@@ -3,6 +3,7 @@ import styleInput from './styleInput';
 import styleLayout from './styleLayout';
 import styleListComplaint from './styleListComplaint';
 import styleModalLayout from './styleModalLayout';
+import styleMap from './styleMap';
 import styleMyComplaint from './styleMyComplaint';
 import stylePrimaryButton from './stylePrimaryButton';
 import styleDate from './styleDate';
@@ -23,4 +24,5 @@ export {
   styleWheelSelect,
   styleWrapperKeyboardAvoid,
   styleDocumentPicker,
+  styleMap,
 };

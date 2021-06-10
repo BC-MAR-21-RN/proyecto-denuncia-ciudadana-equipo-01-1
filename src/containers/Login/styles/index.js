@@ -32,15 +32,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: screenWidth,
- 
   },
   textArea: {
     color: 'white',
     padding: 0,
     margin: 0,
   },
-  underlined:{
-textDecorationLine:'underline'
-  }
+  underlined: {
+    textDecorationLine: 'underline',
+  },
 });
 export default styles;

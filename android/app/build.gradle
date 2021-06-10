@@ -197,7 +197,9 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
+    implementation project(':react-native-community-geolocation')//Geolocation
+    compile project(':react-native-geocoder')//Geocoder
+    
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }

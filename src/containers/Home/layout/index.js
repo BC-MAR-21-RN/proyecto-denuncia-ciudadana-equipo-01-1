@@ -5,7 +5,9 @@ import ReportOverview from '../../../components/general/reportOverview';
 import dummyData from '../../../library/dummyData/dummyData';
 import style from '../styles/HomeStyles';
 
-export default function Home() {
+export default function Home({navigation}) {
+  const goToDetails = () => navigation.navigate('ComplaintDetails')
+
   return (
     <Layout>
       <View style={style.homeContainer}>
@@ -28,6 +30,7 @@ export default function Home() {
               userName={item.username}
               reportType={item.reportType}
               reportLocation={item.location}
+              goToDetails={goToDetails}
             />
           )}
         />
