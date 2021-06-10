@@ -4,7 +4,6 @@ import Geolocation from '@react-native-community/geolocation';
 export const getDriection = (lat, lng, setFunction) => {
   Geocoder.geocodePosition({lat: lat, lng: lng})
     .then(res => {
-      console.log(res);
       setFunction(res[0].formattedAddress);
     })
     .catch(err => console.log(err));

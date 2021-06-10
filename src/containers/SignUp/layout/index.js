@@ -34,6 +34,7 @@ const SignUp = () => {
       address: 'BLABLA 123457',
     },
   ];
+  
   return (
     <Layout>
       <ListComplaints
@@ -46,13 +47,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-/*
-    <Layout>
-      <ListComplaints
-        data={data}
-        renderItem={({item}) => <MyComplaint {...item} />}
-      />
-    </Layout>
-
-*/

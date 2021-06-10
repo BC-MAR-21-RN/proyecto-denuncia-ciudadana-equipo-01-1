@@ -15,10 +15,7 @@ export default function ReportOverview(props) {
       <View>
         <Text>{props.reportLocation}</Text>
         <View style={style.reportInteractions}>
-          <TouchableHighlight
-            onPress={() => {
-              console.log('LIKE');
-            }}>
+          <TouchableHighlight>
             <Text>👍</Text>
           </TouchableHighlight>
           <TouchableHighlight

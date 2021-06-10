@@ -4,7 +4,7 @@ import {Dimensions} from 'react-native';
 import Geocoder from 'react-native-geocoder';
 import Geolocation from '@react-native-community/geolocation';
 
-Geocoder.fallbackToGoogle('AIzaSyB8WtEVYUasBc0RXOj60P2Y-HyuI3m_BjQ');
+Geocoder.fallbackToGoogle(process.env.GEOCODER_API_KEY);
 
 const latDelta = 0.0122;
 const lngDelta =
@@ -57,7 +57,6 @@ const useLocation = () => {
   const getPosition = async (latitude, longitude) => {
     await Geocoder.geocodePosition({lat: latitude, lng: longitude}).then(
       res => {
-        //console.log('RESPONSE', res[0]);
         const add = res !== undefined ? res[0] : '';
         setAddress({
           adminArea: add.adminArea,
@@ -79,6 +78,33 @@ const useLocation = () => {
     });
   };
 
-  return {location, address, onRegionChange};
+  const addressData = [
+    {
+      placeholder: 'Estado',
+      value: address.adminArea,
+    },
+    {
+      placeholder: 'Municipio',
+      value: address.locality,
+    },
+    {
+      placeholder: 'Código Postal',
+      value: address.cp,
+    },
+    {
+      placeholder: 'Asentamiento',
+      value: address.subLocality,
+    },
+    {
+      placeholder: 'Calle',
+      value: address.streetName,
+    },
+    {
+      placeholder: 'Número',
+      value: address.streetNumber,
+    },
+  ]
+
+  return {location, addressData, onRegionChange};
 };
 export default useLocation;

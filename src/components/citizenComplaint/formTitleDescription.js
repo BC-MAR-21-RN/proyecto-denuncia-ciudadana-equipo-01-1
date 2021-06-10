@@ -5,14 +5,15 @@ import {Input} from '../';
 import {styleFormTitleDescription} from '../../library/styles/citizenComplaint';
 
 const FormTitleDescription = ({
-  //title = '',
-  //description = '',
+  title = '',
+  description = '',
   anonymousUser = false,
-  //textHeader = '',
+  textHeader = '',
 }) => {
-  //const [initialData, setInitialData] = useState('');
+  const [initialData, setInitialData] = useState('');
   const fecha = new Date();
   const hoy = fecha.getDate();
+  
   return (
     <View style={styleFormTitleDescription.container}>
       <Text style={styleFormTitleDescription.text}>Complaints' Title</Text>
