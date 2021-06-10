@@ -1,4 +1,14 @@
-import {useGoogleAuth} from './useAuth';
-import useGoogleConfiguration from './useGoogleConfiguration';
+import {
+  useGeolocationConfiguration,
+  useGoogleConfiguration,
+} from './useGoogleConfiguration';
 
-export {useGoogleConfiguration, useGoogleAuth};
+import {useGoogleAuth} from './useAuth';
+import useLocation from './useLocation';
+
+export {
+  useGoogleConfiguration,
+  useGoogleAuth,
+  useLocation,
+  useGeolocationConfiguration,
+};

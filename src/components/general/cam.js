@@ -30,7 +30,9 @@ class Cam extends PureComponent {
             buttonNegative: 'Cancel',
           }}>
           {({camera, status, recordAudioPermissionStatus}) => {
-            if (status !== 'READY') return <PendingView />;
+            if (status !== 'READY') {
+              return <PendingView />;
+            }
             return (
               <View style={styleCam.containerButton}>
                 <TouchableOpacity

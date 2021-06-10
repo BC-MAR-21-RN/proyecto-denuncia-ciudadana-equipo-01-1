@@ -7,7 +7,8 @@ import Login from './Login/reduxContainer';
 import MyComplaints from './MyComplaints/layout';
 import SignUp from './SignUp/layout';
 import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.container';
-
+import Ubication from './Ubication/layout';
+import ComplaintDetails from './ComplaintDetails/layout';
 //Add new Citizen Complaint
 
 //Home
@@ -22,4 +23,6 @@ export {
   TitleDescriptionAdd,
   LocationAdd,
   EvidenceAdd,
+  Ubication,
+  ComplaintDetails
 };

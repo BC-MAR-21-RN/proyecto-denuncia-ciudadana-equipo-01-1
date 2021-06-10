@@ -1,8 +1,8 @@
 import {
   AreaAdd,
+  ComplaintDetails,
   DateEventsAdd,
   EvidenceAdd,
-  Home,
   LocationAdd,
   Login,
   MyComplaints,
@@ -37,6 +37,7 @@ const optionsBack = navigation => ({
 const listScreens = [
   {name: 'Home', component: TabNavigator, back: false},
   {name: 'MyComplaints', component: MyComplaints, back: true},
+  {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
   {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
   {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
   {name: 'AreaAdd', component: AreaAdd, back: true},
