@@ -5,10 +5,7 @@ import {StyleAddEditContainer} from '../../library/styles/container';
 
 const AreaEdit = props => {
   const [selectedItem, setSelectedItem] = useState(1);
-  const itemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  const save = () => {
-    console.log("Saving")
-  };
+  const save = () => {};
   const elementChange = item => {
     setSelectedItem(item);
   };

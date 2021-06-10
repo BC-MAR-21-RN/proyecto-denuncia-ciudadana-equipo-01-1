@@ -3,9 +3,7 @@ import {View, Text} from 'react-native';
 import {PrimaryButton} from '../../components';
 
 const LocationEdit = props => {
-  const save = () => {
-    console.log('Saving')
-  };
+  const save = () => {};
   return (
     <View>
       <Text>Select location of the event</Text>
