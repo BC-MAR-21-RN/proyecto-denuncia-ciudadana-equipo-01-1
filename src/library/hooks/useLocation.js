@@ -103,7 +103,7 @@ const useLocation = () => {
       placeholder: 'Número',
       value: address.streetNumber,
     },
-  ]
+  ];
 
   return {location, addressData, onRegionChange};
 };

@@ -18,8 +18,7 @@ export default function ReportOverview(props) {
           <TouchableHighlight>
             <Text>👍</Text>
           </TouchableHighlight>
-          <TouchableHighlight
-            onPress={props.goToDetails}>
+          <TouchableHighlight onPress={props.goToDetails}>
             <Text>👁️</Text>
           </TouchableHighlight>
         </View>
