@@ -13,7 +13,7 @@ const FormTitleDescription = ({
   const [initialData, setInitialData] = useState('');
   const fecha = new Date();
   const hoy = fecha.getDate();
-  
+
   return (
     <View style={styleFormTitleDescription.container}>
       <Text style={styleFormTitleDescription.text}>Complaints' Title</Text>

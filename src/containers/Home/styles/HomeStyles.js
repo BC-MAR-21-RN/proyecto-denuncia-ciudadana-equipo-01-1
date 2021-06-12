@@ -14,6 +14,9 @@ const style = StyleSheet.create({
     fontSize: 20,
     paddingVertical: 10,
   },
+  icon: {
+    alignItems: 'flex-end',
+  },
 });
 
 export default style;
