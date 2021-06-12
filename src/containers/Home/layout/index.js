@@ -13,7 +13,7 @@ export default function Home({navigation}) {
       <View style={style.homeContainer}>
         <Text style={style.homeTitle}>
           Lista de denuncias en:
-          <Text
+          <Text style={style.homeTextStyle}
             onPress={() => {
               console.log('HomeSettings');
             }}>
