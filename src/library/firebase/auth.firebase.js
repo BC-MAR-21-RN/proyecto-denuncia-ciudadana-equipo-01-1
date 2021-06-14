@@ -1,22 +1,39 @@
-import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {setBase64} from '../methods/security';
-export const loginUserWithMail = async data => {
+
+export const loginUserWithMail = async ({email, password}) => {
   return await auth()
-    .signInWithEmailAndPassword(data['email'], setBase64(data['password']))
-    .then(resp => resp)
-    .catch(error => error);
+    .signInWithEmailAndPassword(email, setBase64(password))
+    .then(() => true)
+    .catch(() => false);
 };
 
-export const createUserWithMail = async data => {
+export const createUserWithMail = async ({email, password}) => {
   return await auth()
-    .createUserWithEmailAndPassword(data['email'], setBase64(data['password']))
-    .then(resp => resp)
-    .catch(error => {
-      console.log('error pendejo', error);
-      return error;
-    });
+    .createUserWithEmailAndPassword(email, setBase64(password))
+    .then(async () => {
+      return await auth()
+        .currentUser.sendEmailVerification()
+        .then(
+          async () =>
+            await auth()
+              .onUserChanged(response => {
+                const unsubscribeSetInterval = setInterval(() => {
+                  auth().currentUser.reload();
+                }, 30000);
+                if (response.emailVerified) {
+                  clearInterval(unsubscribeSetInterval);
+                  return true;
+                }
+              })
+              .then(() => true)
+              .catch(() => false),
+        )
+        .catch(() => false);
+    })
+    .catch(() => false);
 };
 
 export const authWithGoogle = async () => {
@@ -24,8 +41,8 @@ export const authWithGoogle = async () => {
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
   return auth()
     .signInWithCredential(googleCredential)
-    .then(resp => resp)
-    .catch(error => error);
+    .then(() => true)
+    .catch(() => false);
 };
 
 export const logoutFirebase = navigate => {

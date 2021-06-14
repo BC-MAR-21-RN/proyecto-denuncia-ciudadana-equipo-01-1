@@ -1,4 +1,4 @@
-import {doLogin, googleAuthentication, signUp} from '../actions';
+import {cleanAuth, doLogin, googleAuthentication, signUp} from '../actions';
 
 import AuthContent from '../layouts/authContent';
 import {bindActionCreators} from 'redux';
@@ -12,6 +12,7 @@ export default connect(
         doLogin,
         signUp,
         googleAuthentication,
+        cleanAuth,
       },
       dispatch,
     ),

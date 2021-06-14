@@ -1,18 +1,26 @@
 import {Image, Text, View} from 'react-native';
-import {Input, PrimaryButton} from '../../../components';
+import {Input, ModalLayout, PrimaryButton} from '../../../components';
 import React, {useState} from 'react';
 
+import ModalScreen from './ModalScreen';
 import logo from '../../../../assets/logol.png';
 import styles from '../styles';
 import {useLoginControl} from '../../../library/hooks';
 
-const AuthContent = ({doLogin, signUp, googleAuthentication, user}) => {
-  //console.log('THIS IS THE USER', user);
-  const [islogin, setIsLogin] = useState(false);
+const AuthContent = ({
+  doLogin,
+  signUp,
+  googleAuthentication,
+  user,
+  ...rest
+}) => {
+  const [islogin, setIsLogin] = useState(true);
   const [propsName, propsEmail, propsPassword, errors, submit] =
     useLoginControl(islogin, doLogin, signUp);
+
   return (
     <View style={styles.container}>
+      <ModalScreen {...{...user, ...rest}} />
       <View style={styles.iconContainer}>
         <Image style={styles.logo} source={logo} />
       </View>

@@ -14,3 +14,6 @@ export const USER_AUTH = {
   success: () => 'USER_AUTH_SUCCESS',
   error: () => 'USER_AUTH_ERROR',
 };
+export const CLEAN_AUTH = {
+  success: () => 'CLEAN_AUTH_SUCCESS',
+};

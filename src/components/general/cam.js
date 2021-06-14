@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+
 import {RNCamera} from 'react-native-camera';
 import {styleCam} from '../../library/styles';
 

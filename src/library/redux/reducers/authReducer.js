@@ -1,4 +1,5 @@
 import {
+  CLEAN_AUTH,
   USER_AUTH,
   USER_LOGIN,
   USER_SIGN_UP,
@@ -7,7 +8,7 @@ import {
 import {getNewState} from '../../methods';
 
 const initialState = {
-  user: {},
+  message: '',
   error: '',
   loading: false,
 };
@@ -18,75 +19,74 @@ const userReducer = (state = initialState, action) => {
       return getNewState(state, {
         ...state,
         loading: true,
+        message: 'Loading...',
       });
     }
 
     case USER_LOGIN.success(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        user: payload,
         loading: false,
+        message: 'Login success',
       });
     }
     case USER_LOGIN.error(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        error: payload,
+        error: true,
         loading: false,
+        message: "Can't login",
       });
     }
     case USER_SIGN_UP.request(): {
       return getNewState(state, {
         ...state,
         loading: true,
+        message: 'Loading...',
       });
     }
 
     case USER_SIGN_UP.success(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        user: payload,
         loading: false,
+        message: 'Sign in success',
       });
     }
     case USER_SIGN_UP.error(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        error: payload,
+        error: true,
         loading: false,
+        message: "Can't sign in",
       });
     }
     case USER_AUTH.request(): {
       return getNewState(state, {
         ...state,
         loading: true,
+        message: 'Loading...',
       });
     }
 
     case USER_AUTH.success(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        user: payload,
         loading: false,
+        message: 'Login success',
       });
     }
     case USER_AUTH.error(): {
-      const {payload} = action;
-
       return getNewState(state, {
         ...state,
-        error: payload,
+        error: true,
         loading: false,
+        message: "Can't login",
+      });
+    }
+    case CLEAN_AUTH.success(): {
+      return getNewState(state, {
+        ...initialState,
       });
     }
     default:

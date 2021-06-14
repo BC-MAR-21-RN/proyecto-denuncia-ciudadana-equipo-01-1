@@ -41,9 +41,7 @@ const useLoginControl = (islogin, doLogin, signUp) => {
     }
 
     if (islogin) {
-      doLogin({email: propsEmail.value, password: propsPassword.value}).then(
-        () => console.log('kjjkj'),
-      );
+      doLogin({email: propsEmail.value, password: propsPassword.value}).then();
     } else {
       signUp({
         email: propsEmail.value,
