@@ -23,7 +23,7 @@ export default function Home({navigation}) {
         </View>
         <Text style={style.homeTitle}>
           Lista de denuncias en:
-          <Text
+          <Text style={style.homeTextStyle}
             onPress={() => {
               console.log('HomeSettings');
             }}>
