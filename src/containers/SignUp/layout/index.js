@@ -34,7 +34,7 @@ const SignUp = () => {
       address: 'BLABLA 123457',
     },
   ];
-  
+
   return (
     <Layout>
       <ListComplaints

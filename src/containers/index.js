@@ -9,6 +9,7 @@ import SignUp from './SignUp/layout';
 import TitleDescriptionAdd from './AddNewCitizenComplaint/titleDescriptionAdd.container';
 import Ubication from './Ubication/layout';
 import ComplaintDetails from './ComplaintDetails/layout';
+import UserConfiguration from './UserConfiguration/layout';
 //Add new Citizen Complaint
 
 //Home
@@ -24,5 +25,6 @@ export {
   LocationAdd,
   EvidenceAdd,
   Ubication,
-  ComplaintDetails
+  ComplaintDetails,
+  UserConfiguration,
 };

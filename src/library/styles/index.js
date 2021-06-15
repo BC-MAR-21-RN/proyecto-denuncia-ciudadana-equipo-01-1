@@ -11,6 +11,8 @@ import styleCam from './styleCam';
 import styleWheelSelect from './styleWheelSelect';
 import styleWrapperKeyboardAvoid from './styleWrapperKeyboardAvoid';
 import styleDocumentPicker from './styleDocumentPicker';
+import styleUserConfig from './styleUserConfig';
+
 export {
   styleComplaints,
   styleInput,
@@ -25,4 +27,5 @@ export {
   styleWrapperKeyboardAvoid,
   styleDocumentPicker,
   styleMap,
+  styleUserConfig,
 };

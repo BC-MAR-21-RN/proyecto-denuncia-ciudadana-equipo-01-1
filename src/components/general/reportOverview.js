@@ -20,6 +20,7 @@ export default function ReportOverview(props) {
           <TouchableHighlight>
             <Icon name={'thumb-up'} style={style.iconSpacing} size={20} color={colors.DarkPrimary}></Icon>
           </TouchableHighlight>
+
           <TouchableHighlight
             onPress={props.goToDetails}>
            <Icon name={'remove-red-eye'} style={style.iconSpacing} size={20} color={colors.DarkPrimary} ></Icon>

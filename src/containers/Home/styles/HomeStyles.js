@@ -20,7 +20,11 @@ const style = StyleSheet.create({
   homeTextStyle:{
     color:'#FFFFFF',
     fontWeight:'bold'
-  }
+  },
+  icon: {
+    alignItems: 'flex-end',
+  },
+
 });
 
 export default style;

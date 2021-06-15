@@ -8,6 +8,7 @@ import {
   MyComplaints,
   SignUp,
   TitleDescriptionAdd,
+  UserConfiguration,
 } from '../containers';
 
 import {Icon} from 'react-native-eva-icons';
@@ -37,6 +38,7 @@ const optionsBack = navigation => ({
 const listScreens = [
   {name: 'Home', component: TabNavigator, back: false},
   {name: 'MyComplaints', component: MyComplaints, back: true},
+  {name: 'UserConfiguration', component: UserConfiguration, back: true},
   {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
   {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
   {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
