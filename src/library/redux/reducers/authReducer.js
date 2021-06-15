@@ -35,7 +35,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         error: true,
         loading: false,
-        message: "Can't login",
+        message: "Can't login verify your account",
       });
     }
     case USER_SIGN_UP.request(): {
@@ -50,7 +50,7 @@ const userReducer = (state = initialState, action) => {
       return getNewState(state, {
         ...state,
         loading: false,
-        message: 'Sign in success',
+        message: 'Verify your acount by email',
       });
     }
     case USER_SIGN_UP.error(): {
@@ -58,7 +58,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         error: true,
         loading: false,
-        message: "Can't sign in",
+        message: "Can't sign in your email couldn't be regristered",
       });
     }
     case USER_AUTH.request(): {

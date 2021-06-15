@@ -20,14 +20,14 @@ export const signUp = data => async dispatch => {
   const action = USER_SIGN_UP;
   dispatch(request(action));
   const response = await authFirebase.createUserWithMail(data);
+
   if (response) {
     dispatch(success(action));
   } else {
     dispatch(error(action));
   }
-  console.log('response', response);
-  return;
 
+  return;
 };
 
 export const googleAuthentication = () => async dispatch => {

@@ -28,7 +28,7 @@ const AuthContent = ({
         {!islogin && (
           <Input error={errors.name} {...propsName} placeholder="Nombre" />
         )}
-        <Input error={errors.email} {...propsEmail} placeholder="Usuario" />
+        <Input error={errors.email} {...propsEmail} placeholder="Email" />
         <Input
           error={errors.password}
           {...propsPassword}

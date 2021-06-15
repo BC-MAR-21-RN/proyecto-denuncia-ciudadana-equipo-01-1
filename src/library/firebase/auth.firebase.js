@@ -16,22 +16,20 @@ export const createUserWithMail = async ({email, password}) => {
     .then(async () => {
       return await auth()
         .currentUser.sendEmailVerification()
-        .then(
-          async () =>
-            await auth()
-              .onUserChanged(response => {
-                const unsubscribeSetInterval = setInterval(() => {
-                  auth().currentUser.reload();
-                }, 30000);
-                if (response.emailVerified) {
-                  clearInterval(unsubscribeSetInterval);
-                  return true;
-                }
-              })
-              .then(() => true)
-              .catch(() => false),
-        )
-        .catch(() => false);
+        .then(() => {
+          return auth()
+            .signOut()
+            .then(resp => {
+              console.log('resp', resp);
+
+              return true;
+            });
+        })
+        .catch(error => {
+          console.log('error', error);
+
+          return false;
+        });
     })
     .catch(() => false);
 };
