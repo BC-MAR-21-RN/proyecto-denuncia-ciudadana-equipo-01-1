@@ -5,6 +5,9 @@ const dateStyle = StyleSheet.create({
     fontSize: 34,
     textAlign: 'center',
   },
+  previous: {
+    color: 'red',
+  },
 });
 
 export default dateStyle;

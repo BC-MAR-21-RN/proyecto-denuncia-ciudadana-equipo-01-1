@@ -2,6 +2,7 @@ import {Text, View} from 'react-native';
 
 import {PrimaryButton} from '../../components';
 import React from 'react';
+import {Ubication} from '..';
 
 const LocationAdd = props => {
   const next = () => {
@@ -9,11 +10,6 @@ const LocationAdd = props => {
       ...props.route.params,
     });
   };
-  return (
-    <View>
-      <Text>Select location of the event</Text>
-      <PrimaryButton text="Next" onPress={next} />
-    </View>
-  );
+  return <Ubication pressFunction={next} />;
 };
 export default LocationAdd;

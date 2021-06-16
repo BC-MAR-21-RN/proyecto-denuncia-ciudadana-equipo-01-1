@@ -1,12 +1,13 @@
 import {
   AreaAdd,
+  ComplaintDetails,
   DateEventsAdd,
   EvidenceAdd,
-  Home,
   LocationAdd,
   Login,
   MyComplaints,
   TitleDescriptionAdd,
+  UserConfiguration,
 } from '../containers';
 import {Button} from 'react-native';
 import {Icon} from 'react-native-eva-icons';
@@ -56,6 +57,7 @@ const optionsBack = (
 });
 
 const listScreens = [
+<<<<<<< HEAD
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
   {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
   {
@@ -92,6 +94,10 @@ const listScreens = [
     headerLeft: true,
     headerRight: false,
   },
+  {name: 'MyComplaints', component: MyComplaints, back: true},
+  {name: 'UserConfiguration', component: UserConfiguration, back: true},
+  {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
+
 ];
 
 export const Screens = () => {

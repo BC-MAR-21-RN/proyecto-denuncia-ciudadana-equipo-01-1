@@ -27,6 +27,7 @@ const TabListItems = [
     name: 'TitleDescriptionAdd',
     tabBarLabel: 'Agregar',
     component: TitleDescriptionAdd,
+
     icon: 'library-add',
     title: 'Title DescriptionAdd',
   },

@@ -1,8 +1,8 @@
+import React, {Fragment} from 'react';
 import {useGoogleConfiguration, useRedirect} from '../../../library/hooks';
 
 import AuthContent from '../reduxContainer';
 import {Layout} from '../../../components';
-import React from 'react';
 
 const Login = props => {
   useGoogleConfiguration();

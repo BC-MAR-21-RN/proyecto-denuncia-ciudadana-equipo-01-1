@@ -1,6 +1,11 @@
+import {
+  useGeolocationConfiguration,
+  useGoogleConfiguration,
+} from './useGoogleConfiguration';
+
 import {useGoogleAuth} from './useAuth';
-import useGoogleConfiguration from './useGoogleConfiguration';
 import {useInput} from './useInput';
+import useLocation from './useLocation';
 import useLoginControl from './useLoginControl';
 import {useRedirect} from './useRedirect';
 
@@ -10,4 +15,6 @@ export {
   useInput,
   useLoginControl,
   useRedirect,
+  useLocation,
+  useGeolocationConfiguration,
 };

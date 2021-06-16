@@ -1,6 +1,7 @@
 import {Date, PrimaryButton} from '../../components';
 import React, {useState} from 'react';
 
+import {StyleAddEditContainer} from '../../library/styles/container';
 import {View} from 'react-native';
 import {generalContainer} from './styleAddContainer';
 
@@ -16,7 +17,7 @@ const DateEventsAdd = props => {
     console.log(dateSelected);
   };
   return (
-    <View style={generalContainer.internalContainer}>
+    <View style={StyleAddEditContainer.internalContainer}>
       <Date dateChange={dateChange} textDate="Select date" />
       <PrimaryButton text="Next" onPress={next} />
     </View>

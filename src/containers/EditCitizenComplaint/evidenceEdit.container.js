@@ -1,16 +1,10 @@
-import {DocumentImagePicker, PrimaryButton} from '../../components';
-import {Text, TouchableOpacity, View} from 'react-native';
-
 import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {PrimaryButton, DocumentImagePicker} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
-import {generalContainer} from './styleAddContainer';
 
-const EvidenceAdd = props => {
-  const next = () => {
-    props.navigation?.navigate('Home', {
-      ...props.route.params,
-    });
-  };
+const EvidenceEdit = props => {
+  const save = () => {};
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <View style={StyleAddEditContainer.internalContainer}>
@@ -25,8 +19,8 @@ const EvidenceAdd = props => {
           <Text style={StyleAddEditContainer.text}>Cam</Text>
         </TouchableOpacity>
       </View>
-      <PrimaryButton text="Save" onPress={next} />
+      <PrimaryButton text="Save" onPress={save} />
     </View>
   );
 };
-export default EvidenceAdd;
+export default EvidenceEdit;

@@ -16,7 +16,7 @@ const Date = ({dateChange, textDate = ''}) => {
             fill="#3366FF"
           />
         }
-        previousTitleStyle={{color: 'red'}}
+        previousTitleStyle={styleDate.previous}
         nextComponent={
           <Icon
             name="chevron-right-outline"

@@ -1,20 +1,14 @@
+import React from 'react';
+import {View, Text} from 'react-native';
 import {
-  FormTitleDescription,
   PrimaryButton,
   WrapperKeyboardAvoid,
+  FormTitleDescription,
 } from '../../components';
-import {Text, View} from 'react-native';
-
-import React from 'react';
 import {StyleAddEditContainer} from '../../library/styles/container';
-import {generalContainer} from './styleAddContainer';
 
-const TitleAdd = props => {
-  const next = () => {
-    props.navigation?.navigate('DateEventsAdd', {
-      ...props.route.params,
-    });
-  };
+const TitleEdit = props => {
+  const save = () => {};
   return (
     <WrapperKeyboardAvoid>
       <View style={StyleAddEditContainer.internalContainer}>
@@ -24,10 +18,10 @@ const TitleAdd = props => {
           </Text>
           <FormTitleDescription />
         </View>
-        <PrimaryButton text="Next" onPress={next} />
+        <PrimaryButton text="Save" onPress={save} />
       </View>
     </WrapperKeyboardAvoid>
   );
 };
 
-export default TitleAdd;
+export default TitleEdit;
