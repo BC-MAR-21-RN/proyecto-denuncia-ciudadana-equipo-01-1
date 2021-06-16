@@ -10,26 +10,28 @@ export const loginUserWithMail = async ({email, password}) => {
     .catch(() => false);
 };
 
-export const createUserWithMail = async ({email, password}) => {
+export const createUserWithMail = async ({name, email, password}) => {
   return await auth()
     .createUserWithEmailAndPassword(email, setBase64(password))
     .then(async () => {
+      createAditionalData(name);
+      firestore()
+        .collection('complaints')
+        .doc('SbpNphb62pp4IEFhNsEo')
+        .onSnapshot(resp => {
+          if (resp) {
+            return resp.data()['listComplaints'];
+          }
+        });
+
       return await auth()
         .currentUser.sendEmailVerification()
         .then(() => {
           return auth()
             .signOut()
-            .then(resp => {
-              console.log('resp', resp);
-
-              return true;
-            });
+            .then(() => true);
         })
-        .catch(error => {
-          console.log('error', error);
-
-          return false;
-        });
+        .catch(() => false);
     })
     .catch(() => false);
 };
@@ -39,14 +41,57 @@ export const authWithGoogle = async () => {
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
   return auth()
     .signInWithCredential(googleCredential)
-    .then(() => true)
+    .then(() => {
+      createAditionalData();
+      return true;
+    })
     .catch(() => false);
 };
 
 export const logoutFirebase = navigate => {
-  return auth()
-    .signOut()
-    .then(() => navigate('Login'));
+  return auth().signOut();
+};
+
+const createAditionalData = name => {
+  firestore()
+    .collection('userData')
+    .doc(auth().currentUser.uid)
+    .set({
+      name: name || auth().currentUser.displayName,
+    })
+    .then(() => {
+      findAdditionalData();
+    });
+};
+const findAdditionalData = async () => {
+  const fullData = await firestore()
+    .collection('complaints')
+    .doc('SbpNphb62pp4IEFhNsEo')
+    .get()
+    .then(resp => {
+      if (resp.exists) {
+        return resp.data()['listComplaints'];
+      }
+      return false;
+    });
+  console.log('RESPONSE=======>', fullData);
+  const eleementInArr = fullData.find(({id}) => id === auth().currentUser.uid);
+  if (!eleementInArr) {
+    firestore()
+      .collection('complaints')
+      .doc('SbpNphb62pp4IEFhNsEo')
+      .set({
+        listComplaints: [
+          ...fullData,
+          {
+            id: auth().currentUser.uid,
+            list: [],
+            initerestUbication: [],
+          },
+        ],
+      });
+  }
+  return;
 };
 
 const service = {

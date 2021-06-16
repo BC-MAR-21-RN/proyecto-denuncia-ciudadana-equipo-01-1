@@ -1,9 +1,11 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
+
 import {PrimaryButton} from '../../components';
+import React from 'react';
+
 const LocationAdd = props => {
   const next = () => {
-    props.navigation.navigate('EvidenceAdd', {
+    props.navigation?.navigate('EvidenceAdd', {
       ...props.route.params,
     });
   };

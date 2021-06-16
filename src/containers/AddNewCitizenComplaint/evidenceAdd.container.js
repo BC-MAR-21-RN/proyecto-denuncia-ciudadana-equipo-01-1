@@ -1,11 +1,12 @@
+import {DocumentImagePicker, PrimaryButton} from '../../components';
+import {Text, TouchableOpacity, View} from 'react-native';
+
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {PrimaryButton, DocumentImagePicker} from '../../components';
 import {generalContainer} from './styleAddContainer';
 
 const EvidenceAdd = props => {
   const next = () => {
-    props.navigation.navigate('Home', {
+    props.navigation?.navigate('Home', {
       ...props.route.params,
     });
   };

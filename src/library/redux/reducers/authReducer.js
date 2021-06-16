@@ -35,7 +35,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         error: true,
         loading: false,
-        message: "Can't login verify your account",
+        message: "Can't login, verify your account",
       });
     }
     case USER_SIGN_UP.request(): {
