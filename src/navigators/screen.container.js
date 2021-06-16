@@ -9,13 +9,15 @@ import {
   TitleDescriptionAdd,
   UserConfiguration,
 } from '../containers';
+
 import {Button} from 'react-native';
 import {Icon} from 'react-native-eva-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import TabNavigator from './tabs';
-import {createStackNavigator} from '@react-navigation/stack';
 import {authFirebase} from '../library/firebase';
+import {createStackNavigator} from '@react-navigation/stack';
+
 export const Stack = createStackNavigator();
 const optionsBack = (
   navigation,
@@ -57,7 +59,6 @@ const optionsBack = (
 });
 
 const listScreens = [
-<<<<<<< HEAD
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
   {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
   {
@@ -94,10 +95,9 @@ const listScreens = [
     headerLeft: true,
     headerRight: false,
   },
-  {name: 'MyComplaints', component: MyComplaints, back: true},
+
   {name: 'UserConfiguration', component: UserConfiguration, back: true},
   {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
-
 ];
 
 export const Screens = () => {
