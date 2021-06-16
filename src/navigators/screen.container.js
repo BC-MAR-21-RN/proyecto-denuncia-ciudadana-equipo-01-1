@@ -10,11 +10,12 @@ import {
   TitleDescriptionAdd,
 } from '../containers';
 
-import {Icon} from 'react-native-eva-icons';
-import {NavigationContainer} from '@react-navigation/native';
+import { Icon } from 'react-native-eva-icons';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import TabNavigator from './tabs';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import PlacesOfInterest from '../containers/PlacesOfInterest/layout';
 
 export const Stack = createStackNavigator();
 const optionsBack = navigation => ({
@@ -35,16 +36,17 @@ const optionsBack = navigation => ({
 });
 
 const listScreens = [
-  {name: 'Home', component: TabNavigator, back: false},
-  {name: 'MyComplaints', component: MyComplaints, back: true},
-  {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
-  {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
-  {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
-  {name: 'AreaAdd', component: AreaAdd, back: true},
-  {name: 'LocationAdd', component: LocationAdd, back: true},
-  {name: 'EvidenceAdd', component: EvidenceAdd, back: true},
-  {name: 'Login', component: Login, back: false},
-  {name: 'SignUp', component: SignUp, back: false},
+  { name: 'Home', component: TabNavigator, back: false },
+  { name: 'MyComplaints', component: MyComplaints, back: true },
+  { name: 'ComplaintDetails', component: ComplaintDetails, back: true },
+  { name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true },
+  { name: 'DateEventsAdd', component: DateEventsAdd, back: true },
+  { name: 'AreaAdd', component: AreaAdd, back: true },
+  { name: 'LocationAdd', component: LocationAdd, back: true },
+  { name: 'EvidenceAdd', component: EvidenceAdd, back: true },
+  { name: 'Login', component: Login, back: false },
+  { name: 'SignUp', component: SignUp, back: false },
+  { name: 'PlacesOfInterest', component: PlacesOfInterest, back: true }
 ];
 
 export const Screens = () => {
@@ -56,8 +58,8 @@ export const Screens = () => {
           name={item.name}
           options={
             item.back
-              ? ({navigation}) => optionsBack(navigation)
-              : {headerShown: false}
+              ? ({ navigation }) => optionsBack(navigation)
+              : { headerShown: false }
           }
           component={item.component}
         />
