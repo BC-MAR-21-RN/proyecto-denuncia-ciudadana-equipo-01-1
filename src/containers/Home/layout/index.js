@@ -1,15 +1,17 @@
 import React from 'react';
 import {Text, View, FlatList, TouchableHighlight} from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Layout} from '../../../components';
+
 import ReportOverview from '../../../components/general/reportOverview';
 import dummyData from '../../../library/dummyData/dummyData';
 import style from '../styles/HomeStyles';
 
+
 export default function Home({navigation}) {
   const goToDetails = () => navigation.navigate('ComplaintDetails');
   const goToConfig = () => navigation.navigate('UserConfiguration');
-
   return (
     <Layout>
       <View style={style.homeContainer}>
@@ -23,11 +25,9 @@ export default function Home({navigation}) {
         </View>
         <Text style={style.homeTitle}>
           Lista de denuncias en:
-          <Text style={style.homeTextStyle}
-            onPress={() => {
-              console.log('HomeSettings');
-            }}>
-            {' '}
+
+          <Text
+            onPress={goToInterests}>
             Lugares de interes
           </Text>
         </Text>
@@ -35,7 +35,7 @@ export default function Home({navigation}) {
           style={style.reportList}
           data={dummyData}
           keyExtractor={item => item.id}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <ReportOverview
               userName={item.username}
               reportType={item.reportType}
