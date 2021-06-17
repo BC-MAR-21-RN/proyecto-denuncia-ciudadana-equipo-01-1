@@ -16,6 +16,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import TabNavigator from './tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import PlacesOfInterest from '../containers/PlacesOfInterest/layout';
 
 export const Stack = createStackNavigator();
 const optionsBack = navigation => ({
@@ -48,6 +49,7 @@ const listScreens = [
   {name: 'EvidenceAdd', component: EvidenceAdd, back: true},
   {name: 'Login', component: Login, back: false},
   {name: 'SignUp', component: SignUp, back: false},
+  {name: 'PlacesOfInterest', component: PlacesOfInterest, back: true},
 
 ];
 
