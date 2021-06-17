@@ -1,6 +1,6 @@
 import React from 'react'
+
 import { Text, TouchableOpacity, View } from 'react-native'
-import { color } from 'react-native-reanimated';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { colors } from '../../../library/styles/vars';
@@ -49,6 +49,7 @@ export default function PlacesOfInterest() {
                     <Icon name={'check'} size={30} color={'white'} />
                 </TouchableOpacity>
             </View>
+
         </View>
     )
 }
