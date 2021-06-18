@@ -6,7 +6,6 @@ import {Layout} from '../../../components';
 
 const Login = props => {
   useGoogleConfiguration();
-  //useRedirect(props);
   return (
     <Layout scroll backColor="DarkPrimary">
       <AuthContent {...props} />
