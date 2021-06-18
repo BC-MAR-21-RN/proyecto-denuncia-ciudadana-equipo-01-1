@@ -74,7 +74,6 @@ const findAdditionalData = async () => {
       }
       return false;
     });
-  console.log('RESPONSE=======>', fullData);
   const eleementInArr = fullData.find(({id}) => id === auth().currentUser.uid);
   if (!eleementInArr) {
     firestore()

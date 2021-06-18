@@ -8,7 +8,6 @@ export const doLogin = data => async dispatch => {
   const action = USER_LOGIN;
   dispatch(request(action));
   const response = await authFirebase.loginUserWithMail(data);
-  console.log(auth().currentUser);
   if (response) {
     if (auth().currentUser.emailVerified) {
       dispatch(success(action));
@@ -28,7 +27,6 @@ export const signUp = data => async dispatch => {
 
   dispatch(request(action));
   const response = await authFirebase.createUserWithMail(data);
-  console.log(auth().currentUser);
 
   if (response) {
     dispatch(success(action));
@@ -59,7 +57,6 @@ export const cleanAuth = () => async dispatch => {
 
 const clean = (dispatch, action) => {
   setTimeout(() => {
-    console.log('CLEANING');
     dispatch(success(action));
   }, 2000);
 };
