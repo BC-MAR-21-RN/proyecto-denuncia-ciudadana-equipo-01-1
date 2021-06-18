@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {Screens} from './src/navigators/screen.container';
 import {useGoogleConfiguration} from './src/library/hooks';

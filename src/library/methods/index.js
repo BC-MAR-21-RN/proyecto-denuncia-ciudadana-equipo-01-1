@@ -1,15 +1,18 @@
 import {currentPosition, getDriection} from './mapsGeo';
-import {performGoogleAuth, performGoogleAuthSign} from './performAuth';
-import {sortArrayByDate} from './sortArrayByDate';
+import {isValidEmail, isValidPassword} from './is';
+
 import {dateFormatter} from './dateFormatter';
-import normalize from '../methods/normalize';
+import {getNewState} from './frontend';
+import normalize from './normalize';
+import {sortArrayByDate} from './sortArrayByDate';
 
 export {
-  performGoogleAuth,
-  performGoogleAuthSign,
+  normalize,
+  isValidEmail,
+  isValidPassword,
+  getNewState,
   currentPosition,
   getDriection,
   sortArrayByDate,
   dateFormatter,
-  normalize,
 };

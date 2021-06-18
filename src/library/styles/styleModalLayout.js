@@ -14,8 +14,8 @@ const style = StyleSheet.create({
     paddingVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 100,
-    minWidth: 100,
+    minHeight: 200,
+    minWidth: 200,
   },
   textModal: {
     color: colors.LightPrimary,
