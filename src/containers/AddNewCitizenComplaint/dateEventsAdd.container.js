@@ -1,12 +1,14 @@
+import {Date, PrimaryButton} from '../../components';
 import React, {useState} from 'react';
-import {PrimaryButton, Date} from '../../components';
-import {View} from 'react-native';
+
 import {StyleAddEditContainer} from '../../library/styles/container';
+import {View} from 'react-native';
+import {generalContainer} from './styleAddContainer';
 
 const DateEventsAdd = props => {
   const [dateSelected, setDateSelected] = useState();
   const next = () => {
-    props.navigation.navigate('AreaAdd', {
+    props.navigation?.navigate('AreaAdd', {
       ...props.route.params,
     });
   };

@@ -1,15 +1,19 @@
-import Login from '../layouts';
+import {cleanAuth, doLogin, googleAuthentication, signUp} from '../actions';
+
+import AuthContent from '../layouts/authContent';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {doLogin} from '../actions';
 
 export default connect(
-  ({userReducer: {user}}) => ({user}),
+  ({user}) => ({user}),
   dispatch =>
     bindActionCreators(
       {
         doLogin,
+        signUp,
+        googleAuthentication,
+        cleanAuth,
       },
       dispatch,
     ),
-)(Login);
+)(AuthContent);

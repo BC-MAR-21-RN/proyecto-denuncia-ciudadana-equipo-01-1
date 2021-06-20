@@ -4,13 +4,13 @@ import {PrimaryButton, DocumentImagePicker} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
 
 const EvidenceEdit = props => {
-  const save = () => {
-    consol.log("Saving")
-  };
+  const save = () => {};
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <View style={StyleAddEditContainer.internalContainer}>
-        <Text style={StyleAddEditContainer.textHeader}>Evidence of the event</Text>
+        <Text style={StyleAddEditContainer.textHeader}>
+          Evidence of the event
+        </Text>
         <DocumentImagePicker />
         <Text style={StyleAddEditContainer.text}>Or</Text>
         <TouchableOpacity

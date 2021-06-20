@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
 import {PrimaryButton, WheelSelect} from '../../components';
+import React, {useState} from 'react';
+
 import {StyleAddEditContainer} from '../../library/styles/container';
+import {View} from 'react-native';
+import {generalContainer} from './styleAddContainer';
 
 const AreaAdd = props => {
   const [selectedItem, setSelectedItem] = useState(1);
   const itemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+
   const next = () => {
-    props.navigation.navigate('LocationAdd', {
+    props.navigation?.navigate('LocationAdd', {
       ...props.route.params,
     });
   };
+
   const elementChange = item => {
     setSelectedItem(item);
   };
+
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <WheelSelect

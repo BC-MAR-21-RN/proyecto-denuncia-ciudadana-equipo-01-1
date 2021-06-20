@@ -5,10 +5,8 @@ import {StyleAddEditContainer} from '../../library/styles/container';
 
 const DateEventsEdit = props => {
   const [dateSelected, setDateSelected] = useState();
-  
-  const save = () => {
-    console.log("Saving");
-  };
+
+  const save = () => {};
   const dateChange = date => {
     setDateSelected(date ? date.toString() : date);
     console.log(dateSelected);

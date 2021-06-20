@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+
 import {RNCamera} from 'react-native-camera';
 import {styleCam} from '../../library/styles';
 
@@ -30,7 +31,9 @@ class Cam extends PureComponent {
             buttonNegative: 'Cancel',
           }}>
           {({camera, status, recordAudioPermissionStatus}) => {
-            if (status !== 'READY') return <PendingView />;
+            if (status !== 'READY') {
+              return <PendingView />;
+            }
             return (
               <View style={styleCam.containerButton}>
                 <TouchableOpacity

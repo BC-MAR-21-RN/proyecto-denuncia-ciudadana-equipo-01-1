@@ -1,18 +1,22 @@
+import {DocumentImagePicker, PrimaryButton} from '../../components';
+import {Text, TouchableOpacity, View} from 'react-native';
+
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {PrimaryButton, DocumentImagePicker} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
+import {generalContainer} from './styleAddContainer';
 
 const EvidenceAdd = props => {
   const next = () => {
-    props.navigation.navigate('Home', {
+    props.navigation?.navigate('Home', {
       ...props.route.params,
     });
   };
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <View style={StyleAddEditContainer.internalContainer}>
-        <Text style={StyleAddEditContainer.textHeader}>Evidence of the event</Text>
+        <Text style={StyleAddEditContainer.textHeader}>
+          Evidence of the event
+        </Text>
         <DocumentImagePicker />
         <Text style={StyleAddEditContainer.text}>Or</Text>
         <TouchableOpacity
