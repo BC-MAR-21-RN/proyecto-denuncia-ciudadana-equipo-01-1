@@ -15,10 +15,10 @@ const style = StyleSheet.create({
   homeTitle: {
     fontSize: 20,
     paddingVertical: 10,
-    color: '#FFFFFF',
+    color: colors.White,
   },
   homeTextStyle: {
-    color: '#FFFFFF',
+    color: colors.White,
     fontWeight: 'bold',
   },
   icon: {

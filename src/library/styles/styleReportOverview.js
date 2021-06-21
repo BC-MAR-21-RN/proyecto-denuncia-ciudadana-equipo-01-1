@@ -3,7 +3,7 @@ import {colors} from '../../../src/library/styles/vars';
 const style = StyleSheet.create({
   reportDetails: {
     marginBottom: 5,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.White,
     flexDirection: 'row',
     borderRadius: 15,
     width: '100%',

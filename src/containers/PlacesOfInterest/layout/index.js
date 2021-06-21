@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {TouchableOpacity, View} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import { TouchableOpacity, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PlaceInfoCard from '../../../components/placesOfInterest/placeInfoCard';
@@ -9,7 +9,7 @@ import PlaceInfoCard from '../../../components/placesOfInterest/placeInfoCard';
 import ddata from '../DummyData/dummyData';
 import style from '../styles/PFIstyles';
 
-export default function PlacesOfInterest({navigation}) {
+export default function PlacesOfInterest({ navigation }) {
   const addPlace = () => navigation.navigate('addPlaceOfInterest');
   const editPlace = () => navigation.navigate('editPlaceOfInterest');
   return (
@@ -26,15 +26,13 @@ export default function PlacesOfInterest({navigation}) {
       <View style={style.Maincontainer}>
         <FlatList
           data={ddata}
-          renderItem={({item}) => {
+          renderItem={({ item }) => {
             return (
               <PlaceInfoCard
                 pais={item.pais}
                 codigo={item.cp}
                 vecindario={item.vecindario}
-                delButton={() => {
-                  console.log('Delete entry');
-                }}
+                delButton={() => { }}
                 edButton={() => editPlace()}
               />
             );
