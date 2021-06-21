@@ -1,31 +1,31 @@
-import { Home, MyComplaints, TitleDescriptionAdd } from '../containers';
+import {Home, MyComplaints, TitleDescriptionAdd} from '../containers';
 
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { colors } from '../library/styles/vars';
-import { StyleSheet } from 'react-native';
+import {colors} from '../library/styles/vars';
+import {StyleSheet} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 const TabListItems = [
   {
-    name: 'Home', 
-    tabBarLabel: 'Inicio', 
-    component: Home, 
-    icon: 'home'
+    name: 'Home',
+    tabBarLabel: 'Inicio',
+    component: Home,
+    icon: 'home',
   },
   {
     name: 'MyComplaints',
     tabBarLabel: 'Mis denuncias',
     component: MyComplaints,
-    icon: 'folder-shared'
+    icon: 'folder-shared',
   },
   {
     name: 'TitleDescriptionAdd',
     tabBarLabel: 'Agregar',
     component: TitleDescriptionAdd,
-    icon: 'library-add'
+    icon: 'library-add',
   },
 ];
 
@@ -33,11 +33,12 @@ const TabList = () => {
   return TabListItems.map(item => {
     return (
       <Tab.Screen
+        key={1}
         name={item.name}
         component={item.component}
         options={{
           tabBarLabel: item.tabBarLabel,
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({focused}) => (
             <Icon
               name={item.icon}
               size={30}

@@ -1,55 +1,47 @@
-import React from 'react'
+import React from 'react';
 
-import { Text, TouchableOpacity, View } from 'react-native'
+import {TouchableOpacity, View} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { colors } from '../../../library/styles/vars';
+import PlaceInfoCard from '../../../components/placesOfInterest/placeInfoCard';
 
-import style from '../styles/PFIstyles'
+import ddata from '../DummyData/dummyData';
+import style from '../styles/PFIstyles';
 
-export default function PlacesOfInterest() {
-    return (
-        <View style={style.Maincontainer}>
-
-            <View style={style.card}>
-                <View>
-                    <View style={style.cardTextAlignment}>
-                        <Text style={style.cardText}>Pais</Text>
-                        <Text style={style.cardText}>Colombia</Text>
-                    </View>
-                    <View style={style.cardTextAlignment}>
-                        <Text style={style.cardText}>Codigo Postal</Text>
-                        <Text style={style.cardText}>12345</Text>
-                    </View>
-                    <View style={style.cardTextAlignment}>
-                        <Text style={style.cardText}>Vecindario</Text>
-                        <Text style={style.cardText}>Barrio 1</Text>
-                    </View>
-                </View>
-                <View style={style.buttonsCardAlignment}>
-
-                    <TouchableOpacity style={style.cardIcon}>
-                        <View style={style.buttonsCardAlignment}>
-                            <Icon name={'border-color'} color={colors.DarkPrimary} size={25} />
-                            <Text style={style.IconText}>  Editar </Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={style.cardIcon}>
-                        <View style={style.buttonsCardAlignment}>
-                            <Icon name={'delete'}  color={colors.DarkPrimary} size={25} />
-                            <Text style={style.IconText}> Borrar </Text>
-                        </View>
-                    </TouchableOpacity>
-
-                </View>
-            </View>
-            <View style={style.topButtonContainer}>
-                <TouchableOpacity style={style.topButton}>
-                    <Icon name={'check'} size={30} color={'white'} />
-                </TouchableOpacity>
-            </View>
-
-        </View>
-    )
+export default function PlacesOfInterest({navigation}) {
+  const addPlace = () => navigation.navigate('addPlaceOfInterest');
+  const editPlace = () => navigation.navigate('editPlaceOfInterest');
+  return (
+    <View style={style.Maincontainer}>
+      <View>
+        <TouchableOpacity
+          style={style.topButton}
+          onPress={() => {
+            addPlace();
+          }}>
+          <Icon name={'add'} size={30} color={'white'} />
+        </TouchableOpacity>
+      </View>
+      <View style={style.Maincontainer}>
+        <FlatList
+          data={ddata}
+          renderItem={({item}) => {
+            return (
+              <PlaceInfoCard
+                pais={item.pais}
+                codigo={item.cp}
+                vecindario={item.vecindario}
+                delButton={() => {
+                  console.log('Delete entry');
+                }}
+                edButton={() => editPlace()}
+              />
+            );
+          }}
+          keyExtractor={item => item.id}
+        />
+      </View>
+    </View>
+  );
 }

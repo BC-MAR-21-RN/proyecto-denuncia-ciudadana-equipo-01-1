@@ -11,12 +11,15 @@ import {
   UserConfiguration,
 } from '../containers';
 
-import { Icon } from 'react-native-eva-icons';
-import { NavigationContainer } from '@react-navigation/native';
+import {Icon} from 'react-native-eva-icons';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import TabNavigator from './tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
+
 import PlacesOfInterest from '../containers/PlacesOfInterest/layout';
+import addPlace from '../containers/PlacesOfInterest/addPlace';
+import editPlace from '../containers/PlacesOfInterest/editPlace';
 
 export const Stack = createStackNavigator();
 const optionsBack = navigation => ({
@@ -37,8 +40,6 @@ const optionsBack = navigation => ({
 });
 
 const listScreens = [
-
-
   {name: 'Home', component: TabNavigator, back: false},
   {name: 'MyComplaints', component: MyComplaints, back: true},
   {name: 'UserConfiguration', component: UserConfiguration, back: true},
@@ -51,8 +52,8 @@ const listScreens = [
   {name: 'Login', component: Login, back: false},
   {name: 'SignUp', component: SignUp, back: false},
   {name: 'PlacesOfInterest', component: PlacesOfInterest, back: true},
-
-
+  {name: 'addPlaceOfInterest', component: addPlace, back: true},
+  {name: 'editPlaceOfInterest', component: editPlace, back: true},
 ];
 
 export const Screens = () => {
@@ -64,8 +65,8 @@ export const Screens = () => {
           name={item.name}
           options={
             item.back
-              ? ({ navigation }) => optionsBack(navigation)
-              : { headerShown: false }
+              ? ({navigation}) => optionsBack(navigation)
+              : {headerShown: false}
           }
           component={item.component}
         />

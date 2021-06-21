@@ -6,5 +6,5 @@ export const colors = {
   PrimaryText: '#212121',
   SecondaryText: '#757575',
   DiverColor: '#BDBDBD',
-  White: '#FFFFFF'
+  White: '#FFFFFF',
 };

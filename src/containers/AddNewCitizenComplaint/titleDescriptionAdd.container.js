@@ -17,7 +17,9 @@ const TitleAdd = props => {
     <WrapperKeyboardAvoid>
       <View style={StyleAddEditContainer.internalContainer}>
         <View>
-          <Text style={StyleAddEditContainer.textHeader}>Title and Description</Text>
+          <Text style={StyleAddEditContainer.textHeader}>
+            Title and Description
+          </Text>
           <FormTitleDescription />
         </View>
         <PrimaryButton text="Next" onPress={next} />
