@@ -19,6 +19,11 @@ import {authFirebase} from '../library/firebase';
 import {createStackNavigator} from '@react-navigation/stack';
 import {colors} from '../library/styles/vars';
 
+import PlacesOfInterest from '../containers/PlacesOfInterest/layout';
+import addPlace from '../containers/PlacesOfInterest/addPlace';
+import editPlace from '../containers/PlacesOfInterest/editPlace';
+import SignUp from '../containers/SignUp/layout';
+
 export const Stack = createStackNavigator();
 const optionsBack = (
   navigation,
@@ -60,45 +65,21 @@ const optionsBack = (
 });
 
 const listScreens = [
-  {name: 'Login', component: Login, headerLeft: false, headerRight: false},
-  {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
-  {
-    name: 'MyComplaints',
-    component: MyComplaints,
-    headerLeft: false,
-    headerRight: true,
-    title: 'My Complaints',
-  },
-  {
-    name: 'TitleDescriptionAdd',
-    component: TitleDescriptionAdd,
-    headerLeft: false,
-    headerRight: true,
-    title: 'My Complaints',
-  },
-  {
-    name: 'DateEventsAdd',
-    component: DateEventsAdd,
-    headerLeft: true,
-    headerRight: false,
-    title: 'My Complaints',
-  },
-  {name: 'AreaAdd', component: AreaAdd, headerLeft: true, headerRight: false},
-  {
-    name: 'LocationAdd',
-    component: LocationAdd,
-    headerLeft: true,
-    headerRight: false,
-  },
-  {
-    name: 'EvidenceAdd',
-    component: EvidenceAdd,
-    headerLeft: true,
-    headerRight: false,
-  },
-
+  {name: 'Home', component: TabNavigator, back: false},
+  {name: 'MyComplaints', component: MyComplaints, back: true},
   {name: 'UserConfiguration', component: UserConfiguration, back: true},
   {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
+  {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
+  {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
+  {name: 'AreaAdd', component: AreaAdd, back: true},
+  {name: 'LocationAdd', component: LocationAdd, back: true},
+  {name: 'EvidenceAdd', component: EvidenceAdd, back: true},
+  {name: 'Login', component: Login, back: false},
+  {name: 'SignUp', component: SignUp, back: false},
+  {name: 'PlacesOfInterest', component: PlacesOfInterest, back: true},
+  {name: 'addPlaceOfInterest', component: addPlace, back: true},
+  {name: 'editPlaceOfInterest', component: editPlace, back: true},
+
 ];
 
 export const Screens = () => {

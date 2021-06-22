@@ -3,6 +3,7 @@ import {View, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Input, PrimaryButton, Layout} from '../../../components';
 import {styleUserConfig} from '../../../library/styles';
+import {colors} from '../../../library/styles/vars';
 
 const UserConfiguration = () => {
   return (
@@ -17,22 +18,23 @@ const UserConfiguration = () => {
         </View>
         <View>
           <View style={styleUserConfig.input}>
-            <Image
+            <Icon name="person-outline" size={30} color={colors.DarkPrimary} />
+            {/*<Image
               source={require('../../../../assets/user.png')}
               style={styleUserConfig.userIcon}
-            />
+           />*/}
             <Input placeholder="Usuario" />
           </View>
           <View style={styleUserConfig.input}>
-            <Icon name="mail-outline" size={30} />
+            <Icon name="mail-outline" size={30} color={colors.DarkPrimary} />
             <Input placeholder="E-mail" />
           </View>
           <View style={styleUserConfig.input}>
-            <Icon name="lock-outline" size={30} />
+            <Icon name="lock-outline" size={30} color={colors.DarkPrimary} />
             <Input placeholder="Contraseña" secureTextEntry />
           </View>
           <View style={styleUserConfig.input}>
-            <Icon name="lock-outline" size={30} />
+            <Icon name="lock-outline" size={30} color={colors.DarkPrimary} />
             <Input placeholder="Confirmar contraseña" secureTextEntry />
           </View>
         </View>

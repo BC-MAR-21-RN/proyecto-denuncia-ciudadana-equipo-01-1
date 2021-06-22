@@ -10,21 +10,20 @@ const style = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignContent: 'flex-start',
-    backgroundColor: colors.DarkPrimary
+    backgroundColor: colors.DarkPrimary,
   },
   homeTitle: {
     fontSize: 20,
     paddingVertical: 10,
-    color:'#FFFFFF'
+    color: colors.White,
   },
-  homeTextStyle:{
-    color:'#FFFFFF',
-    fontWeight:'bold'
+  homeTextStyle: {
+    color: colors.White,
+    fontWeight: 'bold',
   },
   icon: {
     alignItems: 'flex-end',
   },
-
 });
 
 export default style;

@@ -1,14 +1,19 @@
 import React from 'react';
+
 import {Text, View, FlatList, TouchableHighlight} from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Layout} from '../../../components';
+
 import ReportOverview from '../../../components/general/reportOverview';
 import dummyData from '../../../library/dummyData/dummyData';
+import {colors} from '../../../library/styles/vars';
 import style from '../styles/HomeStyles';
 
 export default function Home({navigation}) {
   const goToDetails = () => navigation.navigate('ComplaintDetails');
   const goToConfig = () => navigation.navigate('UserConfiguration');
+  const goToPlaces = () => navigation.navigate('PlacesOfInterest');
 
   return (
     <Layout>
@@ -18,18 +23,12 @@ export default function Home({navigation}) {
             activeOpacity={0.6}
             underlayColor="transparent"
             onPress={goToConfig}>
-            <Icon name={'settings'} size={30} />
+            <Icon name={'settings'} size={30} color={colors.White} />
           </TouchableHighlight>
         </View>
         <Text style={style.homeTitle}>
           Lista de denuncias en:
-          <Text style={style.homeTextStyle}
-            onPress={() => {
-              console.log('HomeSettings');
-            }}>
-            {' '}
-            Lugares de interes
-          </Text>
+          <Text onPress={goToPlaces}> Lugares de interes </Text>
         </Text>
         <FlatList
           style={style.reportList}
