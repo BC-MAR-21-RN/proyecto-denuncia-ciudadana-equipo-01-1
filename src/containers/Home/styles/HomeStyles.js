@@ -8,7 +8,7 @@ const style = StyleSheet.create({
   },
   homeContainer: {
     flex: 1,
-    padding: 10,
+    padding: 20,
     alignContent: 'flex-start',
     backgroundColor: colors.DarkPrimary,
   },

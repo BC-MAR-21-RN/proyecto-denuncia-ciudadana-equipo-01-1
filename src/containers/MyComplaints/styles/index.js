@@ -96,6 +96,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   listContainer: {
+    margin: 10,
     flex: 1,
   },
   //

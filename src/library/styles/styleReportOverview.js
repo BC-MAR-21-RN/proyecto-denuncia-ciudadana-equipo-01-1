@@ -1,15 +1,25 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../../src/library/styles/vars';
 const style = StyleSheet.create({
+  reportContainer: {
+    marginBottom: 5,
+    borderRadius: 15,
+    backgroundColor: '#e6e6e6',
+  },
+
+  headerCard: {
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
   reportDetails: {
     marginBottom: 5,
     backgroundColor: colors.White,
-    flexDirection: 'row',
-    borderRadius: 15,
-    width: '100%',
-    justifyContent: 'space-between',
     paddingVertical: 10,
     paddingHorizontal: 10,
+    flexDirection: 'row',
+    borderRadius: 15,
   },
   reportInteractions: {
     flexDirection: 'row',
@@ -20,6 +30,15 @@ const style = StyleSheet.create({
     backgroundColor: colors.LightPrimary,
     padding: 8,
     borderRadius: 50,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    color: colors.DarkPrimary,
+    fontWeight: 'bold',
   },
   detailTextStyle: {
     fontSize: 15,

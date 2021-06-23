@@ -65,21 +65,81 @@ const optionsBack = (
 });
 
 const listScreens = [
-  {name: 'Home', component: TabNavigator, back: false},
-  {name: 'MyComplaints', component: MyComplaints, back: true},
-  {name: 'UserConfiguration', component: UserConfiguration, back: true},
-  {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
-  {name: 'TitleDescriptionAdd', component: TitleDescriptionAdd, back: true},
-  {name: 'DateEventsAdd', component: DateEventsAdd, back: true},
-  {name: 'AreaAdd', component: AreaAdd, back: true},
-  {name: 'LocationAdd', component: LocationAdd, back: true},
-  {name: 'EvidenceAdd', component: EvidenceAdd, back: true},
-  {name: 'Login', component: Login, back: false},
-  {name: 'SignUp', component: SignUp, back: false},
-  {name: 'PlacesOfInterest', component: PlacesOfInterest, back: true},
-  {name: 'addPlaceOfInterest', component: addPlace, back: true},
-  {name: 'editPlaceOfInterest', component: editPlace, back: true},
+  {name: 'Login', component: Login, headerLeft: false, headerRight: false},
+  {
+    name: 'Home',
+    component: TabNavigator,
+    headerLeft: false,
+    headerRight: false,
+  },
+  {
+    name: 'MyComplaints',
+    component: MyComplaints,
+    headerLeft: false,
+    headerRight: true,
+    title: 'My Complaints',
+  },
+  {
+    name: 'TitleDescriptionAdd',
+    component: TitleDescriptionAdd,
+    headerLeft: false,
+    headerRight: false,
+    title: 'My Complaints',
+  },
+  {
+    name: 'UserConfiguration',
+    component: UserConfiguration,
+    headerLeft: true,
+    headerRight: false,
+  },
 
+  {
+    name: 'ComplaintDetails',
+    component: ComplaintDetails,
+    headerLeft: false,
+    headerRight: false,
+  },
+  {
+    name: 'DateEventsAdd',
+    component: DateEventsAdd,
+    headerLeft: true,
+    headerRight: false,
+    title: 'My Complaints',
+  },
+  {name: 'AreaAdd', component: AreaAdd, headerLeft: true, headerRight: false},
+  {
+    name: 'LocationAdd',
+    component: LocationAdd,
+    headerLeft: true,
+    headerRight: false,
+  },
+  {
+    name: 'EvidenceAdd',
+    component: EvidenceAdd,
+    headerLeft: true,
+    headerRight: false,
+  },
+  {name: 'SignUp', component: SignUp, headerLeft: false, headerRight: false},
+
+  {
+    name: 'addPlaceOfInterest',
+    component: addPlace,
+    headerLeft: false,
+    headerRight: true,
+  },
+  {
+    name: 'editPlaceOfInterest',
+    component: editPlace,
+    headerLeft: false,
+    headerRight: true,
+  },
+
+  {
+    name: 'PlacesOfInterest',
+    component: PlacesOfInterest,
+    headerLeft: true,
+    headerRight: false,
+  },
 ];
 
 export const Screens = () => {

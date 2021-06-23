@@ -1,25 +1,24 @@
-import {Date, PrimaryButton} from '../../components';
 import React, {useState} from 'react';
-
+import moment from 'moment';
+import {Date, PrimaryButton} from '../../components';
 import {StyleAddEditContainer} from '../../library/styles/container';
 import {View} from 'react-native';
-import {generalContainer} from './styleAddContainer';
 
 const DateEventsAdd = props => {
   const [dateSelected, setDateSelected] = useState();
   const next = () => {
     props.navigation?.navigate('AreaAdd', {
       ...props.route.params,
+      dataEvents: moment(new Date(dateSelected)).format('DD/MM/YYYY'),
     });
   };
   const dateChange = date => {
     setDateSelected(date ? date.toString() : date);
-    console.log(dateSelected);
   };
   return (
     <View style={StyleAddEditContainer.internalContainer}>
       <Date dateChange={dateChange} textDate="Select date" />
-      <PrimaryButton text="Next" onPress={next} />
+      {dateSelected && <PrimaryButton text="Next" onPress={next} />}
     </View>
   );
 };

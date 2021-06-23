@@ -10,7 +10,7 @@ const latDelta = 0.0122;
 const lngDelta =
   (Dimensions.get('window').width / Dimensions.get('window').height) * latDelta;
 
-const useLocation = () => {
+const useLocation = changeDataLocation => {
   const [location, setLocation] = useState({
     region: {
       latitude: 19.252189,
@@ -58,6 +58,15 @@ const useLocation = () => {
     await Geocoder.geocodePosition({lat: latitude, lng: longitude}).then(
       res => {
         const add = res !== undefined ? res[0] : '';
+        changeDataLocation({
+          adminArea: add.adminArea,
+          locality: add.locality,
+          cp: add.postalCode,
+          subLocality:
+            add.subAdminArea !== null ? add.subAdminArea : add.subLocality,
+          streetName: add.streetName,
+          streetNumber: add.streetNumber,
+        });
         setAddress({
           adminArea: add.adminArea,
           locality: add.locality,
