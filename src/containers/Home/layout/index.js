@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {Text, View, FlatList, TouchableHighlight} from 'react-native';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Layout} from '../../../components';
+
 import ReportOverview from '../../../components/general/reportOverview';
+import {colors} from '../../../library/styles/vars';
 import style from '../styles/HomeStyles';
 import {useFirebaseGetGeneralList} from '../../../library/hooks';
 import firestore from '@react-native-firebase/firestore';
@@ -14,6 +17,7 @@ export default function Home({navigation}) {
 
   const goToDetails = () => navigation.navigate('ComplaintDetails');
   const goToConfig = () => navigation.navigate('UserConfiguration');
+
   const actionLike = id => {
     firestore()
       .collection('listComplaints')
@@ -67,6 +71,7 @@ export default function Home({navigation}) {
     'list',
     setDataComplaint,
   );
+  const goToPlaces = () => navigation.navigate('PlacesOfInterest');
 
   return (
     <Layout>
@@ -76,12 +81,12 @@ export default function Home({navigation}) {
             activeOpacity={0.6}
             underlayColor="transparent"
             onPress={goToConfig}>
-            <Icon name={'settings'} size={30} />
+            <Icon name={'settings'} size={30} color={colors.White} />
           </TouchableHighlight>
         </View>
         <Text style={style.homeTitle}>
           Lista de denuncias en:
-          <Text style={style.homeTextStyle}> Lugares de interes</Text>
+          <Text onPress={goToPlaces}> Lugares de interes </Text>
         </Text>
         <FlatList
           style={style.reportList}

@@ -5,11 +5,8 @@ const style = StyleSheet.create({
     marginBottom: 5,
     borderRadius: 15,
     backgroundColor: '#e6e6e6',
-    width: '100%',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
-    paddingHorizontal: 10,
   },
+
   headerCard: {
     flexDirection: 'row',
     textAlign: 'center',
@@ -17,10 +14,11 @@ const style = StyleSheet.create({
     flexWrap: 'wrap',
   },
   reportDetails: {
+    marginBottom: 5,
+    backgroundColor: colors.White,
     paddingVertical: 10,
     paddingHorizontal: 10,
     flexDirection: 'row',
-    backgroundColor: '#FFF',
     borderRadius: 15,
   },
   reportInteractions: {

@@ -19,6 +19,11 @@ import {authFirebase} from '../library/firebase';
 import {createStackNavigator} from '@react-navigation/stack';
 import {colors} from '../library/styles/vars';
 
+import PlacesOfInterest from '../containers/PlacesOfInterest/layout';
+import addPlace from '../containers/PlacesOfInterest/addPlace';
+import editPlace from '../containers/PlacesOfInterest/editPlace';
+import SignUp from '../containers/SignUp/layout';
+
 export const Stack = createStackNavigator();
 const optionsBack = (
   navigation,
@@ -61,7 +66,12 @@ const optionsBack = (
 
 const listScreens = [
   {name: 'Login', component: Login, headerLeft: false, headerRight: false},
-  {name: 'Home', component: TabNavigator, headerLeft: false, headerRight: true},
+  {
+    name: 'Home',
+    component: TabNavigator,
+    headerLeft: false,
+    headerRight: false,
+  },
   {
     name: 'MyComplaints',
     component: MyComplaints,
@@ -73,8 +83,21 @@ const listScreens = [
     name: 'TitleDescriptionAdd',
     component: TitleDescriptionAdd,
     headerLeft: false,
-    headerRight: true,
+    headerRight: false,
     title: 'My Complaints',
+  },
+  {
+    name: 'UserConfiguration',
+    component: UserConfiguration,
+    headerLeft: true,
+    headerRight: false,
+  },
+
+  {
+    name: 'ComplaintDetails',
+    component: ComplaintDetails,
+    headerLeft: false,
+    headerRight: false,
   },
   {
     name: 'DateEventsAdd',
@@ -96,9 +119,27 @@ const listScreens = [
     headerLeft: true,
     headerRight: false,
   },
+  {name: 'SignUp', component: SignUp, headerLeft: false, headerRight: false},
 
-  {name: 'UserConfiguration', component: UserConfiguration, back: true},
-  {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
+  {
+    name: 'addPlaceOfInterest',
+    component: addPlace,
+    headerLeft: false,
+    headerRight: true,
+  },
+  {
+    name: 'editPlaceOfInterest',
+    component: editPlace,
+    headerLeft: false,
+    headerRight: true,
+  },
+
+  {
+    name: 'PlacesOfInterest',
+    component: PlacesOfInterest,
+    headerLeft: true,
+    headerRight: false,
+  },
 ];
 
 export const Screens = () => {
