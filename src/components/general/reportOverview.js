@@ -6,32 +6,39 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function ReportOverview(props) {
   return (
-    <View style={style.reportDetails}>
-      <View>
+    <View style={style.reportContainer}>
+      <View style={style.headerCard}>
         <Icon
           name={'person'}
           style={style.iconSpacing}
           size={30}
           color={colors.DarkPrimary}
         />
-      </View>
-      <View>
         <Text style={style.detailTextStyle}> {props.userName} </Text>
         <Text style={style.detailReportType}> {props.reportType} </Text>
       </View>
-      <View>
-        <Text style={style.detailTextStyle}>{props.reportLocation}</Text>
+      <Text style={style.title}>{props?.title}</Text>
+      <View style={style.reportDetails}>
+        <View>
+          <Text style={style.detailTextStyle}>{props.reportLocation}</Text>
+          <Text>{props?.description}</Text>
+        </View>
         <View style={style.reportInteractions}>
-          <TouchableHighlight>
+          <TouchableHighlight underlayColor="transparent">
             <Icon
+              onPress={() => props.actionLike(props.id)}
               name={'thumb-up'}
               style={style.iconSpacing}
               size={20}
-              color={colors.DarkPrimary}
+              color={
+                props?.likes?.myLike ? colors.DarkPrimary : colors.SecondaryText
+              }
             />
           </TouchableHighlight>
 
-          <TouchableHighlight onPress={props.goToDetails}>
+          <TouchableHighlight
+            underlayColor="transparent"
+            onPress={props.goToDetails}>
             <Icon
               name={'remove-red-eye'}
               style={style.iconSpacing}

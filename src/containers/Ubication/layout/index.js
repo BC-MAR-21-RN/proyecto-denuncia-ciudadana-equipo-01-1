@@ -2,13 +2,13 @@ import {ScrollView, Text, View} from 'react-native';
 import {Input, PrimaryButton} from '../../../components';
 import {useGeolocationConfiguration, useLocation} from '../../../library/hooks';
 import {styleMap as style} from '../../../library/styles/index';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Map from '../../../components/general/Map';
 
-const Ubication = ({pressFunction}) => {
+const Ubication = ({pressFunction, changeDataLocation}) => {
   useGeolocationConfiguration();
-  const {location, addressData, onRegionChange} = useLocation();
-
+  const {location, addressData, onRegionChange} =
+    useLocation(changeDataLocation);
   return (
     <View style={style.map}>
       <Map state={location} onRegionChange={onRegionChange} />

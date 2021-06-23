@@ -5,14 +5,24 @@ import {
 } from '../../components';
 import {Text, View} from 'react-native';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleAddEditContainer} from '../../library/styles/container';
-import {generalContainer} from './styleAddContainer';
-
+import moment from 'moment';
 const TitleAdd = props => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [anonymous, setAnonymous] = useState(false);
+  const [creationDate] = useState(moment(new Date()).format('DD/MM/YYYY'));
+  const [editionDate] = useState(moment(new Date()).format('DD/MM/YYYY'));
+
   const next = () => {
     props.navigation?.navigate('DateEventsAdd', {
       ...props.route.params,
+      title,
+      description,
+      anonymous,
+      creationDate,
+      editionDate,
     });
   };
   return (
@@ -22,9 +32,20 @@ const TitleAdd = props => {
           <Text style={StyleAddEditContainer.textHeader}>
             Title and Description
           </Text>
-          <FormTitleDescription />
+          <FormTitleDescription
+            changeTitle={setTitle}
+            title={title}
+            changeDescription={setDescription}
+            description={description}
+            changeAnonymous={setAnonymous}
+            anonymousUser={anonymous}
+            creationDate={creationDate}
+            editionDate={editionDate}
+          />
         </View>
-        <PrimaryButton text="Next" onPress={next} />
+        {title?.length > 0 && description?.length > 0 && (
+          <PrimaryButton text="Next" onPress={next} />
+        )}
       </View>
     </WrapperKeyboardAvoid>
   );

@@ -7,9 +7,10 @@ import {
   ScrollView,
   ToastAndroid,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImageView from 'react-native-image-viewing';
+import firestore from '@react-native-firebase/firestore';
 import {styles} from '../styles';
 
 import {images, DATA} from '../dummyData/data';
@@ -71,25 +72,47 @@ const SaveIcon = () => {
   );
 };
 
-const ComplaintDetails = props => {
+const ComplaintDetails = ({route}) => {
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState('');
+  const {itemId} = route.params;
+
+  useEffect(() => {
+    var dataComplaint;
+    firestore()
+      .collection('listComplaints')
+      .doc('XJ5Qs0ttXjE1Ez3fInnM')
+      .onSnapshot(docSnapshot => {
+        if (docSnapshot) {
+          dataComplaint = docSnapshot.data().list[itemId];
+          const dataLocation = dataComplaint.location;
+          const newLocation = `${dataLocation.adminArea}, ${dataLocation.locality}, ${dataLocation.subLocality}, ${dataLocation.streetName} #${dataLocation.streetNumber}`;
+          setData(dataComplaint);
+          setLocation(newLocation);
+        }
+      });
+  }, [itemId]);
+  
   return (
     <View style={styles.container}>
       <SaveIcon />
       <View style={styles.topSide}>
-        <Text style={styles.area}>{DATA.category}</Text>
-        <Text style={styles.title}>{DATA.title}</Text>
-        <Text style={styles.location}>{DATA.location}</Text>
-        <Text style={styles.location}>{DATA.date}</Text>
+        <Text style={styles.area}>{data.area}</Text>
+        <Text style={styles.title}>{data.title}</Text>
+        <Text style={styles.location}>{location}</Text>
+        <Text style={styles.location}>
+          Fecha de los hechos: {data.dataEvents}
+        </Text>
       </View>
       <View style={styles.botSide}>
         <Text style={styles.darkTitle}>Descripción</Text>
         <View style={styles.descriptionContainer}>
           <ScrollView>
-            <Text style={styles.descriptionText}>{DATA.description}</Text>
+            <Text style={styles.descriptionText}>{data.description}</Text>
           </ScrollView>
         </View>
         <Text style={styles.darkTitle}>
-          {DATA.author} - {DATA.authorDate}
+          Denuncia realizada por {data.userName} - {data.creationDate}
         </Text>
       </View>
       <SafeAreaView style={styles.evidence}>

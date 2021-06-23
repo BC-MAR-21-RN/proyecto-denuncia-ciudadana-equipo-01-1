@@ -16,6 +16,10 @@ import {
 import TabNavigator from '../../navigators/tabs';
 import {styleIconButtons} from '../styles';
 import {UserOptions} from '../../components';
+import addPlace from '../../containers/PlacesOfInterest/addPlace';
+import editPlace from '../../containers/PlacesOfInterest/editPlace';
+import PlacesOfInterest from '../../containers/PlacesOfInterest/layout';
+import SignUp from '../../containers/SignUp/layout';
 
 const useScreenContent = () => {
   const optionsBack = (
@@ -96,6 +100,27 @@ const useScreenContent = () => {
 
     {name: 'UserConfiguration', component: UserConfiguration, headerLeft: true},
     {name: 'ComplaintDetails', component: ComplaintDetails, back: true},
+    {name: 'SignUp', component: SignUp, headerLeft: false, headerRight: false},
+
+    {
+      name: 'addPlaceOfInterest',
+      component: addPlace,
+      headerLeft: false,
+      headerRight: true,
+    },
+    {
+      name: 'editPlaceOfInterest',
+      component: editPlace,
+      headerLeft: false,
+      headerRight: true,
+    },
+
+    {
+      name: 'PlacesOfInterest',
+      component: PlacesOfInterest,
+      headerLeft: true,
+      headerRight: false,
+    },
   ];
 
   return {optionsBack, listScreens};
