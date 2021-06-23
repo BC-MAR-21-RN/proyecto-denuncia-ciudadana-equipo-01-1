@@ -17,6 +17,7 @@ import React from 'react';
 import TabNavigator from './tabs';
 import {authFirebase} from '../library/firebase';
 import {createStackNavigator} from '@react-navigation/stack';
+import {colors} from '../library/styles/vars';
 
 export const Stack = createStackNavigator();
 const optionsBack = (
@@ -28,7 +29,7 @@ const optionsBack = (
 ) => ({
   headerTitle: title ? title : '',
   headerStyle: {
-    backgroundColor: color ? color : '#B9D7F2',
+    backgroundColor: color ? color : colors?.LightPrimary,
     elevation: 0, // remove shadow on Android
     shadowOpacity: 0, // remove shadow on iOS
   },
@@ -39,7 +40,7 @@ const optionsBack = (
           name="arrow-back-outline"
           width={48}
           height={48}
-          fill="#3366FF"
+          fill={colors?.DarkPrimary}
           onPress={() => navigation.goBack()}
         />
       );
@@ -51,7 +52,7 @@ const optionsBack = (
         <Button
           onPress={() => authFirebase.logoutFirebase(navigation.replace)}
           title="🧑"
-          color={color ? color : '#B9D7F2'}
+          color={color ? color : colors?.LightPrimary}
         />
       );
     }

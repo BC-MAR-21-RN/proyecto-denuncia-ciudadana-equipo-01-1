@@ -8,7 +8,12 @@ export default function ReportOverview(props) {
   return (
     <View style={style.reportDetails}>
       <View>
-        <Icon name={'person'} style={style.iconSpacing} size={30} color={colors.DarkPrimary}></Icon>
+        <Icon
+          name={'person'}
+          style={style.iconSpacing}
+          size={30}
+          color={colors.DarkPrimary}
+        />
       </View>
       <View>
         <Text style={style.detailTextStyle}> {props.userName} </Text>
@@ -18,12 +23,21 @@ export default function ReportOverview(props) {
         <Text style={style.detailTextStyle}>{props.reportLocation}</Text>
         <View style={style.reportInteractions}>
           <TouchableHighlight>
-            <Icon name={'thumb-up'} style={style.iconSpacing} size={20} color={colors.DarkPrimary}></Icon>
+            <Icon
+              name={'thumb-up'}
+              style={style.iconSpacing}
+              size={20}
+              color={colors.DarkPrimary}
+            />
           </TouchableHighlight>
 
-          <TouchableHighlight
-            onPress={props.goToDetails}>
-           <Icon name={'remove-red-eye'} style={style.iconSpacing} size={20} color={colors.DarkPrimary} ></Icon>
+          <TouchableHighlight onPress={props.goToDetails}>
+            <Icon
+              name={'remove-red-eye'}
+              style={style.iconSpacing}
+              size={20}
+              color={colors.DarkPrimary}
+            />
           </TouchableHighlight>
         </View>
       </View>

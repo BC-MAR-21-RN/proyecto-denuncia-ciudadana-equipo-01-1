@@ -1,7 +1,4 @@
 // Firebase
-import authFirebase from "./auth.firebase";
+import authFirebase from './auth.firebase';
 
-export {
-  // Firebase
-  authFirebase,
-};
+export {authFirebase};
