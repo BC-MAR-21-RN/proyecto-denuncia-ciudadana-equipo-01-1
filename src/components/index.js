@@ -13,6 +13,7 @@ import MyComplaint from './general/MyComplaints';
 import PrimaryButton from './general/PrimaryButton';
 import WheelSelect from './general/wheelSelect';
 import WrapperKeyboardAvoid from './general/wrapperKeyboardAvoid';
+import UserOptions from './general/UserOptions';
 
 export {
   Complaints,
@@ -28,4 +29,5 @@ export {
   DocumentImagePicker,
   Cam,
   FormTitleDescription,
+  UserOptions,
 };

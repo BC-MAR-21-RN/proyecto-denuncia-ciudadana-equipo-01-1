@@ -10,20 +10,22 @@ const style = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignContent: 'flex-start',
-    backgroundColor: colors.DarkPrimary
+    backgroundColor: colors.DarkPrimary,
   },
   homeTitle: {
     fontSize: 20,
     paddingVertical: 10,
-    color:'#FFFFFF'
+    color:'#FFFFFF',
   },
   homeTextStyle:{
-    color:'#FFFFFF',
-    fontWeight:'bold'
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   icon: {
     alignItems: 'flex-end',
   },
+  viewTitle: {flexDirection: 'row', alignItems: 'center'},
 
 });
 

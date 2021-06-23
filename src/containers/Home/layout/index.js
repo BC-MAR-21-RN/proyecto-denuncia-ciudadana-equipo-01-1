@@ -1,36 +1,28 @@
 import React from 'react';
-import {Text, View, FlatList, TouchableHighlight} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Text, View, FlatList} from 'react-native';
 import {Layout} from '../../../components';
+import {TouchableHighlight} from 'react-native-gesture-handler';
 import ReportOverview from '../../../components/general/reportOverview';
 import dummyData from '../../../library/dummyData/dummyData';
 import style from '../styles/HomeStyles';
 
 export default function Home({navigation}) {
   const goToDetails = () => navigation.navigate('ComplaintDetails');
-  const goToConfig = () => navigation.navigate('UserConfiguration');
 
   return (
     <Layout>
       <View style={style.homeContainer}>
-        <View style={style.icon}>
+        <View style={style.viewTitle}>
+          <Text style={style.homeTitle}>Lista de denuncias en:</Text>
           <TouchableHighlight
             activeOpacity={0.6}
             underlayColor="transparent"
-            onPress={goToConfig}>
-            <Icon name={'settings'} size={30} />
-          </TouchableHighlight>
-        </View>
-        <Text style={style.homeTitle}>
-          Lista de denuncias en:
-          <Text style={style.homeTextStyle}
-            onPress={() => {
+            onPressOut={() => {
               console.log('HomeSettings');
             }}>
-            {' '}
-            Lugares de interes
-          </Text>
-        </Text>
+            <Text style={style.homeTextStyle}> Lugares de interes</Text>
+          </TouchableHighlight>
+        </View>
         <FlatList
           style={style.reportList}
           data={dummyData}
