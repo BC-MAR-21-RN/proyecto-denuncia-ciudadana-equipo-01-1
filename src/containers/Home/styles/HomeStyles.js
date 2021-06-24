@@ -15,15 +15,17 @@ const style = StyleSheet.create({
   homeTitle: {
     fontSize: 20,
     paddingVertical: 10,
-    color: colors.White,
+    color:'#FFFFFF',
   },
-  homeTextStyle: {
-    color: colors.White,
+  homeTextStyle:{
+    color: '#FFFFFF',
     fontWeight: 'bold',
+    fontSize: 20,
   },
   icon: {
     alignItems: 'flex-end',
   },
+  viewTitle: {flexDirection: 'row', alignItems: 'center'},
 });
 
 export default style;

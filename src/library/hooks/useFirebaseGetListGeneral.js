@@ -10,7 +10,7 @@ export const useFirebaseGetGeneralList = (
 ) => {
   useEffect(() => {
     if (myComplaints) {
-      const unsubscribeListener = firestore()
+      firestore()
         .collection('complaints')
         .doc('SbpNphb62pp4IEFhNsEo')
         .onSnapshot(documentSnapshot => {
@@ -20,7 +20,7 @@ export const useFirebaseGetGeneralList = (
               ['listComplaints'].find(
                 item => item.id === auth().currentUser.uid,
               ).list;
-            const result = firestore()
+            firestore()
               .collection(collectionName)
               .doc(documentName)
               .onSnapshot(newDocumentSnapshot => {
@@ -33,7 +33,6 @@ export const useFirebaseGetGeneralList = (
                     );
                     newDataResult ? dataRes.push(newDataResult) : '';
                   });
-
                   setData(dataRes);
                 }
               });

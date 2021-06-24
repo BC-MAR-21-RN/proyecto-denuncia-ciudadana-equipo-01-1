@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
-import {Text, View, FlatList, TouchableHighlight} from 'react-native';
-
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React, {useEffect, useState} from 'react';
+import {Text, View, FlatList} from 'react-native';
 import {Layout} from '../../../components';
-
+import {TouchableHighlight} from 'react-native-gesture-handler';
 import ReportOverview from '../../../components/general/reportOverview';
-import {colors} from '../../../library/styles/vars';
 import style from '../styles/HomeStyles';
 import {useFirebaseGetGeneralList} from '../../../library/hooks';
 import firestore from '@react-native-firebase/firestore';
@@ -13,10 +10,11 @@ import auth from '@react-native-firebase/auth';
 
 export default function Home({navigation}) {
   const [dataComplaint, setDataComplaint] = useState([]);
-  const [myLIke, setMyLike] = useState(false);
+  const [myLike, setMyLike] = useState(false);
 
-  const goToDetails = () => navigation.navigate('ComplaintDetails');
-  const goToConfig = () => navigation.navigate('UserConfiguration');
+  const goToDetails = index => {
+    navigation.navigate('ComplaintDetails', {itemId: index});
+  };
 
   const actionLike = id => {
     firestore()
@@ -76,23 +74,20 @@ export default function Home({navigation}) {
   return (
     <Layout>
       <View style={style.homeContainer}>
-        <View style={style.icon}>
+        <View style={style.viewTitle}>
+          <Text style={style.homeTitle}>Lista de denuncias en:</Text>
           <TouchableHighlight
             activeOpacity={0.6}
             underlayColor="transparent"
-            onPress={goToConfig}>
-            <Icon name={'settings'} size={30} color={colors.White} />
+            onPressOut={goToPlaces}>
+            <Text style={style.homeTextStyle}> Lugares de interes</Text>
           </TouchableHighlight>
         </View>
-        <Text style={style.homeTitle}>
-          Lista de denuncias en:
-          <Text onPress={goToPlaces}> Lugares de interes </Text>
-        </Text>
         <FlatList
           style={style.reportList}
           data={dataComplaint}
           keyExtractor={item => item.id}
-          renderItem={({item}) => (
+          renderItem={({item, index}) => (
             <ReportOverview
               id={item.id}
               userName={item.userName}
@@ -102,7 +97,7 @@ export default function Home({navigation}) {
               description={item?.description}
               likes={numberLike(item?.likes)}
               actionLike={actionLike}
-              goToDetails={goToDetails}
+              goToDetails={() => goToDetails(index)}
             />
           )}
         />
