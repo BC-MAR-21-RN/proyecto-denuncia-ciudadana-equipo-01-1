@@ -8,7 +8,7 @@ const EvidenceAdd = props => {
   const {saveDataComplaints} = useFirebaseSaveComplaint(props.route.params);
   const next = () => {
     saveDataComplaints();
-    props.navigation?.navigate('Home');
+    props.navigation?.navigate('Home',{});
   };
   return (
     <View style={StyleAddEditContainer.internalContainer}>

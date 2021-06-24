@@ -16,8 +16,8 @@ const Ubication = ({pressFunction, changeDataLocation}) => {
         <Text style={style.title}>Dirección:</Text>
         <View style={style.inputs}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            {addressData.map(item => (
-              <View style={style.textInput}>
+            {addressData.map((item,index) => (
+              <View key={index} style={style.textInput}>
                 <Text style={style.text}>{item.placeholder}:</Text>
                 <Input key={item.placeholder} editable value={item.value} />
               </View>
