@@ -7,7 +7,7 @@ import {useGoogleAuth} from './useAuth';
 import {useInput} from './useInput';
 import useLocation from './useLocation';
 import useLoginControl from './useLoginControl';
-import {useRedirect} from './useRedirect';
+import {useRedirect,useRedirectOnLogout} from './useRedirect';
 
 export {
   useGoogleConfiguration,
@@ -17,4 +17,5 @@ export {
   useRedirect,
   useLocation,
   useGeolocationConfiguration,
+  useRedirectOnLogout
 };

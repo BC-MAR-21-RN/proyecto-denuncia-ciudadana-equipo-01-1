@@ -15,3 +15,14 @@ export const useRedirect = props => {
     };
   }, [auth().currentUser, props?.navigation, props.error,auth().onAuthStateChanged()]);
 };
+
+export const useRedirectOnLogout =props =>{
+  useEffect(() => {
+  
+      if (!auth()?.currentUser?.uid&&auth().onAuthStateChanged()) {
+        props?.navigation?.dispatch(StackActions.replace('Login'));
+      }
+
+
+  }, [auth().currentUser, props?.navigation,auth().onAuthStateChanged()]);
+}
