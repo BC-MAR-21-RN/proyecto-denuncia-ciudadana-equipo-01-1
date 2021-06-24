@@ -16,8 +16,8 @@ export default function Home({navigation}) {
     navigation.navigate('ComplaintDetails', {itemId: index});
   };
 
-  const actionLike = id => {
-    firestore()
+  const actionLike = async id => {
+   await firestore()
       .collection('listComplaints')
       .doc('XJ5Qs0ttXjE1Ez3fInnM')
       .get()

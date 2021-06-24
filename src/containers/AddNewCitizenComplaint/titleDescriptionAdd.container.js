@@ -9,9 +9,9 @@ import React, {useState} from 'react';
 import {StyleAddEditContainer} from '../../library/styles/container';
 import moment from 'moment';
 const TitleAdd = props => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [anonymous, setAnonymous] = useState(false);
+  const [title, setTitle] = useState(props.route.params?.title);
+  const [description, setDescription] = useState(props.route.params?.description);
+  const [anonymous, setAnonymous] = useState(props.route.params?.anonymous);
   const [creationDate] = useState(moment(new Date()).format('DD/MM/YYYY'));
   const [editionDate] = useState(moment(new Date()).format('DD/MM/YYYY'));
 
@@ -24,6 +24,8 @@ const TitleAdd = props => {
       creationDate,
       editionDate,
     });
+    setTitle(''),
+    setDescription('')
   };
   return (
     <WrapperKeyboardAvoid>

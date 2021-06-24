@@ -29,8 +29,8 @@ const useLocation = changeDataLocation => {
     streetNumber: '',
   });
 
-  useEffect(() => {
-    Geolocation.getCurrentPosition(initialLocation =>
+  useEffect(async() => {
+    await Geolocation.getCurrentPosition(initialLocation =>
       setLocation({
         ...location,
         region: {
