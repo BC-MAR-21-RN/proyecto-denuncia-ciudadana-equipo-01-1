@@ -18,7 +18,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.White,
     paddingVertical: 10,
     paddingHorizontal: 10,
-    flexDirection: 'row',
     borderRadius: 15,
   },
   reportInteractions: {

@@ -26,12 +26,16 @@ export const useFirebaseSaveComplaint = newData => {
                 .then(dataComplaints2 => {
                   if (dataComplaints2.exists) {
                     newData.userName = dataComplaints2.data()['name'];
+                    newData.anonymous=false
                     // console.log(newData);
+
                     saveDataComplaintFN(newData, collectionData);
                   }
                 });
         }
-      });
+      })
+      
+      ;
   };
 
   return {saveDataComplaints};
@@ -57,6 +61,9 @@ const saveDataComplaintFN = (newData, collectionData) => {
           .set({listComplaints: dataNew});
       }
     });
+    
+    console.log("ENETER TO EXIST===",newData);
+
   collectionData.push(newData);
   firestore()
     .collection('listComplaints')

@@ -12,6 +12,7 @@ import styleWheelSelect from './styleWheelSelect';
 import styleWrapperKeyboardAvoid from './styleWrapperKeyboardAvoid';
 import styleDocumentPicker from './styleDocumentPicker';
 import styleUserConfig from './styleUserConfig';
+import styleIconButtons from './styleIconButtons';
 
 export {
   styleComplaints,
@@ -28,4 +29,5 @@ export {
   styleDocumentPicker,
   styleMap,
   styleUserConfig,
+  styleIconButtons,
 };
