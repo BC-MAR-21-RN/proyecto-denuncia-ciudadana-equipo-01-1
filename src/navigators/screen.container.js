@@ -124,8 +124,8 @@ const listScreens = [
   {
     name: 'addPlaceOfInterest',
     component: addPlace,
-    headerLeft: false,
-    headerRight: true,
+    headerLeft: true,
+    headerRight: false,
   },
   {
     name: 'editPlaceOfInterest',
