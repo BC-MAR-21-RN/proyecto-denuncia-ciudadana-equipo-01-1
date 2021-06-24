@@ -4,12 +4,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Layout} from '../../../components';
 import ReportOverview from '../../../components/general/reportOverview';
 import dummyData from '../../../library/dummyData/dummyData';
+import { useRedirectOnLogout } from '../../../library/hooks';
 import style from '../styles/HomeStyles';
 
 export default function Home({navigation}) {
   const goToDetails = () => navigation.navigate('ComplaintDetails');
   const goToConfig = () => navigation.navigate('UserConfiguration');
-
+  useRedirectOnLogout(navigation)
   return (
     <Layout>
       <View style={style.homeContainer}>

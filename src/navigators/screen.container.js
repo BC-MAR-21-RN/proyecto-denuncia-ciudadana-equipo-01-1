@@ -18,7 +18,6 @@ import TabNavigator from './tabs';
 import {authFirebase} from '../library/firebase';
 import {createStackNavigator} from '@react-navigation/stack';
 import {colors} from '../library/styles/vars';
-import { useRedirectOnLogout } from '../library/hooks';
 
 export const Stack = createStackNavigator();
 const optionsBack = (
@@ -104,8 +103,7 @@ const listScreens = [
 
 export const Screens = () => {
   const listRoutes = () => {
-    
-    useRedirectOnLogout()
+
     return listScreens.map(item => {
       return (
         <Stack.Screen
